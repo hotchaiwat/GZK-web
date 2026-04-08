@@ -1,1 +1,270 @@
-<h1>GZK Co., Ltd. Coming Soon</h1>
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GZK Co., Ltd. | Flowing Secure Path</title>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;700&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gzk-red: #e74c3c;
+            --gzk-blue: #2c3e50;
+            --gzk-light: #f8f9fa;
+            --gzk-white: #ffffff;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Sarabun', 'Montserrat', sans-serif;
+            color: #333;
+            line-height: 1.6;
+            background-color: var(--gzk-light);
+        }
+
+        /* Language Switcher */
+        .lang-switch {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background: rgba(255,255,255,0.9);
+            padding: 5px 15px;
+            border-radius: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .lang-btn {
+            cursor: pointer;
+            border: none;
+            background: none;
+            font-weight: bold;
+            color: var(--gzk-blue);
+            padding: 5px;
+        }
+
+        .lang-btn.active {
+            color: var(--gzk-red);
+            text-decoration: underline;
+        }
+
+        /* Header & Logo */
+        header {
+            background: var(--gzk-white);
+            padding: 40px 20px;
+            text-align: center;
+            border-bottom: 4px solid var(--gzk-blue);
+        }
+
+        .logo-container img {
+            max-width: 300px;
+            height: auto;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--gzk-blue) 0%, #1a252f 100%);
+            color: var(--gzk-white);
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            opacity: 0.9;
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1100px;
+            margin: -50px auto 50px;
+            background: var(--gzk-white);
+            padding: 50px;
+            border-radius: 8px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        }
+
+        .section-title {
+            text-align: center;
+            color: var(--gzk-blue);
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: var(--gzk-red);
+            margin: 10px auto;
+        }
+
+        /* Services Grid */
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .service-card {
+            padding: 30px;
+            border: 1px solid #eee;
+            border-radius: 10px;
+            transition: 0.3s;
+            text-align: center;
+        }
+
+        .service-card:hover {
+            border-top: 5px solid var(--gzk-red);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+
+        .service-card h3 {
+            color: var(--gzk-blue);
+        }
+
+        /* Brand Link */
+        .brand-box {
+            background: var(--gzk-blue);
+            color: white;
+            padding: 40px;
+            text-align: center;
+            border-radius: 10px;
+            margin-top: 50px;
+        }
+
+        .btn-brand {
+            display: inline-block;
+            background: var(--gzk-red);
+            color: white;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            margin-top: 20px;
+            transition: 0.3s;
+        }
+
+        .btn-brand:hover {
+            background: #c0392b;
+            transform: scale(1.05);
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px;
+            color: #7f8c8d;
+            font-size: 0.9rem;
+        }
+
+        /* Hide English by default */
+        [lang="en"] { display: none; }
+    </style>
+</head>
+<body>
+
+    <div class="lang-switch">
+        <button class="lang-btn active" onclick="switchLang('th')">TH</button> | 
+        <button class="lang-btn" onclick="switchLang('en')">EN</button>
+    </div>
+
+    <header>
+        <div class="logo-container">
+            <img src="GZK_logo_with_slogan.jpg" alt="GZK Co., Ltd.">
+        </div>
+    </header>
+
+    <section class="hero">
+        <div lang="th">
+            <h1>ผู้นำนวัตกรรมระบบความปลอดภัยอัจฉริยะ</h1>
+            <p>เราเปลี่ยนอุปสรรคเรื่องราคาของระบบประตูอัตโนมัติ ให้เป็นโอกาสในการเข้าถึงเทคโนโลยีระดับสูงด้วยโมเดลการเช่าใช้ที่คุ้มค่า</p>
+        </div>
+        <div lang="en">
+            <h1>Leading the Future of Smart Security</h1>
+            <p>Transforming the high cost of automated gates into accessible high-tech opportunities with flexible leasing solutions.</p>
+        </div>
+    </section>
+
+    <div class="container">
+        <div lang="th">
+            <h2 class="section-title">ทำไมต้องเลือก GZK?</h2>
+            <div class="services">
+                <div class="service-card">
+                    <h3>Flexible Leasing</h3>
+                    <p>บริการเช่าใช้ประตูอัตโนมัติทั้ง รายวัน, รายเดือน และรายปี ในราคาประหยัด ตอบโจทย์ธุรกิจทุกขนาดโดยไม่ต้องลงทุนสูง</p>
+                </div>
+                <div class="service-card">
+                    <h3>Data Dashboard</h3>
+                    <p>ระบบจัดการคนเข้า-ออกที่บันทึกข้อมูลแบบละเอียด พร้อมประมวลผลเป็น Dashboard เพื่อการบริหารจัดการที่แม่นยำ</p>
+                </div>
+                <div class="service-card">
+                    <h3>AI & Automation</h3>
+                    <p>จุดแข็งสำคัญคือระบบที่สามารถเชื่อมต่อกับการทำงานของ AI Automation เพื่อความปลอดภัยที่เหนือชั้นและลื่นไหล</p>
+                </div>
+            </div>
+        </div>
+
+        <div lang="en">
+            <h2 class="section-title">Why Choose GZK?</h2>
+            <div class="services">
+                <div class="service-card">
+                    <h3>Flexible Leasing</h3>
+                    <p>Daily, monthly, and annual automated gate leasing at affordable rates. Scale your business without high upfront costs.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Data Dashboard</h3>
+                    <p>Comprehensive access management system that records and visualizes data for precise operational control.</p>
+                </div>
+                <div class="service-card">
+                    <h3>AI & Automation</h3>
+                    <p>Our core strength: seamless integration with AI Automation for superior, fluid, and predictive security.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="brand-box">
+            <div lang="th">
+                <h3>สนใจผลิตภัณฑ์ Smart Gate ของเรา?</h3>
+                <p>เข้าชมรายละเอียดอุปกรณ์และเทคโนโลยีทั้งหมดได้ที่แบรนด์ GATEzKOPE</p>
+                <a href="https://kevin-gzk.github.io/gatezkope" class="btn-brand">ไปยังหน้า GATEzKOPE</a>
+            </div>
+            <div lang="en">
+                <h3>Interested in our Smart Gate Products?</h3>
+                <p>Explore detailed equipment and technology information at our GATEzKOPE brand site.</p>
+                <a href="https://kevin-gzk.github.io/gatezkope" class="btn-brand">Visit GATEzKOPE</a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2026 GZK Co., Ltd. All Rights Reserved. | gzk.co.th</p>
+        <p>Chatuchak, Bangkok, Thailand</p>
+    </footer>
+
+    <script>
+        function switchLang(lang) {
+            // สลับการแสดงผลของเนื้อหา
+            document.querySelectorAll('[lang="th"]').forEach(el => el.style.display = (lang === 'th' ? 'block' : 'none'));
+            document.querySelectorAll('[lang="en"]').forEach(el => el.style.display = (lang === 'en' ? 'block' : 'none'));
+            
+            // สลับสถานะปุ่ม
+            document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+        }
+
+        // เริ่มต้นด้วยภาษาไทย
+        switchLang('th');
+    </script>
+</body>
+</html>
