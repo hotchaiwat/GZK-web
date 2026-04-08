@@ -27,8 +27,53 @@
         .card-content { padding: 25px; }
         .card-content h3 { color: var(--gzk-blue); border-left: 5px solid var(--gzk-red); padding-left: 10px; margin-top: 0; }
         .card-content ul { padding-left: 20px; color: #555; }
+        /* เพิ่มต่อจาก .card-content ul */
+        .product-img {
+            width: 100%;
+            height: 250px;           /* ปรับความสูงให้พอดีกับรูป */
+            object-fit: contain;     /* ป้องกันรูปเบี้ยว */
+            display: block;
+            margin: 20px auto 0;     /* จัดกึ่งกลางแนวนอน */
+            padding: 10px;
+            background-color: #fff;
+        }
+
+        /* ปรับแต่งส่วนเนื้อหาในการ์ดให้ดูสมดุลกับรูป */
+        .card-content {
+            padding: 25px;
+            text-align: center;      /* จัดข้อความให้อยู่กึ่งกลางตามรูป */
+        }
+
+        .card-content h3 {
+            color: var(--gzk-blue);
+            border-left: none;       /* เอาเส้นข้างออกเพื่อความสมมาตร */
+            border-bottom: 2px solid var(--gzk-red); /* ใส่เส้นใต้แทน */
+            display: inline-block;
+            padding-bottom: 5px;
+            margin-top: 0;
+        }
+
+        .card-content ul {
+            text-align: left;        /* ให้เนื้อหาในลิสต์เยื้องซ้ายทำให้อ่านง่าย */
+            display: inline-block;   /* แต่ตัวกลุ่มลิสต์จะอยู่กึ่งกลางการ์ด */
+            margin-top: 15px;
+        }
         
         footer { text-align: center; padding: 40px; color: #999; border-top: 1px solid #eee; }
+      <div class="solution-card">
+    <img src="rentproduct.png" alt="Smart Gate Product" class="product-img">
+    
+    <div class="card-content">
+        <h3>1. ระบบประตูอัตโนมัติให้เช่า</h3>
+        <p>ลดต้นทุนการลงทุน ด้วยโมเดลการเช่าใช้เครื่องกั้นคุณภาพสูง</p>
+        <ul>
+            <li>Swing Gate & Flap Turnstile</li>
+            <li>Tripod Turnstile (เครื่องกั้น 3 ขา)</li>
+            <li>Full Height Turnstile</li>
+            <li>เช่ารายวัน / รายเดือน / รายปี</li>
+        </ul>
+    </div>
+</div>  
     </style>
 </head>
 <body>
@@ -49,8 +94,7 @@
 
     <div class="container">
         <div class="solution-grid">
-            <div class="solution-card">
-            <img src="rentproduct.png" alt="Smart Automated Gate - DaoSafe" class="product-img">    
+            <div class="solution-card">    
                 <div class="card-content">
                     <h3>1. ระบบประตูอัตโนมัติให้เช่า</h3>
                     <p>ลดต้นทุนการลงทุน ด้วยโมเดลการเช่าใช้เครื่องกั้นคุณภาพสูง</p>
