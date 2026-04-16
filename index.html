@@ -40,10 +40,14 @@
             flex-direction: column; 
             box-shadow: 0 4px 20px rgba(0,0,0,0.08); 
         }
-
         .solution-card:hover { 
             transform: translateY(-10px); 
             box-shadow: 0 15px 35px rgba(0,0,0,0.15); 
+            /* เพิ่มบรรทัดด้านล่างนี้ครับ */
+            outline: 3px solid var(--gzk-red); 
+            outline-offset: -3px; /* ให้กรอบแดงอยู่ด้านในขอบการ์ดพอดี */
+        }
+       
         }
         
         /* ปรับรูปภาพสินค้าให้มีเส้นคั่นจางๆ และจัดวางสวยงาม */
