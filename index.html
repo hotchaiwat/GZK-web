@@ -8,6 +8,7 @@
     <style>
         :root { --gzk-red: #e74c3c; --gzk-blue: #2c3e50; --gzk-light: #f8f9fa; }
         body { margin: 0; font-family: 'Sarabun', sans-serif; background: var(--gzk-light); color: #333; }
+        
         .lang-switch { position: fixed; top: 20px; right: 20px; z-index: 100; background: white; padding: 10px; border-radius: 20px; box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
         .lang-switch a { text-decoration: none; color: var(--gzk-blue); font-weight: bold; margin: 0 5px; }
         .lang-switch a.active { color: var(--gzk-red); }
@@ -17,63 +18,63 @@
         
         .hero { background: var(--gzk-blue); color: white; padding: 50px 20px; text-align: center; }
         
-        .container { max-width: 1200px; margin: -30px auto 40px; background: white; padding: 40px; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        .container { max-width: 1100px; margin: -30px auto 40px; background: white; padding: 40px; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
         
-        .solution-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; margin-top: 20px; }
-        .solution-card { border: 1px solid #eee; border-radius: 12px; overflow: hidden; transition: 0.3s; background: #fff; }
-        .solution-card:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(0,0,0,0.1); border-color: var(--gzk-red); }
+        /* ปรับเป็น 2 คอลัมน์ */
+        .solution-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 40px; margin-top: 20px; }
+        .solution-card { border: 1px solid #eee; border-radius: 15px; overflow: hidden; transition: 0.3s; background: #fff; display: flex; flex-direction: column; }
+        .solution-card:hover { transform: translateY(-10px); box-shadow: 0 15px 35px rgba(0,0,0,0.15); border-color: var(--gzk-red); }
         
-        .img-placeholder { width: 100%; height: 200px; background: #ddd; display: flex; align-items: center; justify-content: center; color: #666; font-weight: bold; }
-        .card-content { padding: 25px; }
-        .card-content h3 { color: var(--gzk-blue); border-left: 5px solid var(--gzk-red); padding-left: 10px; margin-top: 0; }
-        .card-content ul { padding-left: 20px; color: #555; }
-        /* เพิ่มต่อจาก .card-content ul */
         .product-img {
             width: 100%;
-            height: 250px;           /* ปรับความสูงให้พอดีกับรูป */
-            object-fit: contain;     /* ป้องกันรูปเบี้ยว */
+            height: 300px; /* เพิ่มความสูงรูปให้เด่นขึ้น */
+            object-fit: contain;
             display: block;
-            margin: 20px auto 0;     /* จัดกึ่งกลางแนวนอน */
-            padding: 10px;
+            margin: 20px auto 0;
+            padding: 15px;
             background-color: #fff;
         }
 
-        /* ปรับแต่งส่วนเนื้อหาในการ์ดให้ดูสมดุลกับรูป */
         .card-content {
-            padding: 25px;
-            text-align: center;      /* จัดข้อความให้อยู่กึ่งกลางตามรูป */
+            padding: 30px;
+            text-align: center;
+            flex-grow: 1;
         }
 
         .card-content h3 {
             color: var(--gzk-blue);
-            border-left: none;       /* เอาเส้นข้างออกเพื่อความสมมาตร */
-            border-bottom: 2px solid var(--gzk-red); /* ใส่เส้นใต้แทน */
+            font-size: 1.5rem;
+            border-bottom: 3px solid var(--gzk-red);
             display: inline-block;
-            padding-bottom: 5px;
+            padding-bottom: 8px;
             margin-top: 0;
         }
 
+        .card-content p { font-weight: bold; color: #555; margin-top: 15px; }
+
         .card-content ul {
-            text-align: left;        /* ให้เนื้อหาในลิสต์เยื้องซ้ายทำให้อ่านง่าย */
-            display: inline-block;   /* แต่ตัวกลุ่มลิสต์จะอยู่กึ่งกลางการ์ด */
-            margin-top: 15px;
+            text-align: left;
+            display: inline-block;
+            margin-top: 20px;
+            line-height: 1.8;
+            color: #444;
         }
-        
+
+        .badge {
+            background: var(--gzk-red);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+
         footer { text-align: center; padding: 40px; color: #999; border-top: 1px solid #eee; }
-      <div class="solution-card">
-    <img src="rentproduct.png" alt="Smart Gate Product" class="product-img">
-    
-    <div class="card-content">
-        <h3>1. ระบบประตูอัตโนมัติให้เช่า</h3>
-        <p>ลดต้นทุนการลงทุน ด้วยโมเดลการเช่าใช้เครื่องกั้นคุณภาพสูง</p>
-        <ul>
-            <li>Swing Gate & Flap Turnstile</li>
-            <li>Tripod Turnstile (เครื่องกั้น 3 ขา)</li>
-            <li>Full Height Turnstile</li>
-            <li>เช่ารายวัน / รายเดือน / รายปี</li>
-        </ul>
-    </div>
-</div>  
+
+        @media (max-width: 768px) {
+            .solution-grid { grid-template-columns: 1fr; }
+        }
     </style>
 </head>
 <body>
@@ -88,53 +89,47 @@
     </header>
 
     <section class="hero">
-        <h1>GZK Solutions & Technology</h1>
-        <p>นวัตกรรมเพื่อการจัดการพื้นที่และความปลอดภัยที่เหนือกว่า</p>
+        <h1>Smart Access Control Solutions</h1>
+        <p>ตอบโจทย์ทุกความต้องการ ทั้งการเป็นเจ้าของเครื่องใหม่ และบริการเช่าใช้ที่คุ้มค่า</p>
     </section>
 
     <div class="container">
         <div class="solution-grid">
+            
             <div class="solution-card">
-                <img src="rentproduct.png" alt="Smart Automated Gate - DaoSafe" class="product-img">
+                <div class="card-content" style="padding-bottom: 0;">
+                    <span class="badge">NEW ARRIVAL</span>
+                </div>
+                <img src="DS-Q30.02.jpg" alt="Smart Gate Sale" class="product-img">
                 <div class="card-content">
-                    <h3>1. ระบบประตูอัตโนมัติให้เช่า</h3>
-                    <p>ลดต้นทุนการลงทุน ด้วยโมเดลการเช่าใช้เครื่องกั้นคุณภาพสูง</p>
+                    <h3>จำหน่ายประตูอัตโนมัติเครื่องใหม่</h3>
+                    <p>ยกระดับความปลอดภัยด้วยนวัตกรรมล่าสุด</p>
                     <ul>
-                        <li>Swing Gate & Flap Turnstile</li>
-                        <li>Tripod Turnstile (เครื่องกั้น 3 ขา)</li>
-                        <li>Full Height Turnstile</li>
-                        <li>เช่ารายวัน / รายเดือน / รายปี</li>
+                        <li>สินค้าใหม่แกะกล่อง พร้อมเทคโนโลยี AI ล่าสุด</li>
+                        <li>รองรับ Face Recognition และ Identity ทุกรูปแบบ</li>
+                        <li>เชื่อมต่อระบบ Automation เต็มรูปแบบ</li>
+                        <li>รับประกันคุณภาพและบริการหลังการขาย</li>
                     </ul>
                 </div>
             </div>
 
             <div class="solution-card">
-                <div class="img-placeholder">IMAGE: IDENTITY AUTH</div>
+                <div class="card-content" style="padding-bottom: 0;">
+                    <span class="badge" style="background: var(--gzk-blue);">FLEXIBLE PLAN</span>
+                </div>
+                <img src="rentproduct.png" alt="Smart Gate Leasing" class="product-img">
                 <div class="card-content">
-                    <h3>2. ระบบการแสดงตัวตน (Identity)</h3>
-                    <p>เทคโนโลยีการยืนยันตัวตนที่แม่นยำเพื่อการผ่านเข้า-ออกพื้นที่</p>
+                    <h3>บริการเช่าใช้ประตูอัตโนมัติ</h3>
+                    <p>ความปลอดภัยระดับพรีเมียม ในราคาที่เข้าถึงง่าย</p>
                     <ul>
-                        <li>Face Recognition (จดจำใบหน้า)</li>
-                        <li>QR Code & Mobile Access</li>
-                        <li>RFID Card & Fingerprint</li>
-                        <li>เชื่อมต่อกับระบบ AI คัดกรองบุคคล</li>
+                        <li>เช่ารายวัน รายเดือน หรือรายปี (เริ่มต้นราคาถูก)</li>
+                        <li>ลดต้นทุนการลงทุน (Zero Capital Expenditure)</li>
+                        <li>พร้อมระบบ Dashboard ติดตามข้อมูลการเข้า-ออก</li>
+                        <li>ดูแลรักษาฟรีตลอดอายุสัญญาเช่า</li>
                     </ul>
                 </div>
             </div>
 
-            <div class="solution-card">
-                <div class="img-placeholder">IMAGE: AI DASHBOARD</div>
-                <div class="card-content">
-                    <h3>3. AI Data & Dashboard</h3>
-                    <p>เปลี่ยนข้อมูลการเข้า-ออก ให้เป็นกลยุทธ์ในการบริหารจัดการ</p>
-                    <ul>
-                        <li>ประมวลผลข้อมูลด้วย AI Automation</li>
-                        <li>Real-time Data Monitoring</li>
-                        <li>สรุปสถิติและรายงานเชิงลึก</li>
-                        <li>บันทึกภาพและประวัติผู้เข้าใช้งาน</li>
-                    </ul>
-                </div>
-            </div>
         </div>
     </div>
 
