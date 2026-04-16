@@ -16,8 +16,25 @@
         .page-title { color: var(--gzk-blue); border-left: 8px solid var(--gzk-red); padding-left: 15px; margin-bottom: 30px; }
 
         .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
-        .product-card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.05); transition: 0.3s; display: flex; flex-direction: column; }
-        .product-card:hover { transform: translateY(-5px); box-shadow: 0 8px 25px rgba(0,0,0,0.1); }
+        
+        /* การตั้งค่าพื้นฐานของการ์ดสินค้า */
+        .product-card { 
+            background: white; 
+            border-radius: 12px; 
+            overflow: hidden; 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05); 
+            transition: 0.4s ease; /* ปรับให้นุ่มนวลขึ้น */
+            display: flex; 
+            flex-direction: column; 
+        }
+        
+        /* เพิ่มกรอบสีแดงเมื่อ Hover เหมือนหน้าอื่นๆ */
+        .product-card:hover { 
+            transform: translateY(-5px); 
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1); 
+            outline: 3px solid var(--gzk-red); /* กรอบสีแดง */
+            outline-offset: -3px;
+        }
         
         .product-img { width: 100%; height: 250px; object-fit: contain; background: #fff; padding: 15px; border-bottom: 1px solid #eee; }
         .product-info { padding: 20px; flex-grow: 1; text-align: center; }
