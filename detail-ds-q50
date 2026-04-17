@@ -1,0 +1,29 @@
+<section class="product-header">
+    <div style="text-align: center; margin-bottom: 20px;">
+        <img src="daosafe-logo.jpg" alt="Daosafe Logo" style="max-width: 150px;">
+    </div>
+    <h1>รุ่น DS-Q50: High-End Tripod Turnstile</h1>
+</section>
+
+<h2 class="section-title">วิดีโอสาธิตการทำงาน</h2>
+<div class="video-container">
+    <iframe src="https://www.youtube.com/embed/รหัสวิดีโอDS-Q50" frameborder="0" allowfullscreen></iframe>
+</div>
+
+<div style="text-align: center; margin: 30px 0;">
+    <a href="DS-Q50-Datasheet.pdf" class="btn-inquiry" style="background: var(--gzk-blue); padding: 15px 30px;">
+        📥 ดาวน์โหลด Datasheet (PDF)
+    </a>
+</div>
+
+<h2 class="section-title">มาตรฐานและการผลิต (Workshop & Certified)</h2>
+<div class="grid-3">
+    <div class="project-card"><img src="workshop1.jpg" alt="Workshop"><p>QC & Testing Process</p></div>
+    <div class="cert-card"><img src="certified-logo.jpg" alt="Certified"><p>Standard Certified</p></div>
+</div>
+
+<h2 class="section-title">ภาพการติดตั้งจริง (Installation Reference)</h2>
+<div class="grid-3">
+    <div class="project-card"><img src="install1.jpg" alt="Site 1"></div>
+    <div class="project-card"><img src="install2.jpg" alt="Site 2"></div>
+</div>
