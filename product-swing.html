@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Swing Gate Products - GZK Co., Ltd.</title>
+    <title>Swing Gate Solutions - GZK Co., Ltd.</title>
     <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
         :root { --gzk-red: #e74c3c; --gzk-blue: #2c3e50; --gzk-light: #f0f4f8; }
         body { margin: 0; font-family: 'Sarabun', sans-serif; background: var(--gzk-light); color: #333; }
         header { background: white; text-align: center; padding: 20px; border-bottom: 4px solid var(--gzk-blue); }
+        
         .nav-bar { max-width: 1100px; margin: 20px auto; padding: 0 20px; display: flex; justify-content: space-between; align-items: center; }
         .nav-bar a { text-decoration: none; color: var(--gzk-red); font-weight: bold; }
         
@@ -16,25 +17,8 @@
         .page-title { color: var(--gzk-blue); border-left: 8px solid var(--gzk-red); padding-left: 15px; margin-bottom: 30px; }
 
         .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
-        
-        /* การตั้งค่าพื้นฐานของการ์ดสินค้า */
-        .product-card { 
-            background: white; 
-            border-radius: 12px; 
-            overflow: hidden; 
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05); 
-            transition: 0.4s ease; /* ปรับให้นุ่มนวลขึ้น */
-            display: flex; 
-            flex-direction: column; 
-        }
-        
-        /* เพิ่มกรอบสีแดงเมื่อ Hover เหมือนหน้าอื่นๆ */
-        .product-card:hover { 
-            transform: translateY(-5px); 
-            box-shadow: 0 8px 25px rgba(0,0,0,0.1); 
-            outline: 3px solid var(--gzk-red); /* กรอบสีแดง */
-            outline-offset: -3px;
-        }
+        .product-card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.05); transition: 0.3s; display: flex; flex-direction: column; }
+        .product-card:hover { transform: translateY(-5px); box-shadow: 0 8px 25px rgba(0,0,0,0.1); outline: 2px solid var(--gzk-red); }
         
         .product-img { width: 100%; height: 250px; object-fit: contain; background: #fff; padding: 15px; border-bottom: 1px solid #eee; }
         .product-info { padding: 20px; flex-grow: 1; text-align: center; }
@@ -52,7 +36,7 @@
         <img src="GZK_logo_with_slogan.jpg" alt="GZK" style="max-width: 180px;">
     </header>
 
-    <div class="nav-bar">
+   <div class="nav-bar">
         <a href="sale-categories.html">← กลับไปหมวดหมู่</a>
         <span style="color:#666;">หมวดหมู่: Swing Gate</span>
     </div>
@@ -61,48 +45,36 @@
         <h1 class="page-title">Swing Gate Solutions</h1>
         
         <div class="product-grid">
+            
             <div class="product-card">
-                <img src="swing-model-01.jpg" alt="Swing Gate Model A" class="product-img">
+                <img src="ds-s100-main.jpg" alt="DS-S100" class="product-img">
                 <div class="product-info">
-                    <h3>GZK-SW100</h3>
-                    <p>บานสวิงอะคริลิคใส ดีไซน์หรูหรา เหมาะสำหรับอาคารสำนักงาน</p>
-                    <a href="https://wa.me/yournumber" class="btn-inquiry">สอบถามรายละเอียด</a>
+                    <h3>DS-S100 Luxury Swing</h3>
+                    <p>บานสวิงดีไซน์หรูหรา รองรับการเข้า-ออกกว้างพิเศษสำหรับวีลแชร์</p>
+                    <a href="detail-ds-s100.html" class="btn-inquiry" style="background: var(--gzk-red);">รายละเอียดสินค้า</a>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="ds-s200-black.jpg" alt="DS-S200 Black" class="product-img">
+                <div class="product-info">
+                    <h3>DS-S200 Black Edition</h3>
+                    <p>บานสวิงสีดำ Matte Black ทันสมัย พร้อมไฟ LED บอกสถานะชัดเจน</p>
+                    <a href="detail-ds-s200-black.html" class="btn-inquiry" style="background: var(--gzk-red);">รายละเอียดสินค้า</a>
                 </div>
             </div>
             
             <div class="product-card">
-                <img src="swing-model-01.jpg" alt="Swing Gate Model A" class="product-img">
+                <img src="ds-s50-compact.jpg" alt="DS-S50" class="product-img">
                 <div class="product-info">
-                    <h3>GZK-SW100</h3>
-                    <p>บานสวิงอะคริลิคใส ดีไซน์หรูหรา เหมาะสำหรับอาคารสำนักงาน</p>
-                    <a href="https://wa.me/yournumber" class="btn-inquiry">สอบถามรายละเอียด</a>
+                    <h3>DS-S50 Compact Swing</h3>
+                    <p>รุ่นยอดนิยมสำหรับพื้นที่จำกัด ติดตั้งง่าย ทนทานต่อการใช้งานหนัก</p>
+                    <a href="detail-ds-s50.html" class="btn-inquiry" style="background: var(--gzk-red);">รายละเอียดสินค้า</a>
                 </div>
             </div>
-           div class="product-card">
-                <img src="swing-model-01.jpg" alt="Swing Gate Model A" class="product-img">
-                <div class="product-info">
-                    <h3>GZK-SW100</h3>
-                    <p>บานสวิงอะคริลิคใส ดีไซน์หรูหรา เหมาะสำหรับอาคารสำนักงาน</p>
-                    <a href="https://wa.me/yournumber" class="btn-inquiry">สอบถามรายละเอียด</a>
-                </div>
-            </div> 
-           div class="product-card">
-                <img src="swing-model-01.jpg" alt="Swing Gate Model A" class="product-img">
-                <div class="product-info">
-                    <h3>GZK-SW100</h3>
-                    <p>บานสวิงอะคริลิคใส ดีไซน์หรูหรา เหมาะสำหรับอาคารสำนักงาน</p>
-                    <a href="https://wa.me/yournumber" class="btn-inquiry">สอบถามรายละเอียด</a>
-                </div>
-            </div>
-div class="product-card">
-                <img src="swing-model-01.jpg" alt="Swing Gate Model A" class="product-img">
-                <div class="product-info">
-                    <h3>GZK-SW100</h3>
-                    <p>บานสวิงอะคริลิคใส ดีไซน์หรูหรา เหมาะสำหรับอาคารสำนักงาน</p>
-                    <a href="https://wa.me/yournumber" class="btn-inquiry">สอบถามรายละเอียด</a>
-                </div>
-            </div>    
-</div>
+
+        </div>
+    </div>
 
     <footer>© 2026 GZK Co., Ltd. | Flowing Secure Path.</footer>
 </body>
