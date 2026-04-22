@@ -27,23 +27,25 @@
         /* Section Titles */
         .section-title { border-left: 6px solid var(--gzk-red); padding-left: 15px; margin: 50px 0 25px; color: var(--gzk-blue); font-size: 1.5rem; }
 
-        /* PDF Downloads - Adjusted for full width when no video */
-        .download-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
-        .download-card { border: 2px dashed #ddd; padding: 30px; border-radius: 10px; text-align: center; transition: 0.3s; text-decoration: none; color: inherit; display: flex; flex-direction: column; align-items: center; justify-content: center; }
-        .download-card:hover { border-color: var(--gzk-red); background: #fff5f5; transform: translateY(-5px); }
-        .download-card strong { font-size: 1.2rem; margin-bottom: 5px; }
+        /* Video */
+        .video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 10px; background: #000; box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+        .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+
+        /* PDF Downloads */
+        .download-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+        .download-card { border: 2px dashed #ddd; padding: 20px; border-radius: 10px; text-align: center; transition: 0.3s; text-decoration: none; color: inherit; }
+        .download-card:hover { border-color: var(--gzk-red); background: #fff5f5; }
 
         /* Photos Grid */
         .photo-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
         .photo-item { text-align: center; }
-        .photo-item img { width: 100%; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); transition: 0.3s; }
-        .photo-item img:hover { transform: scale(1.02); }
+        .photo-item img { width: 100%; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
         .photo-item p { margin-top: 10px; font-weight: bold; color: #666; }
 
         .installation-grid { grid-template-columns: 1fr !important; gap: 30px; }
 
-        .btn-contact { display: block; background: var(--gzk-red); color: white; text-align: center; padding: 18px; text-decoration: none; border-radius: 5px; font-weight: bold; margin-top: 25px; transition: 0.3s; font-size: 1.1rem; }
-        .btn-contact:hover { background: var(--gzk-blue); box-shadow: 0 5px 15px rgba(231, 76, 60, 0.3); }
+        .btn-contact { display: block; background: var(--gzk-red); color: white; text-align: center; padding: 15px; text-decoration: none; border-radius: 5px; font-weight: bold; margin-top: 20px; transition: 0.3s; }
+        .btn-contact:hover { background: var(--gzk-blue); }
 
         footer { text-align: center; padding: 60px; color: #999; border-top: 1px solid #eee; margin-top: 50px; }
 
@@ -58,63 +60,60 @@
 
         <section class="product-header">
             <div class="product-gallery">
-                <img src="ds-312-main1.jpg" alt="DS-312 Curved Flap Gate" class="main-img">
+                <img src="ds-312-2.jpg" alt="DS-312 Flap Gate" class="main-img">
                 <div class="thumb-grid">
-                    <img src="ds-312-1.jpg" alt="DS-312 Detail">
-                    <img src="ds-312-2.jpg" alt="DS-312 Side View">
+                    <img src="ds-312-1.jpg" alt="DS-312 Side View">
+                    <img src="ds-312-main1.jpg" alt="DS-312 Detail View">
                 </div>
             </div>
             <div class="product-main-info">
                 <img src="daosafe-logo.jpg" alt="Daosafe Logo" class="brand-logo">
                 <h1>รุ่น DS-312</h1>
-                <p>Curved Premium Flap Gate เครื่องกั้นปีกนกดีไซน์โค้งมนระดับไฮเอนด์ ผสานความสวยงามของ Stainless Steel ขัดเงาเข้ากับความเร็วในการทำงานที่ยอดเยี่ยม</p>
+                <p>Curved Design Flap Gate เครื่องกั้นปีกนกดีไซน์โค้งมนพรีเมียม ตัวเครื่องสแตนเลสขัดเงา ให้ความรู้สึกที่หรูหราและเพิ่มความปลอดภัยด้วยรูปทรงที่ไม่มีมุมคม</p>
                 <ul class="spec-short">
-                    <li>✅ ประเภท: High-Speed Flap Gate (แบบปีกนก)</li>
-                    <li>✅ ดีไซน์: Luxury Curved Housing (ตัวเครื่องโค้งมนไร้เหลี่ยมคม)</li>
-                    <li>✅ วัสดุ: SUS 304 Stainless Steel & Acrylic Flaps</li>
-                    <li>✅ ระบบไฟ: Blue LED Status Ring (วงแหวนไฟแสดงสถานะ)</li>
+                    <li>✅ ประเภท: High-Pass Rate Flap Gate</li>
+                    <li>✅ ดีไซน์: โค้งมน (Round Edge) ลดอุบัติเหตุและดูทันสมัย</li>
+                    <li>✅ วัสดุ: Stainless Steel 304 High Quality</li>
+                    <li>✅ การใช้งาน: เหมาะสำหรับอาคารแสดงสินค้าหรือ Hall ที่รองรับจำนวนผู้เข้าชมจำนวนมาก</li>
                 </ul>
                 <a href="https://forms.gle/TDb5wtSytgZErEEJA" class="btn-contact" target="_blank">ติดต่อสอบถาม / ขอใบเสนอราคา</a>
             </div>
         </section>
 
-        <h2 class="section-title">ข้อมูลทางเทคนิคและใบรับรอง (Technical Resources)</h2>
-        <div class="download-grid">
-            <a href="DS-312-Datasheet.pdf" class="download-card" target="_blank">
-                <strong>📄 Product Datasheet</strong>
-                <p>ข้อมูลสเปกโดยละเอียดของรุ่น DS-312 (PDF)</p>
-            </a>
-            <a href="DS-312-User-Manual.pdf" class="download-card" target="_blank">
-                <strong>📘 User Manual</strong>
-                <p>คู่มือการใช้งานและการติดตั้งเบื้องต้น</p>
-            </a>
-            <a href="ds-312-cerctfy1.pdf" class="download-card" target="_blank">
-                <strong>📜 Quality Certificate CE/strong>
-                <p>มาตรฐานรับรองคุณภาพผลิตภัณฑ์ระดับสากล</p>
-            </
-              <a href="ds-312-cerctfy2.pdf.pdf" class="download-card" target="_blank">
-                <strong>📜 Quality Certificate FCC</strong>
-                <p>มาตรฐานรับรองคุณภาพผลิตภัณฑ์ระดับสากล</p>
-            </a>a>
-        </div>
-
-        <h2 class="section-title">ภาพรายละเอียดสินค้า (Product Close-up)</h2>
-        <div class="photo-grid">
-            <div class="photo-item">
-                <img src="ds-312-qc1.jpg" alt="DS-312 Quality 1">
-                <p>ระบบมอเตอร์และกลไกปีกนกความเร็วสูง</p>
-            </div>
-            <div class="photo-item">
-                <img src="ds-312-qc2.jpg" alt="DS-312 Quality 2">
-                <p>การแสดงผลไฟ LED บริเวณหัวเครื่อง</p>
-            </div>
-        </div>
-
-        <h2 class="section-title">วิดีโอสาธิตการทดสอบการทำงานของ Flap Gate Flowing Speed Test (Video Review)</h2>
+        <h2 class="section-title">วิดีโอสาธิตการทดสอบการทำงานของ Flap Gate Flowing Speed Test</h2>
         <div class="video-container">
             <iframe src="https://www.youtube.com/embed/J1N_kXmVSRU" frameborder="0" allowfullscreen></iframe>
         </div>
-    </div>
+
+        <h2 class="section-title">เอกสารและมาตรฐาน (Downloads)</h2>
+        <div class="download-grid">
+            <a href="DS-312-Datasheet.pdf" class="download-card" target="_blank">
+                <strong>📄 Datasheet</strong>
+                <p>รายละเอียดทางเทคนิค DS-312 (PDF)</p>
+            </a>
+            <a href="ds-312-certify1.pdf" class="download-card" target="_blank">
+                <strong>📜 Quality Certificate CE</strong>
+                <p>มาตรฐานรับรองคุณภาพสินค้า (CE/FCC)</p>
+            </a>
+            <a href="ds-312-certify2.pdf" class="download-card" target="_blank">
+                <strong>📜 Quality Certificate FCC</strong>
+                <p>มาตรฐานรับรองคุณภาพสินค้า (CE/FCC)</p>
+            </a>
+        </div>
+
+        <h2 class="section-title">กระบวนการตรวจสอบคุณภาพ (QC Workshop)</h2>
+        <div class="photo-grid">
+            <div class="photo-item">
+                <img src="ds-312-qc1.jpg" alt="DS-312 QC 1">
+                <p>ตรวจสอบระบบกลไกปีกนกและการตอบสนอง</p>
+            </div>
+            <div class="photo-item">
+                <img src="ds-312-qc2.jpg" alt="DS-312 QC 2">
+                <p>ทดสอบความแม่นยำของเซนเซอร์และสถานะไฟ LED</p>
+            </div>
+        </div>
+
+        
 
     <footer>© 2026 GZK Co., Ltd. | Flowing Secure Path.</footer>
 </body>
