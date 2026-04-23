@@ -12,108 +12,76 @@
         header { background: white; text-align: center; padding: 30px 20px; border-bottom: 4px solid var(--gzk-blue); }
         .logo-container img { max-width: 280px; }
         
-        /* Service Bar Navigation */
-        .service-nav { background: var(--gzk-dark-blue); padding: 15px 0; text-align: center; position: sticky; top: 0; z-index: 100; }
-        .service-nav a { color: white; text-decoration: none; margin: 0 15px; font-size: 0.95rem; font-weight: 300; transition: 0.3s; display: inline-block; }
-        .service-nav a:hover { color: var(--gzk-red); }
-        .service-nav a strong { font-weight: 700; color: var(--gzk-red); border: 1px solid var(--gzk-red); padding: 5px 15px; border-radius: 20px; }
-        .service-nav a strong:hover { background: var(--gzk-red); color: white; }
+        /* New Service Nav Design */
+        .service-nav { background: var(--gzk-dark-blue); padding: 20px 0; text-align: center; position: sticky; top: 0; z-index: 100; }
+        .service-nav a { 
+            color: white; 
+            text-decoration: none; 
+            margin: 0 10px; 
+            font-size: 0.9rem; 
+            font-weight: 400; 
+            transition: 0.3s; 
+            display: inline-block;
+            padding: 8px 18px;
+            border: 1px solid rgba(255,255,255,0.3); /* เส้นขอบจางๆ */
+            border-radius: 25px; /* ทรงวงรี */
+        }
+        /* เอฟเฟกต์เมื่อวางเมาส์: เปลี่ยนเป็นสีส้มแดงและขอบชัดขึ้น */
+        .service-nav a:hover { 
+            background: var(--gzk-red); 
+            border-color: var(--gzk-red);
+            color: white; 
+        }
+        
+        /* ปุ่มติดต่อเรา (เด่นกว่าเพื่อน) */
+        .service-nav a.contact-btn {
+            border: 2px solid var(--gzk-red);
+            font-weight: bold;
+        }
 
         .hero { background: var(--gzk-blue); color: white; padding: 60px 20px; text-align: center; }
         .hero h1 { font-size: 2.5rem; margin-bottom: 10px; }
         
-        .container { 
-            max-width: 1100px; 
-            margin: -40px auto 60px; 
-            background: transparent; 
-            padding: 0 20px; 
-        }
-        
+        .container { max-width: 1100px; margin: -40px auto 60px; padding: 0 20px; }
         .solution-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 40px; }
 
         .solution-card { 
-            border: none; 
-            border-radius: 15px; 
-            overflow: hidden; 
-            transition: 0.4s; 
-            background: #ffffff; 
-            display: flex; 
-            flex-direction: column; 
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08); 
+            border: none; border-radius: 15px; overflow: hidden; transition: 0.4s; 
+            background: #ffffff; display: flex; flex-direction: column; box-shadow: 0 4px 20px rgba(0,0,0,0.08); 
         }
         .solution-card:hover { 
-            transform: translateY(-10px); 
-            box-shadow: 0 15px 35px rgba(0,0,0,0.15); 
-            outline: 3px solid var(--gzk-red); 
-            outline-offset: -3px; 
+            transform: translateY(-10px); box-shadow: 0 15px 35px rgba(0,0,0,0.15); 
+            outline: 3px solid var(--gzk-red); outline-offset: -3px; 
         }
         
-        .product-img {
-            width: 100%;
-            height: 300px;
-            object-fit: contain;
-            display: block;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #fff;
-            border-bottom: 1px solid #f0f0f0; 
-        }
+        .product-img { width: 100%; height: 300px; object-fit: contain; padding: 20px; background-color: #fff; border-bottom: 1px solid #f0f0f0; }
 
-        .card-content {
-            padding: 30px;
-            text-align: center;
-            flex-grow: 1;
-        }
-
-        .card-content h3 {
-            color: var(--gzk-blue);
-            font-size: 1.5rem;
-            border-bottom: 3px solid var(--gzk-red);
-            display: inline-block;
-            padding-bottom: 8px;
-            margin-top: 0;
-        }
-
+        .card-content { padding: 30px; text-align: center; flex-grow: 1; }
+        .card-content h3 { color: var(--gzk-blue); font-size: 1.5rem; border-bottom: 3px solid var(--gzk-red); display: inline-block; padding-bottom: 8px; margin-top: 0; }
         .card-content p { font-weight: bold; color: #555; margin-top: 15px; }
+        .card-content ul { text-align: left; display: inline-block; margin-top: 20px; line-height: 1.8; color: #444; padding-left: 20px; }
 
-        .card-content ul {
-            text-align: left;
-            display: inline-block;
-            margin-top: 20px;
-            line-height: 1.8;
-            color: #444;
-            padding-left: 20px;
-        }
+        .badge { background: var(--gzk-red); color: white; padding: 5px 15px; border-radius: 5px; font-size: 0.9rem; display: inline-block; margin-bottom: 10px; }
 
-        .badge {
-            background: var(--gzk-red);
-            color: white;
-            padding: 5px 15px;
-            border-radius: 5px;
-            font-size: 0.9rem;
-            display: inline-block;
-            margin-bottom: 10px;
+        /* ปุ่มกดจำหน่าย (แดง -> น้ำเงิน) */
+        .btn-sale {
+            background: var(--gzk-red); color: white; padding: 12px 30px; text-decoration: none; 
+            border-radius: 5px; display: inline-block; font-weight: bold; margin-top: 20px; transition: 0.3s;
         }
+        .btn-sale:hover { background: var(--gzk-blue); }
 
-        .btn-primary {
-            background: var(--gzk-red);
-            color: white;
-            padding: 12px 30px;
-            text-decoration: none;
-            border-radius: 5px;
-            display: inline-block;
-            font-weight: bold;
-            margin-top: 20px;
-            transition: 0.3s;
+        /* ปุ่มกดเช่า (น้ำเงิน -> ส้มแดง) */
+        .btn-rent {
+            background: var(--gzk-blue); color: white; padding: 12px 30px; text-decoration: none; 
+            border-radius: 5px; display: inline-block; font-weight: bold; margin-top: 20px; transition: 0.3s;
         }
-        .btn-primary:hover { background: var(--gzk-blue); }
+        .btn-rent:hover { background: var(--gzk-red); }
 
         footer { text-align: center; padding: 60px 20px; color: #666; border-top: 1px solid #eee; background: white; }
 
         @media (max-width: 768px) {
             .solution-grid { grid-template-columns: 1fr; }
-            .service-nav a { display: block; margin: 10px 0; }
-            .hero h1 { font-size: 1.8rem; }
+            .service-nav a { display: block; margin: 8px auto; max-width: 80%; }
         }
     </style>
 </head>
@@ -127,10 +95,10 @@
 
     <nav class="service-nav">
         <a href="#survey">สำรวจหน้างานและแนะนำการติดตั้ง</a>
-        <a href="#pm">บริการบำรุงรักษารายปี (PM)</a>
+        <a href="#pm">บริการบำรุงรักษารายปี</a>
         <a href="#repair">ตรวจเช็คและซ่อมบำรุง</a>
         <a href="#others">บริการอื่นๆ</a>
-        <a href="contact-us.html"><strong>ติดต่อเรา</strong></a>
+        <a href="contact-us.html" class="contact-btn">ติดต่อเรา</a>
     </nav>
 
     <section class="hero">
@@ -150,13 +118,13 @@
                     <h3>จำหน่ายประตูอัตโนมัติเครื่องใหม่</h3>
                     <p>ยกระดับความปลอดภัยด้วยนวัตกรรมล่าสุด</p>
                     <ul>
-                        <li>สินค้าใหม่แกะกล่อง พร้อมเทคโนโลยี AI ล่าสอบ</li>
+                        <li>สินค้าใหม่แกะกล่อง พร้อมเทคโนโลยี AI ล่าสุด</li>
                         <li>รองรับ Face Recognition และ Identity ทุกรูปแบบ</li>
                         <li>เชื่อมต่อระบบ Automation เต็มรูปแบบ</li>
                         <li>รับประกันคุณภาพและบริการหลังการขาย</li>
                     </ul>
                     <div style="text-align: center;">
-                        <a href="sale-categories.html" class="btn-primary">ดูหมวดหมู่สินค้า</a>
+                        <a href="sale-categories.html" class="btn-sale">ดูหมวดหมู่สินค้า</a>
                     </div>
                 </div>
             </div>
@@ -176,7 +144,7 @@
                         <li>ดูแลรักษาฟรีตลอดอายุสัญญาเช่า</li>
                     </ul>
                     <div style="text-align: center;">
-                        <a href="rental-solutions.html" class="btn-primary" style="background: var(--gzk-blue);">ดูรายละเอียดการเช่า</a>
+                        <a href="rental-solutions.html" class="btn-rent">ดูรายละเอียดการเช่า</a>
                     </div>
                 </div>
             </div>
