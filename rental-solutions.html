@@ -9,8 +9,14 @@
         :root { --gzk-red: #e74c3c; --gzk-blue: #2c3e50; --gzk-light: #f8f9fa; --gzk-dark: #1a252f; }
         body { margin: 0; font-family: 'Sarabun', sans-serif; background: white; color: #333; line-height: 1.6; }
         
-        header { background: white; text-align: center; padding: 20px; border-bottom: 4px solid var(--gzk-blue); }
-        .logo-container img { max-width: 200px; }
+        /* ปรับ Header ให้เท่ากับหน้า index.html */
+        header { background: white; text-align: center; padding: 30px; border-bottom: 4px solid var(--gzk-blue); }
+        .logo-container img { max-width: 280px; } /* ขนาดเท่ากับ index.html */
+
+        /* ปุ่มย้อนกลับ */
+        .nav-container { max-width: 1100px; margin: 20px auto 0; padding: 0 20px; }
+        .btn-back { text-decoration: none; color: var(--gzk-red); font-weight: bold; display: inline-block; transition: 0.3s; }
+        .btn-back:hover { color: var(--gzk-blue); }
 
         .hero-rental { 
             background: linear-gradient(rgba(44, 62, 80, 0.8), rgba(44, 62, 80, 0.8)), url('rental-hero-bg.jpg'); 
@@ -18,14 +24,41 @@
             color: white; padding: 80px 20px; text-align: center; 
         }
 
-        .container { max-width: 1000px; margin: 0 auto; padding: 40px 20px; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 40px 20px; }
         
-        /* Section 1: Importance of Access Control */
+        /* ปรับส่วนไฮไลท์เนื้อหา */
         .intro-section { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; align-items: center; margin-bottom: 60px; }
-        .intro-text h2 { color: var(--gzk-blue); border-left: 5px solid var(--gzk-red); padding-left: 15px; }
+        
+        .highlight-box { 
+            background: var(--gzk-red); 
+            color: white; 
+            padding: 5px 15px; 
+            border-radius: 5px; 
+            display: inline-block;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        .intro-text h2 { 
+            color: var(--gzk-blue); 
+            font-size: 2.2rem; /* ใหญ่ขึ้นเด่นชัด */
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .intro-text p.main-p { 
+            font-size: 1.4rem; /* ตัวหนาและใหญ่ขึ้น */
+            font-weight: bold; 
+            color: var(--gzk-blue);
+            margin-bottom: 25px;
+        }
+
+        .intro-text ul { font-size: 1.1rem; }
+        .intro-text ul li { margin-bottom: 10px; }
+
         .intro-img img { width: 100%; border-radius: 15px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
 
-        /* Section 2: Advantages Grid */
+        /* Advantage Section */
         .advantage-title { text-align: center; margin-bottom: 40px; }
         .advantage-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
         .adv-card { 
@@ -33,13 +66,11 @@
             transition: 0.3s; text-align: center;
         }
         .adv-card:hover { transform: translateY(-10px); background: white; box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
-        .adv-card h4 { color: var(--gzk-blue); margin-bottom: 10px; font-size: 1.2rem; }
-        .adv-card p { font-size: 0.95rem; color: #666; }
+        .adv-card h4 { color: var(--gzk-blue); font-size: 1.2rem; }
 
-        /* Section 3: Customization (Flexibility) */
+        /* Customization Section */
         .flex-section { background: var(--gzk-blue); color: white; padding: 60px 20px; border-radius: 20px; margin-top: 40px; }
         .flex-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; text-align: center; }
-        .flex-item img { width: 80px; filter: invert(1); margin-bottom: 15px; }
 
         .cta-container { text-align: center; margin-top: 60px; padding: 40px; background: #fff5f5; border-radius: 15px; }
         .btn-large { 
@@ -48,9 +79,12 @@
         }
         .btn-large:hover { background: var(--gzk-blue); transform: scale(1.05); }
 
-        footer { text-align: center; padding: 40px; color: #999; border-top: 1px solid #eee; margin-top: 40px; }
+        footer { text-align: center; padding: 60px; color: #999; border-top: 1px solid #eee; margin-top: 40px; }
 
-        @media (max-width: 768px) { .hero-rental h1 { font-size: 1.8rem; } }
+        @media (max-width: 768px) { 
+            .intro-text h2 { font-size: 1.8rem; }
+            .intro-text p.main-p { font-size: 1.2rem; }
+        }
     </style>
 </head>
 <body>
@@ -61,6 +95,10 @@
         </div>
     </header>
 
+    <div class="nav-container">
+        <a href="index.html" class="btn-back">← ย้อนกลับหน้าแรก</a>
+    </div>
+
     <section class="hero-rental">
         <h1>Smart Rental Solution</h1>
         <p>ยืดหยุ่น คุ้มค่า ปลอดภัย ตอบโจทย์ธุรกิจยุคใหม่ที่ไม่หยุดนิ่ง</p>
@@ -70,23 +108,26 @@
         
         <div class="intro-section">
             <div class="intro-text">
-                <h2>ทำไมต้องมีระบบ Smart Access Control?</h2>
-                <p>ความปลอดภัยไม่ใช่แค่การ "ล็อคประตู" แต่คือการ "บริหารจัดการ" ข้อมูลของผู้เข้า-ออกพื้นที่อย่างมีประสิทธิภาพ:</p>
+                <div class="highlight-box">Smart Gate Access Control</div>
+                <h2>ทำไมต้องมีระบบควบคุมการเข้า-ออก?</h2>
+                <p class="main-p">ความปลอดภัยไม่ใช่แค่การล็อคประตู แต่คือการบริหารข้อมูลผู้ใช้งาน เพื่อความปลอดภัยสูงสุดของสถานที่และบุคลากร</p>
+                
                 <ul>
-                    <li><strong>ทราบจำนวนผู้ใช้บริการ:</strong> เก็บสถิติเพื่อนำไปวิเคราะห์การตลาดหรือการบริหารพื้นที่</li>
-                    <li><strong>บันทึกเวลาเข้า-ออก:</strong> ตรวจสอบย้อนหลังได้ทันทีเมื่อเกิดเหตุการณ์ไม่คาดคิด</li>
-                    <li><strong>กำหนดสิทธิ์เฉพาะบุคคล:</strong> เลือกเวลาและพื้นที่ที่อนุญาตให้เข้าถึงได้ตามความต้องการ</li>
+                    <li><strong>ทราบจำนวนผู้ใช้บริการ:</strong> เก็บสถิติเพื่อนำไปวิเคราะห์การใช้งานพื้นที่</li>
+                    <li><strong>บันทึกเวลาเข้า-ออก:</strong> ตรวจสอบย้อนหลัง (Audit Trail) ได้แม่นยำ 100%</li>
+                    <li><strong>กำหนดสิทธิ์อัจฉริยะ:</strong> ควบคุมช่วงเวลาที่อนุญาตให้เข้า-ออก ได้รายบุคคล</li>
                 </ul>
             </div>
             <div class="intro-img">
-                <img src="security-control.jpg" alt="Security Monitoring"> </div>
+                <img src="security-control.jpg" alt="Smart Gate Access Control System">
+            </div>
         </div>
 
         <hr style="border: 0; border-top: 1px solid #eee; margin: 60px 0;">
 
         <div class="advantage-title">
             <h2>ข้อดีที่เหนือกว่าของการ "เช่าใช้" กับ GZK</h2>
-            <p>เปลี่ยนภาระในการลงทุน เป็นความสะดวกสบายที่วัดผลได้</p>
+            <p>เปลี่ยนงบลงทุนก้อนใหญ่ เป็นค่าใช้จ่ายรายเดือนที่บริหารจัดการง่าย</p>
         </div>
 
         <div class="advantage-grid">
@@ -108,33 +149,11 @@
             </div>
         </div>
 
-        <div class="flex-section">
-            <h2 style="text-align: center; margin-bottom: 40px;">ปรับเปลี่ยนได้ตามใจคุณ (Personalized Solution)</h2>
-            <div class="flex-grid">
-                <div class="flex-item">
-                    <img src="icon-gate.png" alt="Gate Style">
-                    <p>เลือกรุ่นประตูให้เข้ากับสถานที่</p>
-                </div>
-                <div class="flex-item">
-                    <img src="icon-face.png" alt="Identity">
-                    <p>เลือกวิธีแสดงตัวตน (Face/Card/QR)</p>
-                </div>
-                <div class="flex-item">
-                    <img src="icon-report.png" alt="Reports">
-                    <p>เลือกรูปแบบรายงานที่ต้องการ</p>
-                </div>
-                <div class="flex-item">
-                    <img src="icon-support.png" alt="Support">
-                    <p>บริการดูแลแบบ On-site Service</p>
-                </div>
-            </div>
-        </div>
-
         <div class="cta-container">
-            <h3>พร้อมยกระดับความปลอดภัยให้กับสถานที่ของคุณแล้วหรือยัง?</h3>
-            <p>ก้าวไปอีกขั้นกับโซลูชันที่ยืดหยุ่นที่สุดสำหรับธุรกิจคุณ</p>
+            <h3>พร้อมก้าวสู่ระบบรักษาความปลอดภัยยุคใหม่หรือยัง?</h3>
+            <p>เลือกโซลูชันที่ใช่สำหรับธุรกิจคุณในวันนี้</p>
             <br>
-            <a href="select-rental-options.html" class="btn-large">เลือก Solution การเช่าของคุณ</a>
+            <a href="select-rental-options.html" class="btn-large">เลือกโซลูชันการเช่าของคุณ</a>
         </div>
 
     </div>
