@@ -6,30 +6,31 @@
     <title>GZK Co., Ltd. | โซลูชันความปลอดภัยอัจฉริยะ</title>
     <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
-        :root { --gzk-red: #e74c3c; --gzk-blue: #2c3e50; --gzk-light: #f8f9fa; }
+        :root { --gzk-red: #e74c3c; --gzk-blue: #2c3e50; --gzk-light: #f8f9fa; --gzk-dark-blue: #1a252f; }
         body { margin: 0; font-family: 'Sarabun', sans-serif; background: var(--gzk-light); color: #333; }
         
-        .lang-switch { position: fixed; top: 20px; right: 20px; z-index: 100; background: white; padding: 10px; border-radius: 20px; box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
-        .lang-switch a { text-decoration: none; color: var(--gzk-blue); font-weight: bold; margin: 0 5px; }
-        .lang-switch a.active { color: var(--gzk-red); }
-        
-        header { background: white; text-align: center; padding: 30px; border-bottom: 4px solid var(--gzk-blue); }
+        header { background: white; text-align: center; padding: 30px 20px; border-bottom: 4px solid var(--gzk-blue); }
         .logo-container img { max-width: 280px; }
         
-        .hero { background: var(--gzk-blue); color: white; padding: 50px 20px; text-align: center; }
+        /* Service Bar Navigation */
+        .service-nav { background: var(--gzk-dark-blue); padding: 15px 0; text-align: center; position: sticky; top: 0; z-index: 100; }
+        .service-nav a { color: white; text-decoration: none; margin: 0 15px; font-size: 0.95rem; font-weight: 300; transition: 0.3s; display: inline-block; }
+        .service-nav a:hover { color: var(--gzk-red); }
+        .service-nav a strong { font-weight: 700; color: var(--gzk-red); border: 1px solid var(--gzk-red); padding: 5px 15px; border-radius: 20px; }
+        .service-nav a strong:hover { background: var(--gzk-red); color: white; }
+
+        .hero { background: var(--gzk-blue); color: white; padding: 60px 20px; text-align: center; }
+        .hero h1 { font-size: 2.5rem; margin-bottom: 10px; }
         
         .container { 
             max-width: 1100px; 
-            margin: -30px auto 40px; 
-            background: #f0f4f8; /* พื้นหลังพื้นที่รองรับกล่อง */
-            padding: 40px; 
-            border-radius: 10px; 
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1); 
+            margin: -40px auto 60px; 
+            background: transparent; 
+            padding: 0 20px; 
         }
         
-        .solution-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 40px; margin-top: 20px; }
+        .solution-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 40px; }
 
-        /* ปรับส่วนการ์ดให้ดูลอยเด่นขึ้น */
         .solution-card { 
             border: none; 
             border-radius: 15px; 
@@ -43,14 +44,10 @@
         .solution-card:hover { 
             transform: translateY(-10px); 
             box-shadow: 0 15px 35px rgba(0,0,0,0.15); 
-            /* เพิ่มบรรทัดด้านล่างนี้ครับ */
             outline: 3px solid var(--gzk-red); 
-            outline-offset: -3px; /* ให้กรอบแดงอยู่ด้านในขอบการ์ดพอดี */
-        }
-       
+            outline-offset: -3px; 
         }
         
-        /* ปรับรูปภาพสินค้าให้มีเส้นคั่นจางๆ และจัดวางสวยงาม */
         .product-img {
             width: 100%;
             height: 300px;
@@ -85,6 +82,7 @@
             margin-top: 20px;
             line-height: 1.8;
             color: #444;
+            padding-left: 20px;
         }
 
         .badge {
@@ -97,17 +95,29 @@
             margin-bottom: 10px;
         }
 
-        footer { text-align: center; padding: 40px; color: #999; border-top: 1px solid #eee; }
+        .btn-primary {
+            background: var(--gzk-red);
+            color: white;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            display: inline-block;
+            font-weight: bold;
+            margin-top: 20px;
+            transition: 0.3s;
+        }
+        .btn-primary:hover { background: var(--gzk-blue); }
+
+        footer { text-align: center; padding: 60px 20px; color: #666; border-top: 1px solid #eee; background: white; }
 
         @media (max-width: 768px) {
             .solution-grid { grid-template-columns: 1fr; }
+            .service-nav a { display: block; margin: 10px 0; }
+            .hero h1 { font-size: 1.8rem; }
         }
     </style>
 </head>
 <body>
-    <div class="lang-switch">
-        <a href="index.html" class="active">TH</a> | <a href="en.html">EN</a>
-    </div>
 
     <header>
         <div class="logo-container">
@@ -115,9 +125,17 @@
         </div>
     </header>
 
+    <nav class="service-nav">
+        <a href="#survey">สำรวจหน้างานและแนะนำการติดตั้ง</a>
+        <a href="#pm">บริการบำรุงรักษารายปี (PM)</a>
+        <a href="#repair">ตรวจเช็คและซ่อมบำรุง</a>
+        <a href="#others">บริการอื่นๆ</a>
+        <a href="contact-us.html"><strong>ติดต่อเรา</strong></a>
+    </nav>
+
     <section class="hero">
         <h1>Smart Access Control Solutions</h1>
-        <p>ตอบโจทย์ทุกความต้องการ ทั้งการเป็นเจ้าของเครื่องใหม่ และบริการเช่าใช้ที่คุ้มค่า</p>
+        <p>ยกระดับความปลอดภัยด้วยเทคโนโลยีอัจฉริยะ ทั้งรูปแบบการขายขาดและเช่าใช้</p>
     </section>
 
     <div class="container">
@@ -126,25 +144,20 @@
             <div class="solution-card">
                 <div class="card-content" style="padding-bottom: 0;">
                     <span class="badge">NEW ARRIVAL</span>
-                    
                 </div>
                 <img src="newgate.jpg" alt="Smart Gate Sale" class="product-img">
                 <div class="card-content">
-                 
                     <h3>จำหน่ายประตูอัตโนมัติเครื่องใหม่</h3>
                     <p>ยกระดับความปลอดภัยด้วยนวัตกรรมล่าสุด</p>
                     <ul>
-                        <li>สินค้าใหม่แกะกล่อง พร้อมเทคโนโลยี AI ล่าสุด</li>
+                        <li>สินค้าใหม่แกะกล่อง พร้อมเทคโนโลยี AI ล่าสอบ</li>
                         <li>รองรับ Face Recognition และ Identity ทุกรูปแบบ</li>
                         <li>เชื่อมต่อระบบ Automation เต็มรูปแบบ</li>
                         <li>รับประกันคุณภาพและบริการหลังการขาย</li>
-                        <div style="text-align: center; margin-top: 25px;">
-                        <<a href="sale-categories.html" class="btn-primary" 
-       style="background: var(--gzk-red); color: white; padding: 12px 30px; text-decoration: none; border-radius: 5px; display: inline-block; font-weight: bold; 
-              margin-left: -40px;"> ดูหมวดหมู่สินค้า
-    </a>
-                     </div>       
                     </ul>
+                    <div style="text-align: center;">
+                        <a href="sale-categories.html" class="btn-primary">ดูหมวดหมู่สินค้า</a>
+                    </div>
                 </div>
             </div>
 
@@ -154,7 +167,6 @@
                 </div>
                 <img src="rentproduct.png" alt="Smart Gate Leasing" class="product-img">
                 <div class="card-content">
-                 
                     <h3>บริการเช่าใช้ประตูอัตโนมัติ</h3>
                     <p>ความปลอดภัยระดับพรีเมียม ในราคาที่เข้าถึงง่าย</p>
                     <ul>
@@ -163,6 +175,9 @@
                         <li>พร้อมระบบ Dashboard ติดตามข้อมูลการเข้า-ออก</li>
                         <li>ดูแลรักษาฟรีตลอดอายุสัญญาเช่า</li>
                     </ul>
+                    <div style="text-align: center;">
+                        <a href="rental-solutions.html" class="btn-primary" style="background: var(--gzk-blue);">ดูรายละเอียดการเช่า</a>
+                    </div>
                 </div>
             </div>
 
@@ -171,7 +186,7 @@
 
     <footer>
         <p>© 2026 GZK Co., Ltd. | Flowing Secure Path.</p>
-        <p>เขตจตุจักร กรุงเทพมหานคร</p>
+        <p>สำนักงานใหญ่: เขตจตุจักร กรุงเทพมหานคร</p>
     </footer>
 </body>
 </html>
