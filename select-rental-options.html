@@ -8,33 +8,20 @@
     <style>
         :root { --gzk-red: #e74c3c; --gzk-blue: #2c3e50; --gzk-light: #f8f9fa; }
         body { margin: 0; font-family: 'Sarabun', sans-serif; background: var(--gzk-light); color: #333; }
-        
         header { background: white; text-align: center; padding: 20px; border-bottom: 4px solid var(--gzk-blue); }
         .logo-container img { max-width: 220px; }
-
         .container { max-width: 800px; margin: 40px auto; padding: 0 20px; }
         .step-box { background: white; padding: 40px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
-        
         h2 { color: var(--gzk-blue); text-align: center; margin-bottom: 30px; }
         .step-title { font-weight: bold; font-size: 1.2rem; color: var(--gzk-red); margin-bottom: 20px; display: block; }
-
-        /* Grid Selection */
         .options-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-bottom: 30px; }
-        
-        .option-card {
-            border: 2px solid #eee; border-radius: 10px; padding: 20px; text-align: center; cursor: pointer; transition: 0.3s;
-        }
+        .option-card { border: 2px solid #eee; border-radius: 10px; padding: 20px; text-align: center; cursor: pointer; transition: 0.3s; }
         .option-card img { width: 100%; height: 120px; object-fit: contain; margin-bottom: 10px; }
         .option-card:hover { border-color: var(--gzk-red); background: #fff5f5; }
         .option-card.selected { border-color: var(--gzk-red); background: #fff5f5; box-shadow: 0 0 10px rgba(231, 76, 60, 0.2); }
-
         .form-group { margin-bottom: 15px; }
         input, select, textarea { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 5px; box-sizing: border-box; }
-
-        .btn-submit { 
-            background: var(--gzk-red); color: white; border: none; padding: 15px 40px; 
-            border-radius: 30px; font-weight: bold; font-size: 1.1rem; cursor: pointer; width: 100%; transition: 0.3s;
-        }
+        .btn-submit { background: var(--gzk-red); color: white; border: none; padding: 15px 40px; border-radius: 30px; font-weight: bold; font-size: 1.1rem; cursor: pointer; width: 100%; transition: 0.3s; }
         .btn-submit:hover { background: var(--gzk-blue); }
     </style>
 </head>
@@ -101,69 +88,69 @@
                     <textarea id="userNote" rows="3" placeholder="รายละเอียดเพิ่มเติมที่ต้องการให้เน้น"></textarea>
                 </div>
 
-                <input type="hidden" id="selectedGate" name="gate" required>
-                <input type="hidden" id="selectedAuth" name="auth" required>
+                <input type="hidden" id="selectedGate" name="gate">
+                <input type="hidden" id="selectedAuth" name="auth">
 
                 <button type="submit" class="btn-submit">ส่งข้อมูลขอใบเสนอราคา</button>
             </form>
         </div>
     </div>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-<script type="text/javascript">
-   (function(){
-      emailjs.init("HpXLI5vXNvaagLQTk"); 
-   })();
-</script>
 
-<script>
-    // ฟังก์ชันเลือกประเภทประตูและวิธีสแกน
-    function selectOption(type, value, element) {
-        const cards = element.parentElement.querySelectorAll('.option-card');
-        cards.forEach(card => card.classList.remove('selected'));
-        element.classList.add('selected');
-        
-        if(type === 'gate') document.getElementById('selectedGate').value = value;
-        if(type === 'auth') document.getElementById('selectedAuth').value = value;
-    }
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+       (function(){
+          emailjs.init("HpXLI5vXNvaagLQTk"); 
+       })();
+    </script>
 
-    // ฟังก์ชันส่งข้อมูลเมื่อกดปุ่ม
-    document.getElementById('rentalForm').onsubmit = function(e) {
-        e.preventDefault();
-        
-        const btn = document.querySelector('.btn-submit');
-        const gate = document.getElementById('selectedGate').value;
-        const auth = document.getElementById('selectedAuth').value;
-
-        // ตรวจสอบว่าเลือกครบหรือยัง
-        if(!gate || !auth) {
-            alert('กรุณาเลือกประเภทประตูและวิธีการแสดงตัวตนให้ครบถ้วนครับ');
-            return;
+    <script>
+        // 1. ฟังก์ชันเลือกตัวเลือก
+        function selectOption(type, value, element) {
+            const cards = element.parentElement.querySelectorAll('.option-card');
+            cards.forEach(card => card.classList.remove('selected'));
+            element.classList.add('selected');
+            
+            if(type === 'gate') document.getElementById('selectedGate').value = value;
+            if(type === 'auth') document.getElementById('selectedAuth').value = value;
         }
 
-        btn.innerHTML = "กำลังส่งข้อมูล...";
-        btn.disabled = true;
+        // 2. ฟังก์ชันส่ง Email
+        document.getElementById('rentalForm').onsubmit = function(e) {
+            e.preventDefault();
+            
+            const btn = document.querySelector('.btn-submit');
+            const gate = document.getElementById('selectedGate').value;
+            const auth = document.getElementById('selectedAuth').value;
 
-        // เตรียมข้อมูลให้ตรงกับ Template ใน EmailJS
-        const templateParams = {
-            user_name: document.getElementById('userName').value, 
-            user_email: document.getElementById('userEmail').value,
-            gate_type: gate,
-            auth_type: auth,
-            report_type: document.getElementById('reportType').value,
-            user_note: document.getElementById('userNote').value
+            if(!gate || !auth) {
+                alert('กรุณาเลือกประเภทประตูและวิธีการแสดงตัวตนให้ครบถ้วนครับ');
+                return;
+            }
+
+            btn.innerHTML = "กำลังส่งข้อมูล...";
+            btn.disabled = true;
+
+            const templateParams = {
+                user_name: document.getElementById('userName').value, 
+                user_email: document.getElementById('userEmail').value,
+                gate_type: gate,
+                auth_type: auth,
+                report_type: document.getElementById('reportType').value,
+                user_note: document.getElementById('userNote').value
+            };
+
+            emailjs.send('service_6uko1w5', 'template_j4veauh', templateParams)
+                .then(function(response) {
+                   console.log('SUCCESS!', response.status, response.text);
+                   alert('ส่งข้อมูลเรียบร้อยแล้ว! ทีมงาน GZK จะติดต่อกลับโดยเร็วที่สุดครับ');
+                   window.location.href = "index.html"; 
+                }, function(error) {
+                   console.log('FAILED...', error);
+                   alert('เกิดข้อผิดพลาด: ' + JSON.stringify(error));
+                   btn.innerHTML = "ส่งข้อมูลขอใบเสนอราคา";
+                   btn.disabled = false;
+                });
         };
-
-        // ส่งข้อมูล
-        emailjs.send('service_6uko1w5', 'template_j4veauh', templateParams)
-            .then(function(response) {
-               console.log('SUCCESS!', response.status, response.text);
-               alert('ส่งข้อมูลเรียบร้อยแล้ว! ทีมงาน GZK จะติดต่อกลับโดยเร็วที่สุดครับ');
-               window.location.href = "index.html"; 
-            }, function(error) {
-               console.log('FAILED...', error);
-               alert('เกิดข้อผิดพลาด: ' + JSON.stringify(error));
-               btn.innerHTML = "ส่งข้อมูลขอใบเสนอราคา";
-               btn.disabled = false;
-            });
-    };
-</script>
+    </script>
+</body>
+</html>
