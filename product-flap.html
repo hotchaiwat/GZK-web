@@ -16,18 +16,72 @@
         .container { max-width: 1100px; margin: 0 auto 40px; padding: 20px; }
         .page-title { color: var(--gzk-blue); border-left: 8px solid var(--gzk-red); padding-left: 15px; margin-bottom: 30px; }
 
-        .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
-        .product-card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.05); transition: 0.3s; display: flex; flex-direction: column; align-items: center;}
-        .product-card:hover { transform: translateY(-5px); box-shadow: 0 8px 25px rgba(0,0,0,0.1); outline: 2px solid var(--gzk-red); }
+        /* ปรับปรุง Grid ให้รองรับการยืดตัว */
+        .product-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+            gap: 25px; 
+            align-items: stretch; 
+        }
+
+        .product-card { 
+            background: white; 
+            border-radius: 12px; 
+            overflow: hidden; 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05); 
+            transition: 0.3s; 
+            display: flex; 
+            flex-direction: column; 
+            height: 100%;
+        }
         
-        .product-img { width: 100%; height: 250px; object-fit: contain; background: #fff; padding: 15px; border-bottom: 1px solid #eee; display: block;      /* บังคับให้เป็น block element */
-    margin: 0 auto;      /* จัดกึ่งกลางซ้าย-ขวา */ }
-        .product-info { padding: 20px; flex-grow: 1; text-align: center; }
+        .product-card:hover { transform: translateY(-5px); box-shadow: 0 8px 25px rgba(0,0,0,0.1); outline: 2px solid var(--gzk-red); }
+
+        /* แถบ CTA ใหม่ สีซอฟต์ลงและขนาดสมบูรณ์ */
+        .cta-banner {
+            background: rgba(44, 62, 80, 0.85); 
+            color: white; 
+            padding: 50px 20px; 
+            text-align: center; 
+            border-radius: 15px; 
+            margin-top: 30px;
+            grid-column: 1 / -1; 
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .product-img { width: 100%; height: 250px; object-fit: contain; background: #fff; padding: 15px; border-bottom: 1px solid #eee; display: block; margin: 0 auto; }
+        
+        .product-info { 
+            padding: 20px; 
+            flex-grow: 1; 
+            text-align: center; 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: space-between; 
+        }
+        
         .product-info h3 { margin: 0 0 10px; color: var(--gzk-blue); }
         .product-info p { font-size: 0.9rem; color: #666; margin-bottom: 15px; }
         
         .btn-inquiry { background: var(--gzk-blue); color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; font-weight: bold; transition: 0.3s; display: inline-block; }
         .btn-inquiry:hover { background: var(--gzk-red); }
+
+        .btn-cta {
+            background: var(--gzk-red); 
+            color: white; 
+            padding: 15px 35px; 
+            border-radius: 30px; 
+            text-decoration: none; 
+            font-weight: bold; 
+            font-size: 1.1rem; 
+            transition: 0.3s; 
+            display: inline-block;
+            margin-top: 15px;
+        }
+        .btn-cta:hover { background: white; color: var(--gzk-red); }
         
         footer { text-align: center; padding: 40px; color: #999; }
     </style>
@@ -37,7 +91,7 @@
         <img src="GZK_logo_with_slogan.jpg" alt="GZK" style="max-width: 180px;">
     </header>
 
-   <div class="nav-bar">
+    <div class="nav-bar">
         <a href="sale-categories.html">← กลับไปหมวดหมู่</a>
         <span style="color:#666;">หมวดหมู่: Flap Gate</span>
     </div>
@@ -50,8 +104,10 @@
             <div class="product-card">
                 <img src="ds-q30-main.jpg" alt="DS-Q30" class="product-img">
                 <div class="product-info">
-                    <h3>DS-Q30 High Speed</h3>
-                    <p>ดีไซน์ที่ดู Futuristic, ความเร็วในการเปิด-ปิด และ ระบบเซนเซอร์ที่แม่นยำ</p>
+                    <div>
+                        <h3>DS-Q30 High Speed</h3>
+                        <p>ดีไซน์ที่ดู Futuristic, ความเร็วในการเปิด-ปิด และ ระบบเซนเซอร์ที่แม่นยำ</p>
+                    </div>
                     <a href="detail-ds-q30.html" class="btn-inquiry" style="background: var(--gzk-red);">รายละเอียดสินค้า</a>
                 </div>
             </div>
@@ -59,8 +115,10 @@
             <div class="product-card">
                 <img src="dsn-30-main.jpg" alt="DSN-30" class="product-img">
                 <div class="product-info">
-                    <h3>DSN-30 Smart LED Line UP</h3>
-                    <p>โดดเด่นด้วยปีกใสและไฟ LED เปลี่ยนสีตามสถานะการเข้า-ออก</p>
+                    <div>
+                        <h3>DSN-30 Smart LED Line UP</h3>
+                        <p>โดดเด่นด้วยปีกใสและไฟ LED เปลี่ยนสีตามสถานะการเข้า-ออก</p>
+                    </div>
                     <a href="detail-dsn-30.html" class="btn-inquiry" style="background: var(--gzk-red);">รายละเอียดสินค้า</a>
                 </div>
             </div>
@@ -68,20 +126,23 @@
             <div class="product-card">
                 <img src="ds-312-main.jpg" alt="DS-312" class="product-img">
                 <div class="product-info">
-                    <h3>DS-312 Heavy Duty</h3>
-                    <p>โครงสร้างแข็งแรง มีดีไซน์โค้งมนพรีเมียม (Curved Design)</p>
+                    <div>
+                        <h3>DS-312 Heavy Duty</h3>
+                        <p>โครงสร้างแข็งแรง มีดีไซน์โค้งมนพรีเมียม (Curved Design)</p>
+                    </div>
                     <a href="detail-ds-312.html" class="btn-inquiry" style="background: var(--gzk-red);">รายละเอียดสินค้า</a>
                 </div>
             </div>
-<div style="background: var(--gzk-blue); color: white; padding: 40px 20px; text-align: center; border-radius: 15px; margin-top: 50px;">
-    <h3 style="margin-bottom: 10px;">สนใจสั่งซื้อหรือติดตั้งระบบ GZK Solution</h3>
-    <p style="margin-bottom: 25px; opacity: 0.9;">เลือกจัดสเปกเครื่องและรับใบเสนอราคาสำหรับติดตั้งถาวรได้ทันที</p>
-    <a href="select-newgate-options.html" style="background: var(--gzk-red); color: white; padding: 15px 35px; border-radius: 30px; text-decoration: none; font-weight: bold; font-size: 1.1rem; display: inline-block; transition: 0.3s;">
-        ขอใบเสนอราคาติดตั้งถาวร
-    </a>
-</div>
-        </div>
-    </div>
+
+            <div class="cta-banner">
+                <h3 style="margin-bottom: 10px;">สนใจสั่งซื้อหรือติดตั้งระบบ GZK Solution</h3>
+                <p style="margin-bottom: 10px; opacity: 0.9;">เลือกจัดสเปกเครื่องและรับใบเสนอราคาสำหรับติดตั้งถาวรได้ทันที</p>
+                <a href="select-newgate-options.html" class="btn-cta">
+                    ขอใบเสนอราคาติดตั้งถาวร
+                </a>
+            </div>
+
+        </div> </div>
 
     <footer>© 2026 GZK Co., Ltd. | Flowing Secure Path.</footer>
 </body>
