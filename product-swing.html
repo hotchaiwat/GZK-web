@@ -19,7 +19,20 @@
         .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
         .product-card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.05); transition: 0.3s; display: flex; flex-direction: column; align-items: center; }
         .product-card:hover { transform: translateY(-5px); box-shadow: 0 8px 25px rgba(0,0,0,0.1); outline: 2px solid var(--gzk-red); }
-        
+        /* แถบ CTA ใหม่ที่สีซอฟต์ลงและขนาดสมดุล */
+.cta-banner {
+    background: rgba(44, 62, 80, 0.9); /* สีน้ำเงิน GZK แบบลดความเข้ม */
+    color: white; 
+    padding: 40px 20px; 
+    text-align: center; 
+    border-radius: 15px; 
+    margin-top: 30px;
+    grid-column: 1 / -1; /* ขยายกว้างเท่าแนวสินค้า */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
         .product-img { width: 100%; height: 250px; object-fit: contain; background: #fff; padding: 15px; border-bottom: 1px solid #eee; display: block;      /* บังคับให้เป็น block element */
     margin: 0 auto;      /* จัดกึ่งกลางซ้าย-ขวา */}
         .product-info { padding: 20px; flex-grow: 1; text-align: center; }
@@ -82,7 +95,7 @@
                     <a href="detail-ds-8000.html" class="btn-inquiry" style="background: var(--gzk-red);">รายละเอียดสินค้า</a>
                 </div>
             </div>
-       <div style="background: var(--gzk-blue); color: white; padding: 80px 20px; text-align: center; border-radius: 15px; margin-top: 50px;">
+       <div style="background: var(--gzk-blue); color: white; padding: 40px 20px; text-align: center; border-radius: 15px; margin-top: 50px;">
     <h3 style="margin-bottom: 10px;">สนใจสั่งซื้อหรือติดตั้งระบบ GZK Solution</h3>
     <p style="margin-bottom: 25px; opacity: 0.9;">เลือกจัดสเปกเครื่องและรับใบเสนอราคาสำหรับติดตั้งถาวรได้ทันที</p>
     <a href="select-newgate-options.html" style="background: var(--gzk-red); color: white; padding: 15px 35px; border-radius: 30px; text-decoration: none; font-weight: bold; font-size: 1.1rem; display: inline-block; transition: 0.3s;">
