@@ -35,43 +35,45 @@
 
     <div class="container">
         <div class="step-box">
-            <h2>ออกแบบโซลูชันการเช่าของคุณ</h2>
+            <h2>ออกแบบโซลูชันรูปแบบการเช่าของคุณ</h2>
             
             <form id="rentalForm">
                 <span class="step-title">ขั้นตอนที่ 1: เลือกประเภทประตู</span>
                 <div class="options-grid">
+                    <div class="option-card" onclick="selectOption('gate', 'Tripod Turnstile', this)">
+                        <img src="select-turn.jpg" alt="Tripod">
+                        <p>Tripod Turnstile</p>
+                    </div>
                     <div class="option-card" onclick="selectOption('gate', 'Swing Gate', this)">
-                        <img src="ds-312-main.jpg" alt="Swing Gate">
+                        <img src="select-swing.jpg" alt="Swing Gate">
                         <p>Swing Gate</p>
                     </div>
                     <div class="option-card" onclick="selectOption('gate', 'Flap Barrier', this)">
-                        <img src="dsn-30-main.jpg" alt="Flap Barrier">
+                        <img src="select-flap.jpg" alt="Flap Barrier">
                         <p>Flap Barrier</p>
                     </div>
-                    <div class="option-card" onclick="selectOption('gate', 'Tripod Turnstile', this)">
-                        <img src="ds-q30-main.jpg" alt="Tripod">
-                        <p>Tripod Turnstile</p>
-                    </div>
+                    
                 </div>
 
                 <span class="step-title">ขั้นตอนที่ 2: เลือกวิธีการแสดงตัวตน</span>
                 <div class="options-grid">
                     <div class="option-card" onclick="selectOption('auth', 'Face Recognition', this)">
-                        <p>สแกนใบหน้า (AI)</p>
+                        <p>Face Scan (AI)</p>
                     </div>
                     <div class="option-card" onclick="selectOption('auth', 'QR Code / Mobile', this)">
-                        <p>QR Code / มือถือ</p>
+                        <p>QR Code / QR on Mobile</p>
                     </div>
                     <div class="option-card" onclick="selectOption('auth', 'RFID Card', this)">
-                        <p>บัตร RFID</p>
+                        <p>Card RFID</p>
                     </div>
                 </div>
 
                 <span class="step-title">ขั้นตอนที่ 3: เลือกรูปแบบรายงาน</span>
                 <select id="reportType" required>
                     <option value="">-- เลือกรูปแบบรายงาน --</option>
-                    <option value="Daily Excel">สรุปรายวัน (Excel)</option>
-                    <option value="Real-time Cloud">Real-time Cloud Dashboard</option>
+                    <option value="Daily Excel">สรุปรายวัน (Excel) เพื่อส่งเข้า Payroll</option>
+                    <option value="Daily Time Attendance">สรุปรายงานตามแบบฟอร์มระบบ Payroll</option>
+                    <option value="Real-time Cloud">Real-time Cloud Dashboard พร้อมรายงาน</option>
                     <option value="Custom API">เชื่อมต่อกับระบบเดิม (API)</option>
                 </select>
 
