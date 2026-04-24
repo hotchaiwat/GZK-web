@@ -24,7 +24,6 @@
         label { display: block; margin-bottom: 8px; font-weight: bold; color: var(--gzk-blue); }
         input, select, textarea { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; box-sizing: border-box; font-family: 'Sarabun', sans-serif; font-size: 1rem; }
         
-        /* Image Preview Area */
         #imagePreviewContainer { 
             background: #f1f3f5; padding: 20px; border-radius: 10px; text-align: center; 
             margin-top: 10px; border: 1px dashed #ccc; min-height: 100px;
@@ -59,25 +58,22 @@
                 <div class="form-group">
                     <select id="productSelect" onchange="updateProductImage()" required>
                         <option value="">-- กรุณาเลือกรุ่นประตู --</option>
-                        
                         <optgroup label="Tripod Turnstile (เครื่องหมุนสามขา)">
-                            <option value="DS-Q30" data-img="ds-q30-main.jpg">Tripod Turnstile - รุ่น DS-Q30</option>
-                            <option value="Model-T2" data-img="t2-image.jpg">Tripod Turnstile - รุ่น T2</option>
-                            <option value="Model-T3" data-img="t3-image.jpg">Tripod Turnstile - รุ่น T3</option>
-                            <option value="Model-T4" data-img="t4-image.jpg">Tripod Turnstile - รุ่น T4</option>
+                            <option value="DS-Q10" data-img="ds-q10-angle3.jpg">Tripod Turnstile - รุ่น DS-Q10</option>
+                            <option value="DSN-10" data-img="DSN-10.jpg">Tripod Turnstile - รุ่น DSN-10</option>
+                            <option value="DS-112" data-img="ds-112-main.jpg">Tripod Turnstile - รุ่น DS-112</option>
+                            <option value="DS-Q50" data-img="ds-q50-angle3.jpg">Tripod Turnstile - รุ่น DS-Q50</option>
                         </optgroup>
-
                         <optgroup label="Swing Gate (ประตูปีกสวิง)">
-                            <option value="DS-312" data-img="ds-312-main.jpg">Swing Gate - รุ่น DS-312</option>
-                            <option value="Model-S2" data-img="s2-image.jpg">Swing Gate - รุ่น S2</option>
-                            <option value="Model-S3" data-img="s3-image.jpg">Swing Gate - รุ่น S3</option>
-                            <option value="Model-S4" data-img="s4-image.jpg">Swing Gate - รุ่น S4</option>
+                            <option value="DS-Q20" data-img="ds-q20-main.jpg">Swing Gate - รุ่น DS-Q20</option>
+                            <option value="DSN-20" data-img="dsn-20-main.jpg">Swing Gate - รุ่น DSN-20</option>
+                            <option value="DS-212" data-img="ds-212-main.jpg">Swing Gate - รุ่น DS-212</option>
+                            <option value="DS-8000" data-img="ds-8000-main.jpg">Swing Gate - รุ่น DS-8000</option>
                         </optgroup>
-
                         <optgroup label="Flap Barrier (ประตูปีกกั้น)">
+                            <option value="DS-Q30" data-img="ds-q30-main.jpg">Flap Barrier - รุ่น DS-Q30</option>
                             <option value="DSN-30" data-img="dsn-30-main.jpg">Flap Barrier - รุ่น DSN-30</option>
-                            <option value="Model-F2" data-img="f2-image.jpg">Flap Barrier - รุ่น F2</option>
-                            <option value="Model-F3" data-img="f3-image.jpg">Flap Barrier - รุ่น F3</option>
+                            <option value="DS-312" data-img="ds-312-main.jpg">Flap Barrier - รุ่น DS-312</option>
                         </optgroup>
                     </select>
                 </div>
@@ -103,7 +99,22 @@
 
                 <hr>
 
-                <span class="step-title">ขั้นตอนที่ 3: ข้อมูลผู้ติดต่อ</span>
+                <span class="step-title">ขั้นตอนที่ 3: ประเภทรายงานที่ต้องการ (Reporting)</span>
+                <div class="form-group">
+                    <select id="reportType" required>
+                        <option value="">-- เลือกรูปแบบรายงาน --</option>
+                        <option value="Standard Access Logs">รายงานเข้า-ออกพื้นฐาน (Access Logs)</option>
+                        <option value="Time Attendance">รายงานลงเวลาทำงาน (Time Attendance)</option>
+                        <option value="Visitor Management">รายงานผู้มาติดต่อ (Visitor Report)</option>
+                        <option value="Cloud Real-time">ดูรายงานออนไลน์ Real-time ผ่าน Cloud</option>
+                        <option value="Custom API">เชื่อมต่อข้อมูลผ่าน API (Custom)</option>
+                        <option value="No Report">ไม่ต้องการระบบรายงาน</option>
+                    </select>
+                </div>
+
+                <hr>
+
+                <span class="step-title">ขั้นตอนที่ 4: ข้อมูลผู้ติดต่อ</span>
                 <div class="form-group">
                     <input type="text" id="userName" placeholder="ชื่อผู้ติดต่อ / ชื่อบริษัท" required>
                 </div>
@@ -130,7 +141,6 @@
     </script>
 
     <script>
-        // ฟังก์ชันเปลี่ยนรูป Preview
         function updateProductImage() {
             const select = document.getElementById('productSelect');
             const preview = document.getElementById('productPreview');
@@ -148,7 +158,6 @@
             }
         }
 
-        // ฟังก์ชันส่ง Email
         document.getElementById('saleForm').onsubmit = function(e) {
             e.preventDefault();
             
@@ -160,15 +169,14 @@
                 user_name: document.getElementById('userName').value, 
                 user_email: document.getElementById('userEmail').value,
                 user_phone: document.getElementById('userPhone').value,
-                product_model: document.getElementById('productSelect').value, // รุ่นประตูที่เลือก
+                product_model: document.getElementById('productSelect').value,
                 auth_type: document.getElementById('authType').value,
+                report_type: document.getElementById('reportType').value, // เพิ่มค่ารายงานส่งไปยัง EmailJS
                 user_note: document.getElementById('userNote').value
             };
 
-            // --- [จุดสำคัญที่ต้องเปลี่ยน!] ---
-            // 1. service_6uko1w5 (ใช้ตัวเดิม)
-            // 2. เปลี่ยน 'template_ID' ให้เป็น Template ID ใหม่ที่คุณสร้างสำหรับงานขาย
-            emailjs.send('template_mkty7jo', 'ใส่_TEMPLATE_ID_ใหม่ตรงนี้ครับ', templateParams)
+            // ใช้ Service ID เดิม และอย่าลืมใส่ Template ID ใหม่ที่คุณ Kevin สร้างไว้ครับ
+            emailjs.send('service_6uko1w5', 'ใส่_TEMPLATE_ID_ใหม่ตรงนี้ครับ', templateParams)
                 .then(function(response) {
                    alert('ส่งคำขอใบเสนอราคาเรียบร้อยแล้ว! ทีมงาน GZK จะติดต่อกลับพร้อมข้อมูลภายใน 24 ชม.');
                    window.location.href = "index.html"; 
