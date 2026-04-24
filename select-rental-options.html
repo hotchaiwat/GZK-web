@@ -85,6 +85,9 @@
                     <input type="email" id="userEmail" placeholder="อีเมลของคุณ" required>
                 </div>
                 <div class="form-group">
+    <input type="tel" id="userPhone" placeholder="เบอร์โทรศัพท์ติดต่อกลับ" required>
+</div>
+                <div class="form-group">
                     <textarea id="userNote" rows="3" placeholder="รายละเอียดเพิ่มเติมที่ต้องการให้เน้น"></textarea>
                 </div>
 
@@ -133,6 +136,7 @@
             const templateParams = {
                 user_name: document.getElementById('userName').value, 
                 user_email: document.getElementById('userEmail').value,
+                user_phone: document.getElementById('userPhone').value, // เพิ่มบรรทัดนี้
                 gate_type: gate,
                 auth_type: auth,
                 report_type: document.getElementById('reportType').value,
