@@ -108,46 +108,63 @@
             </form>
         </div>
     </div>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+<script type="text/javascript">
+   (function(){
+      emailjs.init("HpXLI5vXNvaagLQTk"); // ใส่ Public Key ของคุณตรงนี้
+   })();
+</script>
 
-    <script>
-        // ฟังก์ชันเลือก Option แบบ Visual
-        function selectOption(type, value, element) {
-            // ลบ class selected ในกลุ่มเดียวกันออกก่อน
-            const cards = element.parentElement.querySelectorAll('.option-card');
-            cards.forEach(card => card.classList.remove('selected'));
-            
-            // เพิ่ม class selected ให้ตัวที่กด
-            element.classList.add('selected');
-            
-            // เก็บค่าเข้า hidden input
-            if(type === 'gate') document.getElementById('selectedGate').value = value;
-            if(type === 'auth') document.getElementById('selectedAuth').value = value;
+<script>
+    function selectOption(type, value, element) {
+        const cards = element.parentElement.querySelectorAll('.option-card');
+        cards.forEach(card => card.classList.remove('selected'));
+        element.classList.add('selected');
+        
+        if(type === 'gate') document.getElementById('selectedGate').value = value;
+        if(type === 'auth') document.getElementById('selectedAuth').value = value;
+    }
+
+    document.getElementById('rentalForm').onsubmit = function(e) {
+        e.preventDefault();
+        
+        const btn = document.querySelector('.btn-submit');
+        const gate = document.getElementById('selectedGate').value;
+        const auth = document.getElementById('selectedAuth').value;
+
+        if(!gate || !auth) {
+            alert('กรุณาเลือกประเภทประตูและวิธีการแสดงตัวตนให้ครบถ้วนครับ');
+            return;
         }
 
-        // ระบบส่งข้อมูล (จำลองการส่งเข้า Email ด้วยการเปิด Email Client)
-        document.getElementById('rentalForm').onsubmit = function(e) {
-            e.preventDefault();
-            
-            const gate = document.getElementById('selectedGate').value;
-            const auth = document.getElementById('selectedAuth').value;
-            const report = document.getElementById('reportType').value;
-            const name = document.getElementById('userName').value;
-            const note = document.getElementById('userNote').value;
+        // เปลี่ยนข้อความปุ่มระหว่างส่ง
+        btn.innerHTML = "กำลังส่งข้อมูล...";
+        btn.disabled = true;
 
-            if(!gate || !auth) {
-                alert('กรุณาเลือกประเภทประตูและวิธีการแสดงตัวตนให้ครบถ้วนครับ');
-                return;
-            }
-
-            // สร้างลิงก์ส่งเมล์ (mailto)
-            const subject = "สนใจเช่าโซลูชันจาก GZK - " + name;
-            const body = `รายละเอียดที่เลือก:\n- ประตู: ${gate}\n- การแสดงตัวตน: ${auth}\n- รูปแบบรายงาน: ${report}\n\nข้อมูลติดต่อ:\nชื่อ: ${name}\nหมายเหตุ: ${note}`;
-            
-            window.location.href = `mailto:sales@gzk.co.th?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-            
-            alert('ระบบกำลังเปิดโปรแกรม Email เพื่อส่งข้อมูลหาเราครับ');
+        // เตรียมข้อมูลส่งเข้า EmailJS (ชื่อต้องตรงกับใน Template ที่ตั้งไว้)
+        const templateParams = {
+            user_name: document.getElementById('userName').value,
+            user_email: document.getElementById('userEmail').value,
+            gate_type: gate,
+            auth_type: auth,
+            report_type: document.getElementById('reportType').value,
+            user_note: document.getElementById('userNote').value
         };
-    </script>
 
+        // ส่งข้อมูล
+        emailjs.send('service_6uko1w5', 'template_j4veauh', templateParams)
+            .then(function(response) {
+               console.log('SUCCESS!', response.status, response.text);
+               alert('ส่งข้อมูลเรียบร้อยแล้ว! ทีมงาน GZK จะติดต่อกลับโดยเร็วที่สุดครับ');
+               window.location.href = "index.html"; // ส่งเสร็จแล้วกลับหน้าแรก
+            }, function(error) {
+               console.log('FAILED...', error);
+               alert('เกิดข้อผิดพลาดในการส่งข้อมูล กรุณาลองใหม่อีกครั้งครับ');
+               btn.innerHTML = "ส่งข้อมูลขอใบเสนอราคา";
+               btn.disabled = false;
+            });
+    };
+</script>
+    
 </body>
 </html>
