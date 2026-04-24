@@ -143,12 +143,12 @@
 
         // เตรียมข้อมูลส่งเข้า EmailJS (ชื่อต้องตรงกับใน Template ที่ตั้งไว้)
         const templateParams = {
-            user_name: document.getElementById('userName').value,
-            user_email: document.getElementById('userEmail').value,
-            gate_type: gate,
-            auth_type: auth,
-            report_type: document.getElementById('reportType').value,
-            user_note: document.getElementById('userNote').value
+            user_name: document.getElementById('user_name').value,
+            user_email: document.getElementById('user_email').value,
+            gate_type: gate_type,
+            auth_type: auth_type,
+            report_type: document.getElementById('report_type').value,
+            user_note: document.getElementById('user_note').value
         };
 
         // ส่งข้อมูล
