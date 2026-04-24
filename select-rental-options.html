@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>เลือกโซลูชันการเช่า | GZK Co., Ltd.</title>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root { --gzk-red: #e74c3c; --gzk-blue: #2c3e50; --gzk-light: #f8f9fa; }
+        body { margin: 0; font-family: 'Sarabun', sans-serif; background: var(--gzk-light); color: #333; }
+        
+        header { background: white; text-align: center; padding: 20px; border-bottom: 4px solid var(--gzk-blue); }
+        .logo-container img { max-width: 220px; }
+
+        .container { max-width: 800px; margin: 40px auto; padding: 0 20px; }
+        .step-box { background: white; padding: 40px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        
+        h2 { color: var(--gzk-blue); text-align: center; margin-bottom: 30px; }
+        .step-title { font-weight: bold; font-size: 1.2rem; color: var(--gzk-red); margin-bottom: 20px; display: block; }
+
+        /* Grid Selection */
+        .options-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-bottom: 30px; }
+        
+        .option-card {
+            border: 2px solid #eee; border-radius: 10px; padding: 20px; text-align: center; cursor: pointer; transition: 0.3s;
+        }
+        .option-card img { width: 100%; height: 120px; object-fit: contain; margin-bottom: 10px; }
+        .option-card:hover { border-color: var(--gzk-red); background: #fff5f5; }
+        .option-card.selected { border-color: var(--gzk-red); background: #fff5f5; box-shadow: 0 0 10px rgba(231, 76, 60, 0.2); }
+
+        .form-group { margin-bottom: 15px; }
+        input, select, textarea { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 5px; box-sizing: border-box; }
+
+        .btn-submit { 
+            background: var(--gzk-red); color: white; border: none; padding: 15px 40px; 
+            border-radius: 30px; font-weight: bold; font-size: 1.1rem; cursor: pointer; width: 100%; transition: 0.3s;
+        }
+        .btn-submit:hover { background: var(--gzk-blue); }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-container">
+            <a href="index.html"><img src="GZK_logo_with_slogan.jpg" alt="GZK"></a>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="step-box">
+            <h2>ออกแบบโซลูชันการเช่าของคุณ</h2>
+            
+            <form id="rentalForm">
+                <span class="step-title">ขั้นตอนที่ 1: เลือกประเภทประตู</span>
+                <div class="options-grid">
+                    <div class="option-card" onclick="selectOption('gate', 'Swing Gate', this)">
+                        <img src="ds-312-main.jpg" alt="Swing Gate">
+                        <p>Swing Gate</p>
+                    </div>
+                    <div class="option-card" onclick="selectOption('gate', 'Flap Barrier', this)">
+                        <img src="dsn-30-main.jpg" alt="Flap Barrier">
+                        <p>Flap Barrier</p>
+                    </div>
+                    <div class="option-card" onclick="selectOption('gate', 'Tripod Turnstile', this)">
+                        <img src="ds-q30-main.jpg" alt="Tripod">
+                        <p>Tripod Turnstile</p>
+                    </div>
+                </div>
+
+                <span class="step-title">ขั้นตอนที่ 2: เลือกวิธีการแสดงตัวตน</span>
+                <div class="options-grid">
+                    <div class="option-card" onclick="selectOption('auth', 'Face Recognition', this)">
+                        <p>สแกนใบหน้า (AI)</p>
+                    </div>
+                    <div class="option-card" onclick="selectOption('auth', 'QR Code / Mobile', this)">
+                        <p>QR Code / มือถือ</p>
+                    </div>
+                    <div class="option-card" onclick="selectOption('auth', 'RFID Card', this)">
+                        <p>บัตร RFID</p>
+                    </div>
+                </div>
+
+                <span class="step-title">ขั้นตอนที่ 3: เลือกรูปแบบรายงาน</span>
+                <select id="reportType" required>
+                    <option value="">-- เลือกรูปแบบรายงาน --</option>
+                    <option value="Daily Excel">สรุปรายวัน (Excel)</option>
+                    <option value="Real-time Cloud">Real-time Cloud Dashboard</option>
+                    <option value="Custom API">เชื่อมต่อกับระบบเดิม (API)</option>
+                </select>
+
+                <hr style="margin: 30px 0; border: 0; border-top: 1px solid #eee;">
+
+                <span class="step-title">ขั้นตอนที่ 4: ข้อมูลติดต่อกลับ</span>
+                <div class="form-group">
+                    <input type="text" id="userName" placeholder="ชื่อผู้ติดต่อ / ชื่อบริษัท" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" id="userEmail" placeholder="อีเมลของคุณ" required>
+                </div>
+                <div class="form-group">
+                    <textarea id="userNote" rows="3" placeholder="รายละเอียดเพิ่มเติมที่ต้องการให้เน้น"></textarea>
+                </div>
+
+                <input type="hidden" id="selectedGate" name="gate" required>
+                <input type="hidden" id="selectedAuth" name="auth" required>
+
+                <button type="submit" class="btn-submit">ส่งข้อมูลขอใบเสนอราคา</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // ฟังก์ชันเลือก Option แบบ Visual
+        function selectOption(type, value, element) {
+            // ลบ class selected ในกลุ่มเดียวกันออกก่อน
+            const cards = element.parentElement.querySelectorAll('.option-card');
+            cards.forEach(card => card.classList.remove('selected'));
+            
+            // เพิ่ม class selected ให้ตัวที่กด
+            element.classList.add('selected');
+            
+            // เก็บค่าเข้า hidden input
+            if(type === 'gate') document.getElementById('selectedGate').value = value;
+            if(type === 'auth') document.getElementById('selectedAuth').value = value;
+        }
+
+        // ระบบส่งข้อมูล (จำลองการส่งเข้า Email ด้วยการเปิด Email Client)
+        document.getElementById('rentalForm').onsubmit = function(e) {
+            e.preventDefault();
+            
+            const gate = document.getElementById('selectedGate').value;
+            const auth = document.getElementById('selectedAuth').value;
+            const report = document.getElementById('reportType').value;
+            const name = document.getElementById('userName').value;
+            const note = document.getElementById('userNote').value;
+
+            if(!gate || !auth) {
+                alert('กรุณาเลือกประเภทประตูและวิธีการแสดงตัวตนให้ครบถ้วนครับ');
+                return;
+            }
+
+            // สร้างลิงก์ส่งเมล์ (mailto)
+            const subject = "สนใจเช่าโซลูชันจาก GZK - " + name;
+            const body = `รายละเอียดที่เลือก:\n- ประตู: ${gate}\n- การแสดงตัวตน: ${auth}\n- รูปแบบรายงาน: ${report}\n\nข้อมูลติดต่อ:\nชื่อ: ${name}\nหมายเหตุ: ${note}`;
+            
+            window.location.href = `mailto:sales@gzk.co.th?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+            
+            alert('ระบบกำลังเปิดโปรแกรม Email เพื่อส่งข้อมูลหาเราครับ');
+        };
+    </script>
+
+</body>
+</html>
