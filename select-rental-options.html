@@ -108,7 +108,15 @@
             </form>
         </div>
     </div>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+<script type="text/javascript">
+   (function(){
+      emailjs.init("HpXLI5vXNvaagLQTk"); 
+   })();
+</script>
+
 <script>
+    // ฟังก์ชันเลือกประเภทประตูและวิธีสแกน
     function selectOption(type, value, element) {
         const cards = element.parentElement.querySelectorAll('.option-card');
         cards.forEach(card => card.classList.remove('selected'));
@@ -118,6 +126,7 @@
         if(type === 'auth') document.getElementById('selectedAuth').value = value;
     }
 
+    // ฟังก์ชันส่งข้อมูลเมื่อกดปุ่ม
     document.getElementById('rentalForm').onsubmit = function(e) {
         e.preventDefault();
         
@@ -125,6 +134,7 @@
         const gate = document.getElementById('selectedGate').value;
         const auth = document.getElementById('selectedAuth').value;
 
+        // ตรวจสอบว่าเลือกครบหรือยัง
         if(!gate || !auth) {
             alert('กรุณาเลือกประเภทประตูและวิธีการแสดงตัวตนให้ครบถ้วนครับ');
             return;
@@ -133,7 +143,7 @@
         btn.innerHTML = "กำลังส่งข้อมูล...";
         btn.disabled = true;
 
-        // --- จุดที่แก้ไข: ดึงค่าจาก ID ให้ตรงกับ HTML ด้านบน ---
+        // เตรียมข้อมูลให้ตรงกับ Template ใน EmailJS
         const templateParams = {
             user_name: document.getElementById('userName').value, 
             user_email: document.getElementById('userEmail').value,
@@ -143,7 +153,7 @@
             user_note: document.getElementById('userNote').value
         };
 
-        // ส่งข้อมูลผ่าน EmailJS
+        // ส่งข้อมูล
         emailjs.send('service_6uko1w5', 'template_j4veauh', templateParams)
             .then(function(response) {
                console.log('SUCCESS!', response.status, response.text);
@@ -156,20 +166,4 @@
                btn.disabled = false;
             });
     };
-</script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-<script type="text/javascript">
-   (function(){
-      emailjs.init("HpXLI5vXNvaagLQTk"); 
-   })();
-</script>
-
-<script>
-    function selectOption(type, value, element) {
-        // ... โค้ดเลือก Option ...
-    }
-
-    document.getElementById('rentalForm').onsubmit = function(e) {
-        // ... โค้ดที่ดึงค่า userName, userEmail ที่ผมแก้ให้ล่าสุด ...
-    }
 </script>
