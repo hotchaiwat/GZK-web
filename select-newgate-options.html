@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ขอใบเสนอราคาติดตั้งถาวร | GZK Co., Ltd.</title>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root { --gzk-red: #e74c3c; --gzk-blue: #2c3e50; --gzk-light: #f8f9fa; }
+        body { margin: 0; font-family: 'Sarabun', sans-serif; background: var(--gzk-light); color: #333; }
+        
+        header { background: white; text-align: center; padding: 20px; border-bottom: 4px solid var(--gzk-blue); }
+        .logo-container img { max-width: 220px; }
+
+        .container { max-width: 800px; margin: 40px auto; padding: 0 20px; }
+        .step-box { background: white; padding: 40px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        
+        h2 { color: var(--gzk-blue); text-align: center; margin-bottom: 10px; }
+        p.subtitle { text-align: center; color: #666; margin-bottom: 30px; }
+        
+        .step-title { font-weight: bold; font-size: 1.1rem; color: var(--gzk-red); margin-bottom: 15px; display: block; border-left: 4px solid var(--gzk-red); padding-left: 10px; }
+
+        .form-group { margin-bottom: 20px; }
+        label { display: block; margin-bottom: 8px; font-weight: bold; color: var(--gzk-blue); }
+        input, select, textarea { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; box-sizing: border-box; font-family: 'Sarabun', sans-serif; font-size: 1rem; }
+        
+        /* Image Preview Area */
+        #imagePreviewContainer { 
+            background: #f1f3f5; padding: 20px; border-radius: 10px; text-align: center; 
+            margin-top: 10px; border: 1px dashed #ccc; min-height: 100px;
+        }
+        #productPreview { max-height: 250px; max-width: 100%; border-radius: 5px; display: none; margin: 0 auto; }
+
+        .btn-submit { 
+            background: var(--gzk-red); color: white; border: none; padding: 18px; 
+            border-radius: 35px; font-weight: bold; font-size: 1.2rem; cursor: pointer; 
+            width: 100%; transition: 0.3s; margin-top: 20px;
+        }
+        .btn-submit:hover { background: var(--gzk-blue); box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        
+        hr { border: 0; border-top: 1px solid #eee; margin: 30px 0; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-container">
+            <a href="index.html"><img src="GZK_logo_with_slogan.jpg" alt="GZK"></a>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="step-box">
+            <h2>ขอใบเสนอราคาติดตั้งถาวร</h2>
+            <p class="subtitle">เลือกสเปกสินค้าที่ต้องการเพื่อให้เจ้าหน้าที่จัดทำใบเสนอราคา</p>
+            
+            <form id="saleForm">
+                <span class="step-title">ขั้นตอนที่ 1: เลือกรุ่นประตูที่สนใจ</span>
+                <div class="form-group">
+                    <select id="productSelect" onchange="updateProductImage()" required>
+                        <option value="">-- กรุณาเลือกรุ่นประตู --</option>
+                        
+                        <optgroup label="Tripod Turnstile (เครื่องหมุนสามขา)">
+                            <option value="DS-Q30" data-img="ds-q30-main.jpg">Tripod Turnstile - รุ่น DS-Q30</option>
+                            <option value="Model-T2" data-img="t2-image.jpg">Tripod Turnstile - รุ่น T2</option>
+                            <option value="Model-T3" data-img="t3-image.jpg">Tripod Turnstile - รุ่น T3</option>
+                            <option value="Model-T4" data-img="t4-image.jpg">Tripod Turnstile - รุ่น T4</option>
+                        </optgroup>
+
+                        <optgroup label="Swing Gate (ประตูปีกสวิง)">
+                            <option value="DS-312" data-img="ds-312-main.jpg">Swing Gate - รุ่น DS-312</option>
+                            <option value="Model-S2" data-img="s2-image.jpg">Swing Gate - รุ่น S2</option>
+                            <option value="Model-S3" data-img="s3-image.jpg">Swing Gate - รุ่น S3</option>
+                            <option value="Model-S4" data-img="s4-image.jpg">Swing Gate - รุ่น S4</option>
+                        </optgroup>
+
+                        <optgroup label="Flap Barrier (ประตูปีกกั้น)">
+                            <option value="DSN-30" data-img="dsn-30-main.jpg">Flap Barrier - รุ่น DSN-30</option>
+                            <option value="Model-F2" data-img="f2-image.jpg">Flap Barrier - รุ่น F2</option>
+                            <option value="Model-F3" data-img="f3-image.jpg">Flap Barrier - รุ่น F3</option>
+                        </optgroup>
+                    </select>
+                </div>
+
+                <div id="imagePreviewContainer">
+                    <p id="previewPlaceholder" style="color: #999;">ตัวอย่างรูปสินค้าจะปรากฏที่นี่เมื่อเลือกรุ่น</p>
+                    <img id="productPreview" src="" alt="Product Preview">
+                </div>
+
+                <hr>
+
+                <span class="step-title">ขั้นตอนที่ 2: วิธีการแสดงตัวตน (Access Control)</span>
+                <div class="form-group">
+                    <select id="authType" required>
+                        <option value="">-- เลือกประเภทการเข้าใช้งาน --</option>
+                        <option value="Face Recognition">สแกนใบหน้า (AI Face Recognition)</option>
+                        <option value="QR Code / Mobile">QR Code / มือถือ (E-Ticket)</option>
+                        <option value="RFID Card">บัตร RFID / บัตรพนักงาน</option>
+                        <option value="Fingerprint">สแกนลายนิ้วมือ</option>
+                        <option value="Mixed System">ระบบผสม (เช่น ใบหน้า + บัตร)</option>
+                    </select>
+                </div>
+
+                <hr>
+
+                <span class="step-title">ขั้นตอนที่ 3: ข้อมูลผู้ติดต่อ</span>
+                <div class="form-group">
+                    <input type="text" id="userName" placeholder="ชื่อผู้ติดต่อ / ชื่อบริษัท" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" id="userEmail" placeholder="อีเมล (สำหรับส่งใบเสนอราคา)" required>
+                </div>
+                <div class="form-group">
+                    <input type="tel" id="userPhone" placeholder="เบอร์โทรศัพท์ติดต่อกลับ" required>
+                </div>
+                <div class="form-group">
+                    <textarea id="userNote" rows="3" placeholder="ระบุจำนวนที่ต้องการติดตั้ง หรือ รายละเอียดหน้างานเพิ่มเติม"></textarea>
+                </div>
+
+                <button type="submit" class="btn-submit">ขอใบเสนอราคาติดตั้งถาวร</button>
+            </form>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+       (function(){
+          emailjs.init("HpXLI5vXNvaagLQTk"); 
+       })();
+    </script>
+
+    <script>
+        // ฟังก์ชันเปลี่ยนรูป Preview
+        function updateProductImage() {
+            const select = document.getElementById('productSelect');
+            const preview = document.getElementById('productPreview');
+            const placeholder = document.getElementById('previewPlaceholder');
+            const selectedOption = select.options[select.selectedIndex];
+            const imgSrc = selectedOption.getAttribute('data-img');
+
+            if (imgSrc) {
+                preview.src = imgSrc;
+                preview.style.display = 'block';
+                placeholder.style.display = 'none';
+            } else {
+                preview.style.display = 'none';
+                placeholder.style.display = 'block';
+            }
+        }
+
+        // ฟังก์ชันส่ง Email
+        document.getElementById('saleForm').onsubmit = function(e) {
+            e.preventDefault();
+            
+            const btn = document.querySelector('.btn-submit');
+            btn.innerHTML = "กำลังส่งคำขอ...";
+            btn.disabled = true;
+
+            const templateParams = {
+                user_name: document.getElementById('userName').value, 
+                user_email: document.getElementById('userEmail').value,
+                user_phone: document.getElementById('userPhone').value,
+                product_model: document.getElementById('productSelect').value, // รุ่นประตูที่เลือก
+                auth_type: document.getElementById('authType').value,
+                user_note: document.getElementById('userNote').value
+            };
+
+            // --- [จุดสำคัญที่ต้องเปลี่ยน!] ---
+            // 1. service_6uko1w5 (ใช้ตัวเดิม)
+            // 2. เปลี่ยน 'template_ID' ให้เป็น Template ID ใหม่ที่คุณสร้างสำหรับงานขาย
+            emailjs.send('template_mkty7jo', 'ใส่_TEMPLATE_ID_ใหม่ตรงนี้ครับ', templateParams)
+                .then(function(response) {
+                   alert('ส่งคำขอใบเสนอราคาเรียบร้อยแล้ว! ทีมงาน GZK จะติดต่อกลับพร้อมข้อมูลภายใน 24 ชม.');
+                   window.location.href = "index.html"; 
+                }, function(error) {
+                   alert('เกิดข้อผิดพลาด กรุณาลองใหม่อีกครั้ง');
+                   btn.innerHTML = "ขอใบเสนอราคาติดตั้งถาวร";
+                   btn.disabled = false;
+                });
+        };
+    </script>
+</body>
+</html>
