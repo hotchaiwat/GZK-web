@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>สำรวจสถานที่ติดตั้ง | GZK Co., Ltd.</title>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root { --gzk-red: #e74c3c; --gzk-blue: #2c3e50; --gzk-light: #f8f9fa; --gzk-orange: #ff6600; }
+        body { margin: 0; font-family: 'Sarabun', sans-serif; background: var(--gzk-light); color: #333; line-height: 1.6; }
+        
+        header { background: white; text-align: center; padding: 20px; border-bottom: 4px solid var(--gzk-blue); }
+        .container { max-width: 900px; margin: 40px auto; padding: 0 20px; }
+        
+        .hero-section { text-align: center; margin-bottom: 50px; }
+        .hero-section h1 { color: var(--gzk-blue); font-size: 2rem; margin-bottom: 15px; }
+        .hero-section p { color: #666; font-size: 1.1rem; max-width: 700px; margin: 0 auto; }
+
+        .guide-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin-bottom: 40px; }
+        .guide-card { background: white; padding: 30px; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); border-top: 5px solid var(--gzk-red); }
+        .guide-card h3 { color: var(--gzk-blue); margin-top: 0; display: flex; align-items: center; gap: 10px; }
+        .guide-card p { font-size: 0.95rem; color: #555; }
+
+        .highlight-box { background: var(--gzk-blue); color: white; padding: 30px; border-radius: 15px; margin-bottom: 40px; }
+        .highlight-box h3 { color: #ffcc00; margin-top: 0; }
+        .highlight-box ul { padding-left: 20px; }
+        .highlight-box li { margin-bottom: 10px; }
+
+        .cta-area { text-align: center; background: white; padding: 40px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); }
+        .btn-form { 
+            background: var(--gzk-orange); color: white; padding: 18px 40px; 
+            text-decoration: none; border-radius: 35px; font-weight: bold; 
+            font-size: 1.2rem; display: inline-block; transition: 0.3s;
+            box-shadow: 0 4px 15px rgba(255, 102, 0, 0.3);
+        }
+        .btn-form:hover { background: var(--gzk-red); transform: translateY(-3px); }
+        
+        .nav-back { margin-bottom: 20px; }
+        .nav-back a { text-decoration: none; color: var(--gzk-orange); font-weight: bold; display: flex; align-items: center; }
+
+        footer { text-align: center; padding: 40px; color: #999; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <img src="GZK_logo_with_slogan.jpg" alt="GZK" style="max-width: 180px;">
+    </header>
+
+    <div class="container">
+        <div class="nav-back">
+            <a href="index.html">← กลับหน้าหลัก</a>
+        </div>
+
+        <section class="hero-section">
+            <h1>เพราะการติดตั้งที่ "เหมาะสม" สำคัญพอๆ กับ "คุณภาพเครื่อง"</h1>
+            <p>เราไม่ได้แค่ขายเครื่องกั้น แต่เราช่วยคุณออกแบบ "ทางเดินที่ปลอดภัยและลื่นไหลที่สุด"</p>
+        </section>
+
+        <div class="guide-grid">
+            <div class="guide-card">
+                <h3>📍 พื้นที่ติดตั้ง (Environment)</h3>
+                <p>หน้างานอยู่ภายในอาคาร (Indoor) หรือภายนอก (Outdoor)? หากมีโอกาสโดนแดดจัดหรือละอองฝน เราจะแนะนำวัสดุ <b>Stainless 316</b> หรือ <b>Power Coating</b> ชนิดพิเศษเพื่อยืดอายุการใช้งาน</p>
+            </div>
+
+            <div class="guide-card">
+                <h3>👥 ปริมาณคน (Flow Rate)</h3>
+                <p>จำนวนผู้ใช้งานต่อวันคือเท่าไหร่? เพื่อกำหนดความเร็วของประตูกั้น (Opening Speed) และจำนวนช่องทางที่เหมาะสม ไม่ให้เกิดคอขวดสะสมในช่วงเวลาเร่งด่วน</p>
+            </div>
+
+            <div class="guide-card">
+                <h3>🚶 ทิศทางเดิน (Directional Flow)</h3>
+                <p>การกำหนดจุดเข้า-ออกที่ชัดเจน ช่วยลดอุบัติเหตุและเพิ่มความสะดวกในการคัดกรองบุคคล โดยเฉพาะพื้นที่ที่มีผู้มาติดต่อ (Visitor) สลับกับพนักงาน</p>
+            </div>
+        </div>
+
+        <div class="highlight-box">
+            <h3>🏭 กรณีศึกษา: การจัดการเวลาเข้า-เลิกงาน (Shift Management)</h3>
+            <p>สำหรับการติดตั้งในโรงงานอุตสาหกรรม เราให้ความสำคัญกับ <b>"เงื่อนไขเวลาจริง"</b> :</p>
+            <ul>
+                <li><b>ช่วงเข้างาน:</b> ระบบสามารถปรับให้ช่องทางส่วนใหญ่เป็น "ทางเข้า" เพื่อรองรับพนักงานจำนวนมากให้ทันเวลา</li>
+                <li><b>ช่วงเลิกงาน:</b> สลับทิศทางให้ช่องทางส่วนใหญ่เป็น "ทางออก" เพื่อระบายคนให้รวดเร็วและปลอดภัย</li>
+                <li>การออกแบบช่องทางที่สัมพันธ์กับเวลา ช่วยลดต้นทุนการติดตั้งช่องทางที่เกินความจำเป็นได้ครับ</li>
+            </ul>
+        </div>
+
+        <div class="cta-area">
+            <h3>ส่งข้อมูลเพื่อให้เราช่วยประเมินหน้างาน</h3>
+            <p style="margin-bottom: 25px; color: #666;">แจ้งรายละเอียดพื้นที่เบื้องต้น เพื่อรับคำแนะนำรุ่นที่เหมาะสมและนัดหมายสำรวจหน้างานจริง</p>
+            <a href="https://forms.gle/TDb5wtSytgZErEEJA" class="btn-form" target="_blank">
+                คลิกเพื่อกรอกแบบฟอร์มสำรวจหน้างาน
+            </a>
+        </div>
+
+        <footer>© 2026 GZK Co., Ltd. | Flowing Secure Path.</footer>
+    </div>
+
+</body>
+</html>
