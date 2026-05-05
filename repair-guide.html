@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>บริการซ่อมแซมและอัปเกรด | GZK Co., Ltd.</title>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root { --gzk-orange: #ff6600; --gzk-blue: #2c3e50; --gzk-light: #f8f9fa; }
+        body { margin: 0; font-family: 'Sarabun', sans-serif; background: #fff; color: #333; line-height: 1.6; }
+        
+        header { background: white; text-align: center; padding: 20px; border-bottom: 4px solid var(--gzk-blue); }
+        .container { max-width: 1000px; margin: 0 auto; padding: 40px 20px; }
+        
+        .nav-back { margin-bottom: 25px; }
+        .nav-back a { text-decoration: none; color: var(--gzk-orange); font-weight: bold; }
+
+        .hero-section { text-align: center; margin-bottom: 50px; }
+        .hero-section h1 { color: var(--gzk-blue); font-size: 2.2rem; margin-bottom: 15px; }
+        .hero-section p { color: #666; font-size: 1.1rem; max-width: 750px; margin: 0 auto; }
+        .highlight-text { color: var(--gzk-orange); font-weight: bold; }
+
+        .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-bottom: 40px; }
+        .feature-card { background: var(--gzk-light); padding: 30px; border-radius: 15px; border-top: 5px solid var(--gzk-orange); transition: 0.3s; }
+        .feature-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
+        .feature-card h3 { color: var(--gzk-blue); margin-top: 0; }
+
+        .upgrade-box { background: #2c3e50; color: white; padding: 40px; border-radius: 15px; margin-bottom: 40px; text-align: center; }
+        .upgrade-box h2 { color: #ffcc00; }
+
+        .cta-box { text-align: center; background: #ff6600; color: white; padding: 40px; border-radius: 15px; }
+        .btn-form { 
+            background: #2c3e50; color: white; padding: 18px 40px; 
+            text-decoration: none; border-radius: 35px; font-weight: bold; 
+            font-size: 1.2rem; display: inline-block; margin-top: 20px; 
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); transition: 0.3s;
+        }
+        .btn-form:hover { background: #1a252f; transform: translateY(-2px); }
+
+        footer { text-align: center; padding: 40px; color: #999; margin-top: 40px; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <img src="GZK_logo_with_slogan.jpg" alt="GZK" style="max-width: 180px;">
+    </header>
+
+    <div class="container">
+        <div class="nav-back"><a href="index.html">← กลับหน้าหลัก</a></div>
+
+        <section class="hero-section">
+            <h1>บริการซ่อมแซมและอัปเกรด (Repair & Upgrade)</h1>
+            <p>ด้วยประสบการณ์การติดตั้งและซ่อมบำรุงประตูอัตโนมัติมากว่า 10 ปี เราพร้อมคืนชีวิตให้ประตูของคุณให้กลับมาทำงานได้เต็มประสิทธิภาพ</p>
+        </section>
+
+        <div class="feature-grid">
+            <div class="feature-card">
+                <h3>⚙️ แก้ไขทุกอาการเสีย</h3>
+                <p>ทีมงานมีความเชี่ยวชาญสูงในการหาอะไหล่และอุปกรณ์ที่ตรงรุ่น เพื่อแก้ไขอาการเสียของประตูคุณ แม้จะเป็นประตูที่ไม่ได้ติดตั้งกับเราก็ตาม</p>
+            </div>
+            
+            <div class="feature-card">
+                <h3>♻️ อย่าปล่อยให้ประตูเก่าไร้ค่า</h3>
+                <p>ประตูรุ่นเก่าสามารถนำกลับมาใช้งานได้ดี หรือนำมาประเมินเพื่อรับส่วนลดแลกซื้อประตูใหม่จาก GZK เพื่อปรับภูมิทัศน์ให้ดูทันสมัยและโมเดิร์น</p>
+            </div>
+
+            <div class="feature-card">
+                <h3>🚀 อัปเกรดระบบให้ทันสมัย</h3>
+                <p>อัปเกรดระบบควบคุมเดิมของคุณ จากการใช้บัตรธรรมดา สู่การใช้ <b>QR Code</b> หรือ <b>Bluetooth</b> บนสมาร์ตโฟนที่สะดวกและปลอดภัยยิ่งขึ้น</p>
+            </div>
+        </div>
+
+        <div class="upgrade-box">
+            <h2>เปลี่ยนประตูเก่า ให้กลายเป็นประตูอัจฉริยะ (Smart Modern Access)</h2>
+            <p style="font-size: 1.1rem;">ยกระดับทางเข้า-ออกของคุณ ด้วยเทคโนโลยีล้ำสมัย ให้ดู Modern และสอดคล้องกับพฤติกรรมผู้ใช้งานยุคปัจจุบัน</p>
+        </div>
+
+        <div class="cta-box">
+            <h2>ต้องการให้ประเมินสภาพประตูหรือรับคำแนะนำ?</h2>
+            <p style="font-size: 1.1rem; opacity: 0.9;">แจ้งรายละเอียดให้เราทราบ ทีมงานพร้อมดูแลและนัดหมายเพื่อเข้าประเมินหน้างานครับ</p>
+            <a href="https://forms.gle/TDb5wtSytgZErEEJA" class="btn-form" target="_blank">
+                คลิกเพื่อกรอกแบบฟอร์มแจ้งซ่อม / ประเมินราคา
+            </a>
+        </div>
+    </div>
+
+    <footer>© 2026 GZK Co., Ltd. | Flowing Secure Path.</footer>
+
+</body>
+</html>
