@@ -12,26 +12,34 @@
         header { background: white; text-align: center; padding: 20px; border-bottom: 4px solid var(--gzk-blue); }
         .container { max-width: 1000px; margin: 0 auto; padding: 40px 20px; }
         
-        /* สไตล์หน้าสไลด์แต่ละแผ่น */
         .slide-page { 
             background: white; 
             padding: 40px; 
             border-radius: 15px; 
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1); 
-            margin-bottom: 50px; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05); 
+            margin-bottom: 40px; 
             border-top: 8px solid var(--gzk-orange);
         }
         
         h1, h2 { color: var(--gzk-blue); }
         .highlight-text { color: var(--gzk-orange); font-weight: bold; }
         
-        /* ตารางเปรียบเทียบแผน */
-        .plan-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 30px; }
-        .plan-card { border: 2px solid #eee; padding: 20px; border-radius: 10px; transition: 0.3s; }
+        .plan-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+            gap: 20px; 
+            margin-top: 30px; 
+        }
+        .plan-card { 
+            border: 2px solid #eee; 
+            padding: 20px; 
+            border-radius: 10px; 
+            transition: 0.3s; 
+            background: white;
+        }
         .plan-card:hover { border-color: var(--gzk-orange); transform: translateY(-5px); }
-        .plan-card h3 { color: var(--gzk-orange); margin-top: 0; }
 
-        .cta-box { text-align: center; background: var(--gzk-blue); color: white; padding: 40px; border-radius: 15px; }
+        .cta-box { text-align: center; background: var(--gzk-blue); color: white; padding: 40px; border-radius: 15px; margin-top: 20px; }
         .btn-form { 
             background: var(--gzk-orange); color: white; padding: 15px 40px; 
             text-decoration: none; border-radius: 35px; font-weight: bold; 
@@ -49,64 +57,61 @@
     <div class="container">
         <div class="nav-back"><a href="index.html">← กลับหน้าหลัก</a></div>
 
+        <!-- ส่วนหัวข้อหลัก -->
         <div class="slide-page" style="text-align: center;">
             <h1>บริการบำรุงรักษารายปี (MA) จาก <span class="highlight-text">GZK</span></h1>
             <p style="font-size: 1.2rem;">ยืดอายุการใช้งาน มั่นใจในความปลอดภัย ด้วยการดูแลจากผู้เชี่ยวชาญ</p>
             <p>ไม่ว่าเครื่องจะซื้อจากเรา หรือซื้อจากแบรนด์อื่น เราพร้อมดูแลทุกรูปแบบ</p>
         </div>
 
+        <!-- ส่วนเหตุผล 5 ข้อ (Feature Cards) -->
         <div class="slide-page" style="background: #fcfcfc;">
             <h2 style="text-align: center; margin-bottom: 35px;">ทำไมต้องทำ <span class="highlight-text">MA</span> กับ <span style="color: var(--gzk-blue);">GZK?</span></h2>
             
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 15px;">
-                
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px;">
                 <div style="background: white; padding: 20px; border-radius: 12px; border-top: 5px solid #3498db; box-shadow: 0 4px 15px rgba(0,0,0,0.05); display: flex; align-items: flex-start; gap: 15px;">
-                    <div style="font-size: 2rem; background: #e1f0fa; padding: 10px; border-radius: 50%; min-width: 50px; text-align: center;">👨‍🔧</div>
+                    <div style="font-size: 1.8rem; background: #e1f0fa; padding: 8px; border-radius: 50%; min-width: 45px; text-align: center;">👨‍🔧</div>
                     <div>
                         <strong style="color: #2c3e50; font-size: 1.1rem; display: block; margin-bottom: 5px;">Expert Engineers</strong>
-                        <p style="margin: 0; font-size: 0.95rem; color: #555; line-height: 1.4;">ทีมวิศวกรประสบการณ์สูง ดูแลประตูได้ทุกรูปแบบและหลากหลายแบรนด์ชั้นนำ</p>
+                        <p style="margin: 0; font-size: 0.9rem; color: #555; line-height: 1.4;">ทีมวิศวกรประสบการณ์สูง ดูแลประตูได้ทุกรูปแบบและหลากหลายแบรนด์ชั้นนำ</p>
                     </div>
                 </div>
-
                 <div style="background: white; padding: 20px; border-radius: 12px; border-top: 5px solid #2ecc71; box-shadow: 0 4px 15px rgba(0,0,0,0.05); display: flex; align-items: flex-start; gap: 15px;">
-                    <div style="font-size: 2rem; background: #eafaf1; padding: 10px; border-radius: 50%; min-width: 50px; text-align: center;">⚙️</div>
+                    <div style="font-size: 1.8rem; background: #eafaf1; padding: 8px; border-radius: 50%; min-width: 45px; text-align: center;">⚙️</div>
                     <div>
                         <strong style="color: #2c3e50; font-size: 1.1rem; display: block; margin-bottom: 5px;">Quality Parts Selection</strong>
-                        <p style="margin: 0; font-size: 0.95rem; color: #555; line-height: 1.4;">จัดหาอะไหล่ได้ทั้งจากแบรนด์โดยตรง หรืออะไหล่เทียบเท่าที่มีประสิทธิภาพสูงเพื่อความคุ้มค่า</p>
+                        <p style="margin: 0; font-size: 0.9rem; color: #555; line-height: 1.4;">จัดหาอะไหล่ได้ทั้งจากแบรนด์โดยตรง หรืออะไหล่เทียบเท่าที่มีประสิทธิภาพสูง</p>
                     </div>
                 </div>
-
                 <div style="background: white; padding: 20px; border-radius: 12px; border-top: 5px solid #9b59b6; box-shadow: 0 4px 15px rgba(0,0,0,0.05); display: flex; align-items: flex-start; gap: 15px;">
-                    <div style="font-size: 2rem; background: #f4ecf7; padding: 10px; border-radius: 50%; min-width: 50px; text-align: center;">💻</div>
+                    <div style="font-size: 1.8rem; background: #f4ecf7; padding: 8px; border-radius: 50%; min-width: 45px; text-align: center;">💻</div>
                     <div>
                         <strong style="color: #2c3e50; font-size: 1.1rem; display: block; margin-bottom: 5px;">Total Solution Care</strong>
-                        <p style="margin: 0; font-size: 0.95rem; color: #555; line-height: 1.4;">ดูแลครอบคลุมทั้งระบบเครื่องกลประตู และชุดโปรแกรมควบคุม (Software) ทั้งหมด</p>
+                        <p style="margin: 0; font-size: 0.9rem; color: #555; line-height: 1.4;">ดูแลครอบคลุมทั้งระบบเครื่องกลประตู และชุดโปรแกรมควบคุม (Software)</p>
                     </div>
                 </div>
-
                 <div style="background: white; padding: 20px; border-radius: 12px; border-top: 5px solid #f39c12; box-shadow: 0 4px 15px rgba(0,0,0,0.05); display: flex; align-items: flex-start; gap: 15px;">
-                    <div style="font-size: 2rem; background: #fef5e7; padding: 10px; border-radius: 50%; min-width: 50px; text-align: center;">🚀</div>
+                    <div style="font-size: 1.8rem; background: #fef5e7; padding: 8px; border-radius: 50%; min-width: 45px; text-align: center;">🚀</div>
                     <div>
                         <strong style="color: #2c3e50; font-size: 1.1rem; display: block; margin-bottom: 5px;">Modernized Updates</strong>
-                        <p style="margin: 0; font-size: 0.95rem; color: #555; line-height: 1.4;">ปรับปรุงสภาพการทำงานและการแสดงผลข้อมูลให้ทันสมัยและแม่นยำอยู่เสมอ</p>
+                        <p style="margin: 0; font-size: 0.9rem; color: #555; line-height: 1.4;">ปรับปรุงสภาพการทำงานและการแสดงผลข้อมูลให้ทันสมัยและแม่นยำอยู่เสมอ</p>
                     </div>
                 </div>
-
-                <div style="background: white; padding: 20px; border-radius: 12px; border-top: 5px solid #e74c3c; box-shadow: 0 4px 15px rgba(0,0,0,0.05); display: flex; align-items: flex-start; gap: 15px; grid-column: span 1;">
-                    <div style="font-size: 2rem; background: #fdf2f2; padding: 10px; border-radius: 50%; min-width: 50px; text-align: center;">🛡️</div>
+                <div style="background: white; padding: 20px; border-radius: 12px; border-top: 5px solid #e74c3c; box-shadow: 0 4px 15px rgba(0,0,0,0.05); display: flex; align-items: flex-start; gap: 15px;">
+                    <div style="font-size: 1.8rem; background: #fdf2f2; padding: 8px; border-radius: 50%; min-width: 45px; text-align: center;">🛡️</div>
                     <div>
                         <strong style="color: #2c3e50; font-size: 1.1rem; display: block; margin-bottom: 5px;">Long-term Efficiency</strong>
-                        <p style="margin: 0; font-size: 0.95rem; color: #555; line-height: 1.4;">ยืดอายุการใช้งานให้ยาวนานและใช้งานได้เต็มประสิทธิภาพตลอดอายุสัญญาบริการ</p>
+                        <p style="margin: 0; font-size: 0.9rem; color: #555; line-height: 1.4;">ยืดอายุการใช้งานให้ยาวนานและใช้งานได้เต็มประสิทธิภาพตลอดอายุสัญญา</p>
                     </div>
                 </div>
-
             </div>
         </div>
-            
-        </div>
-<div class="plan-grid" style="margin-bottom: 60px;">
-            
-            <div class="plan-card" style="display: flex; flex-direction: column; justify-content: space-between; border-left: 8px solid #e74c3c; min-height: 420px; background: white; border-top: none;">
+
+        <!-- ส่วนทางเลือกแผนบริการ -->
+        <h2 style="text-align: center; margin-top: 50px;">ทางเลือกแผนบริการที่ยืดหยุ่น (Flexible Plans)</h2>
+        
+        <div class="plan-grid" style="margin-bottom: 60px;">
+            <div class="plan-card" style="display: flex; flex-direction: column; justify-content: space-between; border-left: 8px solid #e74c3c; min-height: 420px;">
                 <div>
                     <h3 style="color: #2c3e50; font-size: 1.3rem; border-bottom: 2px solid #f0f0f0; padding-bottom: 15px; margin-bottom: 20px;">Plan A: Comprehensive Care</h3>
                     <div style="text-align: center; padding: 25px 0;">
@@ -116,11 +121,11 @@
                 </div>
                 <div style="background: #fdf2f2; padding: 15px; border-radius: 8px; font-size: 0.95rem; border: 1px solid #fee2e2;">
                     <p style="font-weight: bold; margin-bottom: 8px; color: #b91c1c;">ครอบคลุมทุกการดูแล (Full Package)</p>
-                    <p style="margin: 0; color: #444; line-height: 1.5;">เหมาะสำหรับธุรกิจที่ต้องการควบคุมงบประมาณรายปีให้คงที่ 100% มอบความอุ่นใจสูงสุดในการดำเนินธุรกิจ</p>
+                    <p style="margin: 0; color: #444; line-height: 1.5;">คุมงบประมาณรายปีให้คงที่ 100% มอบความอุ่นใจสูงสุดในการดำเนินธุรกิจ</p>
                 </div>
             </div>
 
-            <div class="plan-card" style="display: flex; flex-direction: column; justify-content: space-between; border-left: 8px solid #3498db; min-height: 420px; background: white; border-top: none;">
+            <div class="plan-card" style="display: flex; flex-direction: column; justify-content: space-between; border-left: 8px solid #3498db; min-height: 420px;">
                 <div>
                     <h3 style="color: #2c3e50; font-size: 1.3rem; border-bottom: 2px solid #f0f0f0; padding-bottom: 15px; margin-bottom: 20px;">Plan B: Onsite Support Only</h3>
                     <div style="text-align: center; padding: 15px 0;">
@@ -131,11 +136,11 @@
                 </div>
                 <div style="background: #f0f7ff; padding: 15px; border-radius: 8px; font-size: 0.95rem; border: 1px solid #dbeafe;">
                     <p style="font-weight: bold; margin-bottom: 8px; color: #1e40af;">เน้นการบริหารจัดการงบประมาณ</p>
-                    <p style="margin: 0; color: #444; line-height: 1.5;">ตรวจสอบสภาพประจำปีเพื่อป้องกันการเสีย ช่วยให้ค่า MA ต่ำลง และจ่ายค่าอะไหล่ตามความเสียหายที่เกิดขึ้นจริง</p>
+                    <p style="margin: 0; color: #444; line-height: 1.5;">ตรวจสอบสภาพประจำปี ช่วยให้ค่า MA ต่ำลง และจ่ายค่าอะไหล่ตามจริง</p>
                 </div>
             </div>
 
-            <div class="plan-card" style="display: flex; flex-direction: column; justify-content: space-between; border-left: 8px solid #f1c40f; min-height: 420px; background: white; border-top: none;">
+            <div class="plan-card" style="display: flex; flex-direction: column; justify-content: space-between; border-left: 8px solid #f1c40f; min-height: 420px;">
                 <div>
                     <h3 style="color: #2c3e50; font-size: 1.3rem; border-bottom: 2px solid #f0f0f0; padding-bottom: 15px; margin-bottom: 20px;">Plan C: Hybrid Smart Plan</h3>
                     <div style="padding: 10px 5px;">
@@ -148,22 +153,21 @@
                 </div>
                 <div style="background: #fefce8; padding: 15px; border-radius: 8px; font-size: 0.95rem; border: 1px solid #fef08a;">
                     <p style="font-weight: bold; margin-bottom: 8px; color: #854d0e;">ประหยัดงบสำหรับอะไหล่ชิ้นใหญ่</p>
-                    <p style="margin: 0; color: #444; line-height: 1.5;">แยกอะไหล่หลักราคาที่มีราคาสูงออกเพื่อความยืดหยุ่น ทำให้ค่าบริการรายปีเหมาะสมกับงบประมาณที่คุณตั้งไว้</p>
+                    <p style="margin: 0; color: #444; line-height: 1.5;">แยกอะไหล่หลักราคาที่มีราคาสูงออก เพื่อให้ค่าบริการรายปีเหมาะสมกับงบ</p>
                 </div>
             </div>
-
         </div>
         
+        <!-- ส่วนท้าย (CTA) อยู่ใน Container เรียบร้อยแล้ว -->
         <div class="cta-box">
             <h2 style="color: white;">พร้อมดูแลระบบของคุณหรือยัง?</h2>
             <p style="color: white;">เริ่มต้นสำรวจหน้างานเพื่อรับคำแนะนำแผนที่เหมาะสมที่สุด</p>
-            
             <a href="https://forms.gle/TDb5wtSytgZErEEJA" class="btn-form" target="_blank">
                 คลิกเพื่อขอนัดหมายสำรวจและประเมินราคา MA
             </a>
         </div>
 
-    </div>
+    </div> <!-- จบ Container -->
 
 </body>
 </html>
