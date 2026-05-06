@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | บริษัท จีแซดเค จำกัด (GZK Co., Ltd.)</title>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root { --gzk-orange: #ff6600; --gzk-blue: #2c3e50; --gzk-light: #f8f9fa; }
+        body { margin: 0; font-family: 'Sarabun', sans-serif; background: #fff; color: #333; line-height: 1.8; }
+        header { background: white; text-align: center; padding: 20px; border-bottom: 4px solid var(--gzk-blue); }
+        .container { max-width: 1000px; margin: 0 auto; padding: 40px 20px; }
+        
+        /* Section: Story */
+        .story-section { text-align: center; margin-bottom: 80px; padding: 40px; background: var(--gzk-light); border-radius: 30px; }
+        .story-section h1 { color: var(--gzk-blue); font-size: 2.2rem; margin-bottom: 25px; }
+        .story-content { font-size: 1.15rem; color: #555; max-width: 850px; margin: 0 auto; }
+        .highlight-quote { font-style: italic; color: var(--gzk-orange); font-weight: bold; margin-top: 20px; font-size: 1.3rem; }
+
+        /* Section: Company Info */
+        .company-info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 40px; }
+        .info-card { background: white; border: 1px solid #eee; padding: 30px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.03); }
+        .info-card h2 { color: var(--gzk-blue); border-bottom: 2px solid var(--gzk-orange); padding-bottom: 10px; margin-bottom: 20px; }
+        
+        .contact-item { margin-bottom: 15px; display: flex; align-items: flex-start; gap: 12px; }
+        .icon { font-size: 1.2rem; min-width: 25px; }
+        .text strong { color: var(--gzk-blue); display: block; }
+        .text p, .text a { margin: 0; color: #666; text-decoration: none; }
+        .text a:hover { color: var(--gzk-orange); }
+
+        .tax-id { background: #eef2f7; padding: 10px 20px; border-radius: 10px; display: inline-block; margin-top: 15px; font-weight: bold; color: var(--gzk-blue); }
+
+        .nav-back { margin-bottom: 20px; }
+        .nav-back a { text-decoration: none; color: var(--gzk-orange); font-weight: bold; }
+
+        @media (max-width: 768px) { .company-info-grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+
+    <header><img src="GZK_logo_with_slogan.jpg" alt="GZK" style="max-width: 180px;"></header>
+
+    <div class="container">
+        <div class="nav-back"><a href="index.html">← กลับหน้าหลัก</a></div>
+
+        <!-- 1. ความเป็นมาและวิสัยทัศน์ -->
+        <div class="story-section">
+            <h1>จุดเริ่มต้นและแนวคิดของ <span class="highlight-text">GZK</span></h1>
+            <div class="story-content">
+                <p>เราคือกลุ่มคนที่คลุกคลีอยู่ในแวดวงระบบประตูที่ต้องการสร้าง <strong>"แนวคิดใหม่และมุมมองใหม่"</strong> ให้กับเทคโนโลยีการเข้า-ออกพื้นที่ เราเชื่อมั่นว่าระบบประตูที่ดีไม่ควรทำหน้าที่เพียงแค่การคัดกรองความปลอดภัยเท่านั้น</p>
+                <p>แต่ต้องเป็นส่วนหนึ่งของงานสถาปัตยกรรมที่สอดคล้องไปกับพื้นที่ได้อย่างสวยงามและไร้รอยต่อ เพื่อส่งเสริมภาพลักษณ์ที่โดดเด่นให้กับเจ้าของพื้นที่ พร้อมทั้งมอบประสบการณ์การใช้งานที่ราบรื่นและมั่นใจในมาตรฐานความปลอดภัยระดับสากล</p>
+                <p class="highlight-quote">"เมื่อความปลอดภัยสอดประสานกับความสวยงาม... นั่นคือมาตรฐานจาก GZK"</p>
+            </div>
+        </div>
+
+        <!-- 2. รายละเอียดบริษัทและข้อมูลติดต่อ -->
+        <div class="company-info-grid">
+            
+            <!-- ที่อยู่บริษัท -->
+            <div class="info-card">
+                <h2>ที่ตั้งสำนักงาน</h2>
+                <div class="contact-item">
+                    <div class="icon">📍</div>
+                    <div class="text">
+                        <strong>บริษัท จีแซดเค จำกัด</strong>
+                        <p>82/510 หมู่บ้านซิเมนต์ไทย ถนนประชาชื่น <br>
+                        แขวงลาดยาว เขตจตุจักร กรุงเทพมหานคร 10900</p>
+                        <div class="tax-id">เลขประจำตัวผู้เสียภาษี: 0105569062962</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ข้อมูลการติดต่อ -->
+            <div class="info-card">
+                <h2>ช่องทางการติดต่อ</h2>
+                <div class="contact-item">
+                    <div class="icon">📞</div>
+                    <div class="text">
+                        <strong>เบอร์โทรศัพท์</strong>
+                        <p>02 911 0020, 080 369 8953</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="icon">✉️</div>
+                    <div class="text">
+                        <strong>Email</strong>
+                        <p><a href="mailto:gzk.sale@gmail.com">gzk.sale@gmail.com</a></p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="icon">🌐</div>
+                    <div class="text">
+                        <strong>Website / Social</strong>
+                        <p><a href="http://www.gzk.co.th" target="_blank">www.gzk.co.th</a></p>
+                        <p><a href="#" target="_blank">Facebook: gzk</a></p>
+                    </div>
+                </div>
+                <div style="margin-top: 20px;">
+                    <a href="https://forms.gle/TDb5wtSytgZErEEJA" 
+                       style="background: var(--gzk-orange); color: white; padding: 10px 25px; text-decoration: none; border-radius: 8px; font-weight: bold; display: block; text-align: center;">
+                       ส่งข้อความหาเรา
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>
