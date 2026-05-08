@@ -23,6 +23,36 @@
         input, select, textarea { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 5px; box-sizing: border-box; }
         .btn-submit { background: var(--gzk-red); color: white; border: none; padding: 15px 40px; border-radius: 30px; font-weight: bold; font-size: 1.1rem; cursor: pointer; width: 100%; transition: 0.3s; }
         .btn-submit:hover { background: var(--gzk-blue); }
+        /* --- Back Button Style --- */
+        .back-nav {
+            max-width: 1100px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+
+        .btn-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--gzk-blue);
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1rem;
+            transition: 0.3s;
+            padding: 8px 15px;
+            border-radius: 8px;
+            border: 1px solid transparent;
+        }
+
+        .btn-back:hover {
+            color: var(--gzk-red);
+            background: rgba(231, 76, 60, 0.05);
+            border-color: rgba(231, 76, 60, 0.2);
+        }
+
+        .btn-back i {
+            font-size: 1.2rem;
+        }
         /* เพิ่มส่วนนี้เข้าไปใน <style> ครับ */
 .option-card p {
     font-weight: bold; /* ทำให้ตัวหนังสือเป็นตัวหนา */
@@ -39,7 +69,11 @@
             <a href="index.html"><img src="GZK_logo_with_slogan.jpg" alt="GZK"></a>
         </div>
     </header>
-
+<div class="back-nav">
+        <a href="rental-solutions.html" class="btn-back">
+            <span>←</span> ย้อนกลับไปหน้าบริการเช่า
+        </a>
+    </div>
     <div class="container">
         <div class="step-box">
             <h2>ออกแบบโซลูชันรูปแบบการเช่าของคุณ</h2>
