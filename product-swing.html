@@ -7,35 +7,31 @@
     <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
         :root { --gzk-red: #e74c3c; --gzk-blue: #2c3e50; --gzk-light: #f0f4f8; }
-        body { margin: 0; font-family: 'Sarabun', sans-serif; background: var(--gzk-light); color: #333; }
-        header { background: white; text-align: center; padding: 20px; border-bottom: 4px solid var(--gzk-blue); }
+        body { margin: 0; font-family: 'Sarabun', sans-serif; background: var(--gzk-light); color: #333; line-height: 1.6; }
         
-        .nav-bar { max-width: 1100px; margin: 20px auto; padding: 0 20px; display: flex; justify-content: space-between; align-items: center; }
-        .nav-bar a { text-decoration: none; color: var(--gzk-red); font-weight: bold; }
-        header {
-    background: white;
-    text-align: center;
-    padding: 15px 20px; /* ลด padding ลงเล็กน้อยเพื่อให้ไม่กินพื้นที่หน้าจอเวลาค้างอยู่ด้านบน */
-    border-bottom: 4px solid var(--gzk-blue);
-    
-    /* ส่วนที่เพิ่มเข้ามาเพื่อให้ Logo ค้างอยู่ด้านบน */
-    position: sticky;
-    top: 0;
-    z-index: 1000; /* เพื่อให้ header อยู่ทับเนื้อหาอื่นๆ เวลาเลื่อนผ่าน */
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1); /* เพิ่มเงาเล็กน้อยเพื่อให้ดูมีมิติเวลาลอยทับเนื้อหา */
-}
+        /* --- Standard Header (Sticky) --- */
+        header { 
+            background: white; 
+            text-align: center; 
+            padding: 15px 20px; 
+            border-bottom: 4px solid var(--gzk-blue); 
+            position: sticky; 
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .logo-link img { width: 280px; height: auto; display: block; margin: 0 auto; }
 
-/* ปรับขนาดโลโก้ให้เล็กลงนิดนึงเวลาทำ Sticky จะได้ไม่บังเนื้อหามากเกินไป */
-.logo-link img {
-    width: 280px; /* ลองปรับจาก 350px เป็น 280px สำหรับแบบ Sticky ครับ */
-    height: auto;
-    display: block;
-    margin: 0 auto;
-}
-        .container { max-width: 1100px; margin: 0 auto 40px; padding: 20px; }
+        /* --- Navigation Bar --- */
+        .nav-bar { max-width: 1100px; margin: 20px auto; padding: 0 20px; display: flex; justify-content: space-between; align-items: center; }
+        .nav-bar a { text-decoration: none; color: var(--gzk-red); font-weight: bold; transition: 0.3s; }
+        .nav-bar a:hover { color: var(--gzk-blue); }
+
+        /* --- Container & Title --- */
+        .container { max-width: 1100px; margin: 0 auto 40px; padding: 0 20px; box-sizing: border-box; }
         .page-title { color: var(--gzk-blue); border-left: 8px solid var(--gzk-red); padding-left: 15px; margin-bottom: 30px; }
 
-        /* ปรับปรุง Grid ให้รองรับการยืดตัว */
+        /* --- Product Grid & Cards --- */
         .product-grid { 
             display: grid; 
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
@@ -52,114 +48,162 @@
             display: flex; 
             flex-direction: column; 
             height: 100%;
+            border: 1px solid #eee;
         }
         
-        .product-card:hover { transform: translateY(-5px); box-shadow: 0 8px 25px rgba(0,0,0,0.1); outline: 2px solid var(--gzk-red); }
+        .product-card:hover { 
+            transform: translateY(-5px); 
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1); 
+            border-color: var(--gzk-red);
+        }
 
-        /* --- แถบ CTA ใหม่ (แก้ไขจุดนี้) --- */
-        .cta-banner {
-            background: rgba(44, 62, 80, 0.85); /* สีน้ำเงินจางลงตามที่ต้องการ */
+        .product-img { 
+            width: 100%; 
+            height: 250px; 
+            object-fit: contain; 
+            background: #fff; 
+            padding: 15px; 
+            border-bottom: 1px solid #eee; 
+            box-sizing: border-box;
+        }
+        
+        .product-info { 
+            padding: 20px; 
+            flex-grow: 1; 
+            text-align: center; 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: space-between; 
+        }
+        
+        .product-info h3 { margin: 0 0 10px; color: var(--gzk-blue); font-size: 1.15rem; }
+        .product-info p { font-size: 0.9rem; color: #666; margin-bottom: 20px; min-height: 2.7em; }
+        
+        .btn-detail { 
+            background: var(--gzk-red); 
             color: white; 
-            padding: 50px 20px; 
+            padding: 12px 20px; 
+            text-decoration: none; 
+            border-radius: 5px; 
+            font-weight: bold; 
+            transition: 0.3s; 
+            display: inline-block; 
+        }
+        .btn-detail:hover { background: var(--gzk-blue); }
+
+        /* --- CTA Banner --- */
+        .cta-banner {
+            background: rgba(44, 62, 80, 0.95); 
+            color: white; 
+            padding: 50px 30px; 
             text-align: center; 
             border-radius: 15px; 
             margin-top: 30px;
-            grid-column: 1 / -1; /* สั่งให้กว้างเท่าแถวสินค้า */
+            grid-column: 1 / -1; 
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
         }
 
-        .product-img { width: 100%; height: 250px; object-fit: contain; background: #fff; padding: 15px; border-bottom: 1px solid #eee; display: block; margin: 0 auto; }
-        .product-info { padding: 20px; flex-grow: 1; text-align: center; display: flex; flex-direction: column; justify-content: space-between; }
-        .product-info h3 { margin: 0 0 10px; color: var(--gzk-blue); }
-        .product-info p { font-size: 0.9rem; color: #666; margin-bottom: 15px; }
-        
-        .btn-inquiry { background: var(--gzk-blue); color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; font-weight: bold; transition: 0.3s; display: inline-block; }
-        .btn-inquiry:hover { background: var(--gzk-red); }
-
-        /* ปุ่มในแถบ CTA */
         .btn-cta {
             background: var(--gzk-red); 
             color: white; 
-            padding: 15px 35px; 
-            border-radius: 30px; 
+            padding: 15px 40px; 
+            border-radius: 35px; 
             text-decoration: none; 
             font-weight: bold; 
             font-size: 1.1rem; 
             transition: 0.3s; 
             display: inline-block;
-            margin-top: 15px;
+            margin-top: 20px;
+            box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
         }
-        .btn-cta:hover { background: white; color: var(--gzk-red); }
+        .btn-cta:hover { background: white; color: var(--gzk-red); transform: scale(1.05); }
         
-        footer { text-align: center; padding: 40px; color: #999; }
+        footer { text-align: center; padding: 60px 20px; color: #999; margin-top: 20px; }
+
+        @media (max-width: 768px) {
+            .logo-link img { width: 220px; }
+            .product-grid { grid-template-columns: 1fr; }
+        }
     </style>
 </head>
 <body>
-   <header>
+
+<header>
     <a href="index.html" class="logo-link">
         <img src="GZK_logo_with_slogan.jpg" alt="GZK Co., Ltd.">
     </a>
 </header>
 
-    <div class="nav-bar">
-        <a href="sale-categories.html">← กลับไปหมวดหมู่</a>
-        <span style="color:#666;">หมวดหมู่: Swing Gate</span>
-    </div>
+<div class="nav-bar">
+    <a href="sale-categories.html">← กลับไปหมวดหมู่</a>
+    <span style="color:#666; font-size: 0.9rem;">หมวดหมู่: Swing Gate</span>
+</div>
 
-    <div class="container">
-        <h1 class="page-title">Swing Gate Solutions</h1>
+<div class="container">
+    <h1 class="page-title">Swing Gate Solutions</h1>
+    
+    <div class="product-grid">
         
-        <div class="product-grid">
-            
-            <div class="product-card">
-                <img src="ds-q20-main.jpg" alt="DS-Q20" class="product-img">
-                <div class="product-info">
+        <div class="product-card">
+            <img src="ds-q20-main.jpg" alt="DS-Q20" class="product-img">
+            <div class="product-info">
+                <div>
                     <h3>DS-Q20 Luxury Swing</h3>
-                    <p>บานสวิงดีไซน์หรูหรา รองรับการเข้า-ออกกว้างพิเศษสำหรับวีลแชร์</p>
-                    <a href="detail-ds-q20.html" class="btn-inquiry" style="background: var(--gzk-red);">รายละเอียดสินค้า</a>
+                    <p>บานสวิงดีไซน์หรูหรา วัสดุพรีเมียม รองรับการเข้า-ออกกว้างพิเศษสำหรับวีลแชร์และขนสัมภาระ</p>
                 </div>
+                <a href="detail-ds-q20.html" class="btn-detail">รายละเอียดสินค้า</a>
             </div>
+        </div>
 
-            <div class="product-card">
-                <img src="dsn-20-main.jpg" alt="DSN-20" class="product-img">
-                <div class="product-info">
-                    <h3>DSN-20</h3>
-                    <p>มีไฟ LED แถบยาวที่ตัวเครื่อง แบบ Dynamic LED Strip</p>
-                    <a href="detail-dsn-20.html" class="btn-inquiry" style="background: var(--gzk-red);">รายละเอียดสินค้า</a>
+        <div class="product-card">
+            <img src="dsn-20-main.jpg" alt="DSN-20" class="product-img">
+            <div class="product-info">
+                <div>
+                    <h3>DSN-20 Dynamic LED</h3>
+                    <p>โดดเด่นด้วยแถบไฟ Dynamic LED Strip ที่ตัวเครื่อง เพิ่มความสวยงามและชัดเจนในการใช้งาน</p>
                 </div>
+                <a href="detail-dsn-20.html" class="btn-detail">รายละเอียดสินค้า</a>
             </div>
-            
-            <div class="product-card">
-                <img src="ds-212-main.jpg" alt="DS-212" class="product-img">
-                <div class="product-info">
+        </div>
+        
+        <div class="product-card">
+            <img src="ds-212-main.jpg" alt="DS-212" class="product-img">
+            <div class="product-info">
+                <div>
                     <h3>DS-212 Compact Swing</h3>
-                    <p>รุ่นยอดนิยมสำหรับพื้นผิววัสดุสแตนเลส ให้ความโค้งมนแบบ Round Edge</p>
-                    <a href="detail-ds-212.html" class="btn-inquiry" style="background: var(--gzk-red);">รายละเอียดสินค้า</a>
+                    <p>รุ่นยอดนิยมโครงสร้างสแตนเลสคุณภาพสูง ดีไซน์โค้งมนแบบ Round Edge ปลอดภัยและทันสมัย</p>
                 </div>
+                <a href="detail-ds-212.html" class="btn-detail">รายละเอียดสินค้า</a>
             </div>
+        </div>
 
-            <div class="product-card">
-                <img src="ds-8000-main.jpg" alt="DS-8000" class="product-img">
-                <div class="product-info">
-                    <h3>DS-8000 Compact Swing</h3>
-                    <p>เป็นบานสวิงแบบเสาเดี่ยว (Single Post Swing Gate) ที่มีดีไซน์กะทัดรัด</p>
-                    <a href="detail-ds-8000.html" class="btn-inquiry" style="background: var(--gzk-red);">รายละเอียดสินค้า</a>
+        <div class="product-card">
+            <img src="ds-8000-main.jpg" alt="DS-8000" class="product-img">
+            <div class="product-info">
+                <div>
+                    <h3>DS-8000 Single Post</h3>
+                    <p>บานสวิงแบบเสาเดี่ยว ดีไซน์กะทัดรัด ประหยัดพื้นที่ติดตั้ง แต่ยังคงประสิทธิภาพการทำงานสูงสุด</p>
                 </div>
+                <a href="detail-ds-8000.html" class="btn-detail">รายละเอียดสินค้า</a>
             </div>
+        </div>
 
-            <div class="cta-banner">
-                <h3 style="margin-bottom: 10px;">สนใจสั่งซื้อหรือติดตั้งระบบ GZK Solution</h3>
-                <p style="margin-bottom: 10px; opacity: 0.9;">เลือกจัดสเปกเครื่องและรับใบเสนอราคาสำหรับติดตั้งประตูได้ทันที</p>
-                <a href="select-newgate-options.html" class="btn-cta">
-                    ขอใบเสนอราคาติดตั้งประตู
-                </a>
-            </div>
+        <div class="cta-banner">
+            <h2 style="margin-top: 0; color: white;">สนใจสั่งซื้อหรือติดตั้งระบบ GZK Solution</h2>
+            <p style="opacity: 0.9;">เลือกจัดสเปกเครื่องและรับใบเสนอราคาสำหรับติดตั้งประตูได้ทันที</p>
+            <a href="select-newgate-options.html" class="btn-cta">
+                ขอใบเสนอราคาติดตั้งประตู
+            </a>
+        </div>
 
-        </div> </div>
+    </div> 
+</div>
 
-    <footer>© 2026 GZK Co., Ltd. | Flowing Secure Path.</footer>
+<footer>© 2026 GZK Co., Ltd. | Flowing Secure Path.</footer>
+
 </body>
 </html>
