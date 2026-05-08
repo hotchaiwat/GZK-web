@@ -9,39 +9,60 @@
         :root { --gzk-red: #e74c3c; --gzk-blue: #2c3e50; --gzk-light: #f8f9fa; --gzk-orange: #ff6600; }
         body { margin: 0; font-family: 'Sarabun', sans-serif; background: var(--gzk-light); color: #333; line-height: 1.7; }
         
-        /* --- Header (Sticky) --- */
+        /* --- [NEW] Header & Sticky Back Button --- */
         header { 
             background: white; 
-            text-align: center; 
-            padding: 15px 20px; 
+            padding: 10px 20px; 
             border-bottom: 4px solid var(--gzk-blue); 
             position: sticky; 
             top: 0;
             z-index: 1000;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
         }
-        .logo-link img { width: 280px; height: auto; display: block; margin: 0 auto; }
+
+        .btn-back-sticky {
+            background: var(--gzk-orange);
+            color: white !important;
+            text-decoration: none;
+            padding: 8px 18px;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 0.95rem;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            white-space: nowrap;
+        }
+        .btn-back-sticky:hover {
+            background: var(--gzk-blue);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            transform: translateY(-1px);
+        }
+
+        /* [NEW] Logo Hover Effect */
+        .logo-link {
+            transition: 0.3s ease;
+            margin: 0 auto;
+        }
+        .logo-link:hover {
+            transform: scale(1.03);
+            filter: brightness(1.05);
+        }
+        .logo-link img { width: 240px; height: auto; display: block; }
+
+        .header-spacer { width: 110px; } /* บาลานซ์ปุ่มย้อนกลับให้โลโก้อยู่กลาง */
 
         .container { max-width: 900px; margin: 40px auto; padding: 0 20px; }
 
-        /* --- Navigation --- */
-        .nav-back { margin-bottom: 25px; }
-        .nav-back a { 
-            text-decoration: none; 
-            color: var(--gzk-orange); 
-            font-weight: bold; 
-            display: inline-flex; 
-            align-items: center;
-            transition: 0.3s;
-        }
-        .nav-back a:hover { transform: translateX(-5px); }
-
-        /* --- Hero Section --- */
+        /* --- Content Sections --- */
         .hero-section { text-align: center; margin-bottom: 60px; }
         .hero-section h1 { color: var(--gzk-blue); font-size: 2.2rem; margin-bottom: 20px; line-height: 1.3; }
         .hero-section p { color: #666; font-size: 1.15rem; max-width: 750px; margin: 0 auto; }
 
-        /* --- Guide Cards --- */
         .guide-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 25px; margin-bottom: 50px; }
         .guide-card { 
             background: white; 
@@ -55,13 +76,11 @@
         .guide-card h3 { color: var(--gzk-blue); margin-top: 0; font-size: 1.25rem; display: flex; align-items: center; gap: 10px; }
         .guide-card p { font-size: 0.95rem; color: #555; margin-bottom: 0; }
 
-        /* --- Case Study Box --- */
-        .highlight-box { background: var(--gzk-blue); color: white; padding: 40px; border-radius: 20px; margin-bottom: 60px; position: relative; overflow: hidden; }
+        .highlight-box { background: var(--gzk-blue); color: white; padding: 40px; border-radius: 20px; margin-bottom: 60px; }
         .highlight-box h3 { color: #ffcc00; margin-top: 0; font-size: 1.4rem; }
         .highlight-box ul { padding-left: 20px; margin-top: 20px; }
         .highlight-box li { margin-bottom: 12px; }
 
-        /* --- 3D Simulation Section --- */
         .sim-section { text-align: center; margin-bottom: 60px; }
         .sim-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin: 40px 0; }
         .sim-img-container { border-radius: 18px; overflow: hidden; box-shadow: 0 10px 25px rgba(0,0,0,0.1); background: #fff; }
@@ -77,7 +96,6 @@
             box-shadow: 0 4px 15px rgba(0,0,0,0.03); 
         }
 
-        /* --- CTA --- */
         .cta-area { 
             text-align: center; 
             background: linear-gradient(135deg, #fff 0%, #fcfcfc 100%); 
@@ -86,7 +104,6 @@
             box-shadow: 0 15px 40px rgba(0,0,0,0.08);
             border: 1px solid #eee;
         }
-        .cta-area h3 { color: var(--gzk-blue); font-size: 1.6rem; margin-top: 0; }
         .btn-form { 
             background: var(--gzk-orange); 
             color: white; 
@@ -99,29 +116,33 @@
             transition: 0.4s;
             box-shadow: 0 8px 20px rgba(255, 102, 0, 0.25);
         }
-        .btn-form:hover { background: var(--gzk-red); transform: translateY(-3px); box-shadow: 0 12px 25px rgba(231, 76, 60, 0.3); }
+        .btn-form:hover { background: var(--gzk-red); transform: translateY(-3px); }
 
         footer { text-align: center; padding: 60px 20px; color: #aaa; font-size: 0.9rem; }
 
         @media (max-width: 600px) {
+            .btn-back-sticky { padding: 6px 12px; font-size: 0.8rem; }
+            .header-spacer { width: 70px; }
+            .logo-link img { width: 180px; }
             .hero-section h1 { font-size: 1.8rem; }
-            .cta-area { padding: 40px 20px; }
         }
     </style>
 </head>
 <body>
 
     <header>
+        <a href="index.html" class="btn-back-sticky">
+            <span>←</span> ย้อนกลับ
+        </a>
+
         <a href="index.html" class="logo-link">
             <img src="GZK_logo_with_slogan.jpg" alt="GZK Co., Ltd.">
         </a>
+
+        <div class="header-spacer"></div>
     </header>
 
     <div class="container">
-        <div class="nav-back">
-            <a href="index.html">← กลับหน้าหลัก</a>
-        </div>
-
         <section class="hero-section">
             <h1>การติดตั้งที่ "เหมาะสม" <br>สำคัญพอๆ กับ "คุณภาพเครื่อง"</h1>
             <p>GZK ไม่ได้แค่ขายเครื่องกั้น แต่เราช่วยคุณออกแบบทางเดินที่รวดเร็ว ราบรื่น และปลอดภัยที่สุดสำหรับองค์กรของคุณ</p>
@@ -192,6 +213,5 @@
 
         <footer>© 2026 GZK Co., Ltd. | Your Flowing Secure Path.</footer>
     </div>
-
 </body>
 </html>
