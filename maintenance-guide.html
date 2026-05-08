@@ -8,7 +8,29 @@
     <style>
         :root { --gzk-orange: #ff6600; --gzk-blue: #2c3e50; --gzk-light: #f8f9fa; }
         body { margin: 0; font-family: 'Sarabun', sans-serif; background: #fff; color: #333; }
-        
+        header {
+    background: white;
+    text-align: center;
+    padding: 30px 20px; /* เพิ่มพื้นที่ว่างด้านบนและล่างให้ดูพรีเมียม */
+    border-bottom: 4px solid var(--gzk-blue);
+}
+
+.logo-link {
+    display: inline-block;
+    text-decoration: none;
+    transition: transform 0.3s ease; /* เพิ่มลูกเล่นเวลาเอาเมาส์วาง */
+}
+
+.logo-link:hover {
+    transform: scale(1.02); /* ขยายขึ้นเล็กน้อยเมื่อเอาเมาส์ไปวาง */
+}
+
+.logo-link img {
+    width: 350px; /* <--- ปรับตัวเลขนี้เพื่อกำหนดขนาดความกว้างที่ต้องการให้เท่ากันทุกหน้า */
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
         header { background: white; text-align: center; padding: 20px; border-bottom: 4px solid var(--gzk-blue); }
         .container { max-width: 1000px; margin: 0 auto; padding: 40px 20px; }
         
@@ -52,7 +74,11 @@
 </head>
 <body>
 
-    <header><img src="GZK_logo_with_slogan.jpg" alt="GZK" style="max-width: 180px;"></header>
+    <header>
+    <a href="index.html" class="logo-link">
+        <img src="GZK_logo_with_slogan.jpg" alt="GZK Co., Ltd.">
+    </a>
+</header>
 
     <div class="container">
         <div class="nav-back"><a href="index.html">← กลับหน้าหลัก</a></div>
