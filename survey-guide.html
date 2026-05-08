@@ -7,136 +7,190 @@
     <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
         :root { --gzk-red: #e74c3c; --gzk-blue: #2c3e50; --gzk-light: #f8f9fa; --gzk-orange: #ff6600; }
-        body { margin: 0; font-family: 'Sarabun', sans-serif; background: var(--gzk-light); color: #333; line-height: 1.6; }
+        body { margin: 0; font-family: 'Sarabun', sans-serif; background: var(--gzk-light); color: #333; line-height: 1.7; }
         
-        header { background: white; text-align: center; padding: 20px; border-bottom: 4px solid var(--gzk-blue); }
-        .container { max-width: 900px; margin: 40px auto; padding: 0 20px; }
-        header {
-    background: white;
-    text-align: center;
-    padding: 15px 20px; /* ลด padding ลงเล็กน้อยเพื่อให้ไม่กินพื้นที่หน้าจอเวลาค้างอยู่ด้านบน */
-    border-bottom: 4px solid var(--gzk-blue);
-    
-    /* ส่วนที่เพิ่มเข้ามาเพื่อให้ Logo ค้างอยู่ด้านบน */
-    position: sticky;
-    top: 0;
-    z-index: 1000; /* เพื่อให้ header อยู่ทับเนื้อหาอื่นๆ เวลาเลื่อนผ่าน */
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1); /* เพิ่มเงาเล็กน้อยเพื่อให้ดูมีมิติเวลาลอยทับเนื้อหา */
-}
-
-/* ปรับขนาดโลโก้ให้เล็กลงนิดนึงเวลาทำ Sticky จะได้ไม่บังเนื้อหามากเกินไป */
-.logo-link img {
-    width: 280px; /* ลองปรับจาก 350px เป็น 280px สำหรับแบบ Sticky ครับ */
-    height: auto;
-    display: block;
-    margin: 0 auto;
-}
-        .hero-section { text-align: center; margin-bottom: 50px; }
-        .hero-section h1 { color: var(--gzk-blue); font-size: 2rem; margin-bottom: 15px; }
-        .hero-section p { color: #666; font-size: 1.1rem; max-width: 700px; margin: 0 auto; }
-
-        .guide-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin-bottom: 40px; }
-        .guide-card { background: white; padding: 30px; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); border-top: 5px solid var(--gzk-red); }
-        .guide-card h3 { color: var(--gzk-blue); margin-top: 0; display: flex; align-items: center; gap: 10px; }
-        .guide-card p { font-size: 0.95rem; color: #555; }
-
-        .highlight-box { background: var(--gzk-blue); color: white; padding: 30px; border-radius: 15px; margin-bottom: 40px; }
-        .highlight-box h3 { color: #ffcc00; margin-top: 0; }
-        .highlight-box ul { padding-left: 20px; }
-        .highlight-box li { margin-bottom: 10px; }
-
-        .cta-area { text-align: center; background: white; padding: 40px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); }
-        .btn-form { 
-            background: var(--gzk-orange); color: white; padding: 18px 40px; 
-            text-decoration: none; border-radius: 35px; font-weight: bold; 
-            font-size: 1.2rem; display: inline-block; transition: 0.3s;
-            box-shadow: 0 4px 15px rgba(255, 102, 0, 0.3);
+        /* --- Header (Sticky) --- */
+        header { 
+            background: white; 
+            text-align: center; 
+            padding: 15px 20px; 
+            border-bottom: 4px solid var(--gzk-blue); 
+            position: sticky; 
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
-        .btn-form:hover { background: var(--gzk-red); transform: translateY(-3px); }
-        
-        .nav-back { margin-bottom: 20px; }
-        .nav-back a { text-decoration: none; color: var(--gzk-orange); font-weight: bold; display: flex; align-items: center; }
+        .logo-link img { width: 280px; height: auto; display: block; margin: 0 auto; }
 
-        footer { text-align: center; padding: 40px; color: #999; }
+        .container { max-width: 900px; margin: 40px auto; padding: 0 20px; }
+
+        /* --- Navigation --- */
+        .nav-back { margin-bottom: 25px; }
+        .nav-back a { 
+            text-decoration: none; 
+            color: var(--gzk-orange); 
+            font-weight: bold; 
+            display: inline-flex; 
+            align-items: center;
+            transition: 0.3s;
+        }
+        .nav-back a:hover { transform: translateX(-5px); }
+
+        /* --- Hero Section --- */
+        .hero-section { text-align: center; margin-bottom: 60px; }
+        .hero-section h1 { color: var(--gzk-blue); font-size: 2.2rem; margin-bottom: 20px; line-height: 1.3; }
+        .hero-section p { color: #666; font-size: 1.15rem; max-width: 750px; margin: 0 auto; }
+
+        /* --- Guide Cards --- */
+        .guide-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 25px; margin-bottom: 50px; }
+        .guide-card { 
+            background: white; 
+            padding: 35px; 
+            border-radius: 20px; 
+            box-shadow: 0 8px 25px rgba(0,0,0,0.04); 
+            border-top: 6px solid var(--gzk-red);
+            transition: 0.3s;
+        }
+        .guide-card:hover { transform: translateY(-5px); box-shadow: 0 12px 30px rgba(0,0,0,0.08); }
+        .guide-card h3 { color: var(--gzk-blue); margin-top: 0; font-size: 1.25rem; display: flex; align-items: center; gap: 10px; }
+        .guide-card p { font-size: 0.95rem; color: #555; margin-bottom: 0; }
+
+        /* --- Case Study Box --- */
+        .highlight-box { background: var(--gzk-blue); color: white; padding: 40px; border-radius: 20px; margin-bottom: 60px; position: relative; overflow: hidden; }
+        .highlight-box h3 { color: #ffcc00; margin-top: 0; font-size: 1.4rem; }
+        .highlight-box ul { padding-left: 20px; margin-top: 20px; }
+        .highlight-box li { margin-bottom: 12px; }
+
+        /* --- 3D Simulation Section --- */
+        .sim-section { text-align: center; margin-bottom: 60px; }
+        .sim-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin: 40px 0; }
+        .sim-img-container { border-radius: 18px; overflow: hidden; box-shadow: 0 10px 25px rgba(0,0,0,0.1); background: #fff; }
+        .sim-img-container img { width: 100%; height: 260px; object-fit: cover; display: block; }
+        .sim-label { margin-top: 15px; font-weight: bold; font-size: 1.1rem; }
+
+        .info-quote { 
+            background: #fff; 
+            padding: 30px; 
+            border-radius: 15px; 
+            border-left: 8px solid var(--gzk-orange); 
+            margin-bottom: 60px; 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03); 
+        }
+
+        /* --- CTA --- */
+        .cta-area { 
+            text-align: center; 
+            background: linear-gradient(135deg, #fff 0%, #fcfcfc 100%); 
+            padding: 60px 40px; 
+            border-radius: 25px; 
+            box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+            border: 1px solid #eee;
+        }
+        .cta-area h3 { color: var(--gzk-blue); font-size: 1.6rem; margin-top: 0; }
+        .btn-form { 
+            background: var(--gzk-orange); 
+            color: white; 
+            padding: 20px 50px; 
+            text-decoration: none; 
+            border-radius: 40px; 
+            font-weight: bold; 
+            font-size: 1.25rem; 
+            display: inline-block; 
+            transition: 0.4s;
+            box-shadow: 0 8px 20px rgba(255, 102, 0, 0.25);
+        }
+        .btn-form:hover { background: var(--gzk-red); transform: translateY(-3px); box-shadow: 0 12px 25px rgba(231, 76, 60, 0.3); }
+
+        footer { text-align: center; padding: 60px 20px; color: #aaa; font-size: 0.9rem; }
+
+        @media (max-width: 600px) {
+            .hero-section h1 { font-size: 1.8rem; }
+            .cta-area { padding: 40px 20px; }
+        }
     </style>
 </head>
 <body>
 
     <header>
-    <a href="index.html" class="logo-link">
-        <img src="GZK_logo_with_slogan.jpg" alt="GZK Co., Ltd.">
-    </a>
-</header>
+        <a href="index.html" class="logo-link">
+            <img src="GZK_logo_with_slogan.jpg" alt="GZK Co., Ltd.">
+        </a>
+    </header>
+
     <div class="container">
         <div class="nav-back">
             <a href="index.html">← กลับหน้าหลัก</a>
         </div>
 
         <section class="hero-section">
-            <h1>เพราะการติดตั้งที่ "เหมาะสม" สำคัญพอๆ กับ "คุณภาพเครื่อง"</h1>
-            <p>เราไม่ได้แค่ขายเครื่องกั้น แต่เราช่วยคุณออกแบบ "ทางเดินที่รวดเร็วราบรื่นและปลอดภัยที่สุด"</p>
+            <h1>การติดตั้งที่ "เหมาะสม" <br>สำคัญพอๆ กับ "คุณภาพเครื่อง"</h1>
+            <p>GZK ไม่ได้แค่ขายเครื่องกั้น แต่เราช่วยคุณออกแบบทางเดินที่รวดเร็ว ราบรื่น และปลอดภัยที่สุดสำหรับองค์กรของคุณ</p>
         </section>
 
         <div class="guide-grid">
             <div class="guide-card">
-                <h3>📍 พื้นที่ติดตั้ง (Environment)</h3>
-                <p>หน้างานอยู่ภายในอาคาร (Indoor) หรือภายนอก (Outdoor)? หากมีโอกาสโดนแดดจัดหรือละอองฝน เราจะแนะนำวัสดุ <b>Stainless 316</b> หรือ <b>Power Coating</b> ชนิดพิเศษเพื่อยืดอายุการใช้งาน</p>
+                <h3>📍 พื้นที่ติดตั้ง</h3>
+                <p>หน้างานอยู่ภายในอาคาร (Indoor) หรือภายนอก (Outdoor)? หากมีโอกาสโดนแดดหรือละอองฝน เราจะแนะนำวัสดุ <b>Stainless 316</b> หรือ <b>Powder Coating</b> พิเศษเพื่อความทนทานสูงสุด</p>
             </div>
 
             <div class="guide-card">
-                <h3>👥 ปริมาณคน (Flow Rate)</h3>
-                <p>จำนวนผู้ใช้งานต่อวันคือเท่าไหร่? เพื่อกำหนดความเร็วของประตูกั้น (Opening Speed) และจำนวนช่องทางที่เหมาะสม ไม่ให้เกิดคอขวดสะสมในช่วงเวลาเร่งด่วน</p>
+                <h3>👥 ปริมาณคน (Flow)</h3>
+                <p>จำนวนผู้ใช้งานต่อวันคือเท่าไหร่? เพื่อกำหนดความเร็วของประตู (Opening Speed) และจำนวนช่องทางที่เหมาะสม ไม่ให้เกิดคอขวดในช่วงเวลาเร่งด่วน</p>
             </div>
 
             <div class="guide-card">
-                <h3>🚶 ทิศทางเดิน (Directional Flow)</h3>
+                <h3>🚶 ทิศทางเดิน</h3>
                 <p>การกำหนดจุดเข้า-ออกที่ชัดเจน ช่วยลดอุบัติเหตุและเพิ่มความสะดวกในการคัดกรองบุคคล โดยเฉพาะพื้นที่ที่มีผู้มาติดต่อ (Visitor) สลับกับพนักงาน</p>
             </div>
         </div>
 
         <div class="highlight-box">
-            <h3>🏭 กรณีศึกษา: การจัดการเวลาเข้า-เลิกงาน (Shift Management)</h3>
-            <p>สำหรับการติดตั้งในโรงงานอุตสาหกรรม เราให้ความสำคัญกับ <b>"เงื่อนไขเวลาจริง"</b> :</p>
+            <h3>🏭 กรณีศึกษา: การจัดการช่วงเวลาเร่งด่วน</h3>
+            <p>สำหรับการติดตั้งในโรงงานหรืออาคารสำนักงานขนาดใหญ่ เราเน้น <b>"เงื่อนไขเวลาจริง"</b> :</p>
             <ul>
-                <li><b>ช่วงเข้างาน:</b> ระบบสามารถปรับให้ช่องทางส่วนใหญ่เป็น "ทางเข้า" เพื่อรองรับพนักงานจำนวนมากให้ทันเวลา</li>
-                <li><b>ช่วงเลิกงาน:</b> สลับทิศทางให้ช่องทางส่วนใหญ่เป็น "ทางออก" เพื่อระบายคนให้รวดเร็วและปลอดภัย</li>
-                <li>การออกแบบช่องทางที่สัมพันธ์กับเวลา ช่วยลดต้นทุนการติดตั้งช่องทางที่เกินความจำเป็นได้ครับ</li>
+                <li><b>ช่วงเช้า (Inbound):</b> ปรับระบบให้ช่องทางส่วนใหญ่เป็น "ทางเข้า" เพื่อระบายพนักงานให้เข้างานได้ทันเวลา</li>
+                <li><b>ช่วงเย็น (Outbound):</b> สลับทิศทางให้เป็น "ทางออก" เพื่อระบายคนกลับบ้านได้อย่างรวดเร็วและปลอดภัย</li>
+                <li>การออกแบบที่สัมพันธ์กับเวลา ช่วยให้คุณไม่ต้องติดตั้งจำนวนเครื่องเกินความจำเป็น</li>
             </ul>
         </div>
-<h2 style="text-align: center; color: var(--gzk-blue); margin-top: 50px;">เห็นภาพก่อนติดตั้งจริงด้วยบริการ 3D Simulation</h2>
-        <p style="text-align: center; color: #666; margin-bottom: 30px;">เราช่วยคุณวิเคราะห์และออกแบบภูมิทัศน์ เพื่อให้มั่นใจว่าประตูที่เลือกจะเข้ากับพื้นที่ของคุณอย่างสมบูรณ์แบบ</p>
-        
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-bottom: 50px;">
-            <div style="text-align: center;">
-                <div style="border-radius: 15px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1); background: #eee; height: 250px;">
-                    <img src="before.jpg" alt="พื้นที่ก่อนติดตั้ง" style="width: 100%; height: 100%; object-fit: cover;">
+
+        <section class="sim-section">
+            <h2 style="color: var(--gzk-blue);">เห็นภาพก่อนติดตั้งจริงด้วย 3D Simulation</h2>
+            <p style="color: #666;">เราวิเคราะห์ภูมิทัศน์ เพื่อให้มั่นใจว่าประตูที่คุณเลือกจะลงตัวกับพื้นที่อย่างสมบูรณ์แบบ</p>
+            
+            <div class="sim-grid">
+                <div>
+                    <div class="sim-img-container">
+                        <img src="before.jpg" alt="พื้นที่ก่อนติดตั้ง">
+                    </div>
+                    <p class="sim-label" style="color: var(--gzk-red);">[ BEFORE ] หน้างานปัจจุบัน</p>
                 </div>
-                <p style="margin-top: 15px; font-weight: bold; color: #e74c3c;">[ BEFORE ] พื้นที่หน้างานจริง</p>
+
+                <div>
+                    <div class="sim-img-container" style="border: 3px solid var(--gzk-orange);">
+                        <img src="after.jpg" alt="ภาพจำลอง 3 มิติ">
+                    </div>
+                    <p class="sim-label" style="color: var(--gzk-orange);">[ AFTER ] ภาพจำลอง 3D สเกลจริง</p>
+                </div>
             </div>
 
-            <div style="text-align: center;">
-                <div style="border-radius: 15px; overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.15); background: #eee; height: 250px; border: 3px solid var(--gzk-orange);">
-                    <img src="after.jpg" alt="ภาพจำลอง 3 มิติ" style="width: 100%; height: 100%; object-fit: cover;">
-                </div>
-                <p style="margin-top: 15px; font-weight: bold; color: var(--gzk-orange);">[ AFTER ] ภาพจำลอง 3D ขนาดจริง</p>
+            <div class="info-quote">
+                <p style="margin: 0; font-size: 1.1rem; text-align: left;">
+                    <b>"มากกว่าแค่เครื่องกั้น คือภูมิทัศน์ที่ทันสมัย"</b> <br>
+                    วิศวกร GZK จะจัดทำภาพจำลอง 3D สเกลจริงจากสถานที่จริง เพื่อให้ท่านเห็นระยะติดตั้งที่ถูกต้อง ทิศทางเดิน และความสวยงามของพื้นที่ ช่วยลดความผิดพลาดในการตัดสินใจและมั่นใจได้ 100%
+                </p>
             </div>
-        </div>
+        </section>
 
-        <div style="background: #fff; padding: 25px; border-radius: 15px; border-left: 5px solid var(--gzk-orange); margin-bottom: 50px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
-            <p style="margin: 0; font-size: 1.05rem;">
-                <b>"มากกว่าแค่เครื่องกั้น คือภูมิทัศน์ที่ทันสมัย"</b> <br>
-                ทีมวิศวกร GZK จะทำการถ่ายภาพหน้างานและนำมาจัดทำภาพจำลอง 3D สเกลจริง เพื่อให้ท่านเห็นระยะติดตั้งที่ถูกต้อง ทิศทางเดิน และความสวยงามของพื้นที่หลังติดตั้งเสร็จสิ้น ช่วยลดความผิดพลาดในการเลือกจุดวางและรุ่นสินค้า
-            </p>
-        </div>
         <div class="cta-area">
-            <h3>ส่งข้อมูลเพื่อให้เราช่วยประเมินหน้างาน</h3>
-            <p style="margin-bottom: 25px; color: #666;">แจ้งรายละเอียดพื้นที่เบื้องต้น เพื่อรับคำแนะนำรุ่นที่เหมาะสมและนัดหมายสำรวจหน้างานจริง</p>
+            <h3>พร้อมให้เราช่วยประเมินหน้างานหรือยังครับ?</h3>
+            <p style="margin-bottom: 35px; color: #666;">แจ้งรายละเอียดพื้นที่เบื้องต้น เพื่อรับคำแนะนำรุ่นที่เหมาะสมและนัดหมายสำรวจหน้างานจริง</p>
             <a href="https://forms.gle/TDb5wtSytgZErEEJA" class="btn-form" target="_blank">
-                คลิกเพื่อกรอกแบบฟอร์มสำรวจหน้างาน
+                นัดหมายสำรวจหน้างาน (ฟรี)
             </a>
         </div>
 
-        <footer>© 2026 GZK Co., Ltd. | Flowing Secure Path.</footer>
+        <footer>© 2026 GZK Co., Ltd. | Your Flowing Secure Path.</footer>
     </div>
 
 </body>
