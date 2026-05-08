@@ -6,137 +6,169 @@
     <title>บริการซ่อมแซมและอัปเกรด | GZK Co., Ltd.</title>
     <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
-        :root { --gzk-orange: #ff6600; --gzk-blue: #2c3e50; --gzk-light: #f8f9fa; }
+        :root { --gzk-orange: #ff6600; --gzk-blue: #2c3e50; --gzk-light: #f8f9fa; --gzk-dark: #1a252f; }
         body { margin: 0; font-family: 'Sarabun', sans-serif; background: #fff; color: #333; line-height: 1.6; }
         
-        header { background: white; text-align: center; padding: 20px; border-bottom: 4px solid var(--gzk-blue); }
-        .container { max-width: 1000px; margin: 0 auto; padding: 40px 20px; }
-        header {
-    background: white;
-    text-align: center;
-    padding: 15px 20px; /* ลด padding ลงเล็กน้อยเพื่อให้ไม่กินพื้นที่หน้าจอเวลาค้างอยู่ด้านบน */
-    border-bottom: 4px solid var(--gzk-blue);
-    
-    /* ส่วนที่เพิ่มเข้ามาเพื่อให้ Logo ค้างอยู่ด้านบน */
-    position: sticky;
-    top: 0;
-    z-index: 1000; /* เพื่อให้ header อยู่ทับเนื้อหาอื่นๆ เวลาเลื่อนผ่าน */
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1); /* เพิ่มเงาเล็กน้อยเพื่อให้ดูมีมิติเวลาลอยทับเนื้อหา */
-}
-
-/* ปรับขนาดโลโก้ให้เล็กลงนิดนึงเวลาทำ Sticky จะได้ไม่บังเนื้อหามากเกินไป */
-.logo-link img {
-    width: 280px; /* ลองปรับจาก 350px เป็น 280px สำหรับแบบ Sticky ครับ */
-    height: auto;
-    display: block;
-    margin: 0 auto;
-}
-        .nav-back { margin-bottom: 25px; }
-        .nav-back a { text-decoration: none; color: var(--gzk-orange); font-weight: bold; }
-
-        .hero-section { text-align: center; margin-bottom: 50px; }
-        .hero-section h1 { color: var(--gzk-blue); font-size: 2.2rem; margin-bottom: 15px; }
-        .hero-section p { color: #666; font-size: 1.1rem; max-width: 750px; margin: 0 auto; }
-        .highlight-text { color: var(--gzk-orange); font-weight: bold; }
-
-        .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-bottom: 40px; }
-        .feature-card { background: var(--gzk-light); padding: 30px; border-radius: 15px; border-top: 5px solid var(--gzk-orange); transition: 0.3s; }
-        .feature-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
-        .feature-card h3 { color: var(--gzk-blue); margin-top: 0; }
-
-        .upgrade-box { background: #2c3e50; color: white; padding: 40px; border-radius: 15px; margin-bottom: 40px; text-align: center; }
-        .upgrade-box h2 { color: #ffcc00; }
-
-        .cta-box { text-align: center; background: #ff6600; color: white; padding: 40px; border-radius: 15px; }
-        .btn-form { 
-            background: #2c3e50; color: white; padding: 18px 40px; 
-            text-decoration: none; border-radius: 35px; font-weight: bold; 
-            font-size: 1.2rem; display: inline-block; margin-top: 20px; 
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); transition: 0.3s;
+        /* --- Header (Sticky) --- */
+        header { 
+            background: white; 
+            text-align: center; 
+            padding: 15px 20px; 
+            border-bottom: 4px solid var(--gzk-blue); 
+            position: sticky; 
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
-        .btn-form:hover { background: #1a252f; transform: translateY(-2px); }
+        .logo-link img { width: 280px; height: auto; display: block; margin: 0 auto; }
 
-        footer { text-align: center; padding: 40px; color: #999; margin-top: 40px; }
+        .container { max-width: 1000px; margin: 0 auto; padding: 40px 20px; }
+        
+        /* --- Navigation --- */
+        .nav-back { margin-bottom: 25px; }
+        .nav-back a { text-decoration: none; color: var(--gzk-orange); font-weight: bold; transition: 0.3s; }
+        .nav-back a:hover { color: var(--gzk-blue); }
+
+        /* --- Hero Section --- */
+        .hero-section { text-align: center; margin-bottom: 60px; }
+        .hero-section h1 { color: var(--gzk-blue); font-size: 2.4rem; margin-bottom: 15px; line-height: 1.2; }
+        .hero-section p { color: #666; font-size: 1.15rem; max-width: 800px; margin: 0 auto; }
+        .highlight-orange { color: var(--gzk-orange); font-weight: bold; }
+
+        /* --- Feature Cards --- */
+        .feature-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+            gap: 25px; 
+            margin-bottom: 60px; 
+        }
+        .feature-card { 
+            background: var(--gzk-light); 
+            padding: 35px 25px; 
+            border-radius: 15px; 
+            border-top: 5px solid var(--gzk-orange); 
+            transition: 0.3s;
+            height: 100%;
+            box-sizing: border-box;
+        }
+        .feature-card:hover { transform: translateY(-5px); box-shadow: 0 12px 25px rgba(0,0,0,0.08); }
+        .feature-card h3 { color: var(--gzk-blue); margin-top: 0; font-size: 1.3rem; margin-bottom: 15px; }
+        .feature-card p { font-size: 0.95rem; color: #555; margin: 0; }
+
+        /* --- Upgrade Showcase Section --- */
+        .upgrade-section { 
+            background: #fdfdfd; 
+            border-radius: 20px; 
+            padding: 50px 30px; 
+            border: 1px solid #eee; 
+            margin-bottom: 60px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+        }
+        .upgrade-header { text-align: center; margin-bottom: 40px; }
+        .upgrade-header h2 { color: var(--gzk-blue); font-size: 2rem; margin-bottom: 15px; }
+        
+        .solution-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); 
+            gap: 20px; 
+            margin-top: 40px; 
+        }
+        .sol-item { 
+            padding: 20px; 
+            border-radius: 12px; 
+            background: white; 
+            border-left: 5px solid var(--gzk-orange);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+        }
+        .sol-item strong { color: var(--gzk-blue); display: block; margin-bottom: 8px; font-size: 1.1rem; }
+        .sol-item p { font-size: 0.9rem; color: #666; margin: 0; }
+
+        /* --- CTA Box --- */
+        .cta-box { 
+            text-align: center; 
+            background: linear-gradient(135deg, var(--gzk-orange), #ff8800); 
+            color: white; 
+            padding: 60px 30px; 
+            border-radius: 20px; 
+            box-shadow: 0 15px 35px rgba(255, 102, 0, 0.2);
+        }
+        .cta-box h2 { margin-top: 0; font-size: 1.8rem; }
+        
+        .btn-form { 
+            background: var(--gzk-blue); 
+            color: white; 
+            padding: 20px 45px; 
+            text-decoration: none; 
+            border-radius: 40px; 
+            font-weight: bold; 
+            font-size: 1.2rem; 
+            display: inline-block; 
+            margin-top: 30px; 
+            transition: 0.3s;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+        .btn-form:hover { background: var(--gzk-dark); transform: scale(1.05); }
+
+        footer { text-align: center; padding: 60px 20px; color: #999; border-top: 1px solid #eee; margin-top: 60px; }
+
+        @media (max-width: 768px) {
+            .hero-section h1 { font-size: 1.8rem; }
+            .upgrade-header h2 { font-size: 1.6rem; }
+            .cta-box h2 { font-size: 1.5rem; }
+        }
     </style>
 </head>
 <body>
 
     <header>
-    <a href="index.html" class="logo-link">
-        <img src="GZK_logo_with_slogan.jpg" alt="GZK Co., Ltd.">
-    </a>
-</header>
+        <a href="index.html" class="logo-link">
+            <img src="GZK_logo_with_slogan.jpg" alt="GZK Co., Ltd.">
+        </a>
+    </header>
 
     <div class="container">
         <div class="nav-back"><a href="index.html">← กลับหน้าหลัก</a></div>
 
         <section class="hero-section">
-            <h1>บริการซ่อมแซมและอัปเกรด (Repair & Upgrade)</h1>
-            <p>ด้วยประสบการณ์การติดตั้งและซ่อมบำรุงประตูอัตโนมัติมากว่า 10 ปี เราพร้อมคืนชีวิตให้ประตูของคุณให้กลับมาทำงานได้เต็มประสิทธิภาพ</p>
+            <h1>บริการซ่อมแซมและอัปเกรด <span class="highlight-orange">(Repair & Upgrade)</span></h1>
+            <p>ด้วยประสบการณ์การติดตั้งและซ่อมบำรุงประตูอัตโนมัติมากว่า 10 ปี เราพร้อมคืนชีวิตให้ประตูของคุณให้กลับมาทำงานได้เต็มประสิทธิภาพและทันสมัยที่สุด</p>
         </section>
 
         <div class="feature-grid">
             <div class="feature-card">
                 <h3>⚙️ แก้ไขทุกอาการเสีย</h3>
-                <p>ทีมงานมีความเชี่ยวชาญสูงในการหาอะไหล่และอุปกรณ์ที่ตรงรุ่น เพื่อแก้ไขอาการเสียของประตูคุณ แม้จะเป็นประตูที่ไม่ได้ติดตั้งกับเราก็ตาม</p>
+                <p>ทีมช่างผู้เชี่ยวชาญพร้อมวิเคราะห์และจัดหาอะไหล่ที่ตรงรุ่น เพื่อแก้ไขอาการเสียของประตูทุกยี่ห้อ แม้จะเป็นประตูที่ไม่ได้ติดตั้งกับเราก็ตาม</p>
             </div>
             
             <div class="feature-card">
-                <h3>♻️ อย่าปล่อยให้ประตูเก่าไร้ค่า</h3>
-                <p>ประตูรุ่นเก่าสามารถนำกลับมาใช้งานได้ดี หรือนำมาประเมินเพื่อรับส่วนลดแลกซื้อประตูใหม่จาก GZK เพื่อปรับภูมิทัศน์ให้ดูทันสมัยและโมเดิร์น</p>
+                <h3>♻️ คืนมูลค่าให้ประตูเก่า</h3>
+                <p>ประตูรุ่นเก่าสามารถนำกลับมาบำรุงรักษาให้ใช้งานได้ดี หรือนำมาประเมินเพื่อรับส่วนลดพิเศษในการเปลี่ยนเป็นประตูรุ่นใหม่จาก GZK</p>
             </div>
 
             <div class="feature-card">
-                <h3>🚀 อัปเกรดระบบให้ทันสมัย</h3>
-                <p>อัปเกรดระบบควบคุมเดิมของคุณ จากการใช้บัตรธรรมดา สู่การใช้ <b>QR Code</b> หรือ <b>Bluetooth</b> บนสมาร์ตโฟนที่สะดวกและปลอดภัยยิ่งขึ้น</p>
+                <h3>🚀 ระบบควบคุมล้ำสมัย</h3>
+                <p>เปลี่ยนจากระบบเดิมที่ใช้บัตร RFID สู่เทคโนโลยี QR Code หรือ Bluetooth บนสมาร์ตโฟน เพื่อความสะดวกและปลอดภัยที่เหนือกว่า</p>
             </div>
         </div>
 
-        <div class="upgrade-box">
-            <h2>เปลี่ยนประตูเก่า ให้กลายเป็นประตูอัจฉริยะ (Smart Modern Access)</h2>
-            <p style="font-size: 1.1rem;">ยกระดับทางเข้า-ออกของคุณ ด้วยเทคโนโลยีล้ำสมัย ให้ดู Modern และสอดคล้องกับพฤติกรรมผู้ใช้งานยุคปัจจุบัน</p>
-        </div>
-<!-- ส่วนอัปเกรดประตูเดิมเป็นประตูอัจฉริยะ -->
-        <div class="slide-page" style="background: #f9f9f9; border-top: 8px solid var(--gzk-blue);">
-            <div style="text-align: center; margin-bottom: 30px;">
-                <h2 style="margin-bottom: 15px;">เปลี่ยนประตูเดิม ให้เป็น <span class="highlight-text">ประตูอัจฉริยะ</span></h2>
-                <p style="font-size: 1.1rem; color: #555; max-width: 800px; margin: 0 auto; line-height: 1.6;">
-                    ยกระดับการแสดงตัวตนเข้าพื้นที่ของคุณให้ทันสมัยและปลอดภัยมากขึ้น 
-                    <span style="font-weight: bold; color: var(--gzk-blue);">โดยใช้ประตูเดิมของคุณได้เลย ไม่ต้องรื้อถอนหรือเปลี่ยนใหม่</span> 
-                    เพื่อความคุ้มค่าและตอบโจทย์การใช้งานสูงสุด
-                </p>
+        <div class="upgrade-section">
+            <div class="upgrade-header">
+                <h2>เปลี่ยนประตูเดิม ให้เป็น <span class="highlight-orange">ประตูอัจฉริยะ</span></h2>
+                <p>ยกระดับระบบเดิมของคุณให้ทันสมัย <span style="font-weight: bold; color: var(--gzk-blue);">โดยใช้โครงสร้างประตูเดิมได้ทันที ไม่ต้องรื้อถอน</span> เพื่อความคุ้มค่าและตอบโจทย์เทคโนโลยียุคใหม่</p>
             </div>
 
-            <div style="text-align: center; background: white; padding: 20px; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.05);">
-                <!-- ใส่ชื่อไฟล์รูปภาพของคุณตรงนี้ -->
-                <img src="upgrade-solutions.jpg" alt="Smart Door Upgrade Solutions" style="max-width: 100%; border-radius: 10px;">
+            <div style="text-align: center;">
+                <img src="upgrade-solutions.jpg" alt="Smart Door Upgrade Solutions" style="max-width: 100%; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
                 
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-top: 30px; text-align: left;">
-                    <div style="padding: 10px; border-left: 4px solid #3498db;">
-                        <strong style="color: var(--gzk-blue);">Card & QR Solution</strong>
-                        <p style="margin: 5px 0 0 0; font-size: 0.9rem; color: #666;">รองรับบัตร RFID และ QR Code สำหรับผู้มาติดต่อ</p>
+                <div class="solution-grid">
+                    <div class="sol-item">
+                        <strong>Card & QR Solution</strong>
+                        <p>รองรับทั้งบัตร RFID และ QR Code สำหรับผู้มาติดต่อ (Visitor)</p>
                     </div>
-                    <div style="padding: 10px; border-left: 4px solid #9b59b6;">
-                        <strong style="color: var(--gzk-blue);">Biometric Solution</strong>
-                        <p style="margin: 5px 0 0 0; font-size: 0.9rem; color: #666;">สแกนใบหน้า ลายนิ้วมือ หรือฝ่ามือ แม่นยำและรวดเร็ว</p>
+                    <div class="sol-item">
+                        <strong>Biometric Solution</strong>
+                        <p>สแกนใบหน้า ลายนิ้วมือ หรือฝ่ามือ แม่นยำ รวดเร็ว และปลอดภัยสูงสุด</p>
                     </div>
-                    <div style="padding: 10px; border-left: 4px solid #2ecc71;">
-                        <strong style="color: var(--gzk-blue);">Touchless Control</strong>
-                        <p style="margin: 5px 0 0 0; font-size: 0.9rem; color: #666;">เทคโนโลยีไร้สัมผัส ลดการแพร่กระจายของเชื้อโรค</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="cta-box">
-            <h2>ต้องการให้ประเมินสภาพประตูหรือรับคำแนะนำ?</h2>
-            <p style="font-size: 1.1rem; opacity: 0.9;">แจ้งรายละเอียดให้เราทราบ ทีมงานพร้อมดูแลและนัดหมายเพื่อเข้าประเมินหน้างานครับ</p>
-            <a href="https://forms.gle/TDb5wtSytgZErEEJA" class="btn-form" target="_blank">
-                คลิกเพื่อกรอกแบบฟอร์มแจ้งซ่อม / ประเมินราคา
-            </a>
-        </div>
-    </div>
-
-    <footer>© 2026 GZK Co., Ltd. | Flowing Secure Path.</footer>
-
-</body>
-</html>
+                    <div class="sol-item">
+                        <strong>Touchless Control</strong>
+                        <p>เทคโนโลยีไร้สัมผัส ลดความเสี่ยงและเพิ่มสุขอนามัยให้ผู้ใช้งาน</p>
