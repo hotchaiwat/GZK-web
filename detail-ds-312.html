@@ -6,141 +6,169 @@
     <title>รายละเอียด DS-312 | GZK Co., Ltd.</title>
     <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
-        :root { --gzk-red: #e74c3c; --gzk-blue: #2c3e50; --gzk-light: #f0f4f8; }
-        body { margin: 0; font-family: 'Sarabun', sans-serif; background: #fff; color: #333; line-height: 1.6; }
-        header { background: white; text-align: center; padding: 20px; border-bottom: 4px solid var(--gzk-blue); }
-        .container { max-width: 1100px; margin: 0 auto; padding: 20px; }
-        .nav-back { margin: 20px 0; }
-        .nav-back a { text-decoration: none; color: var(--gzk-red); font-weight: bold; }
-header {
-    background: white;
-    text-align: center;
-    padding: 15px 20px; /* ลด padding ลงเล็กน้อยเพื่อให้ไม่กินพื้นที่หน้าจอเวลาค้างอยู่ด้านบน */
-    border-bottom: 4px solid var(--gzk-blue);
-    
-    /* ส่วนที่เพิ่มเข้ามาเพื่อให้ Logo ค้างอยู่ด้านบน */
-    position: sticky;
-    top: 0;
-    z-index: 1000; /* เพื่อให้ header อยู่ทับเนื้อหาอื่นๆ เวลาเลื่อนผ่าน */
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1); /* เพิ่มเงาเล็กน้อยเพื่อให้ดูมีมิติเวลาลอยทับเนื้อหา */
-}
+        :root { --gzk-red: #e74c3c; --gzk-blue: #2c3e50; --gzk-light: #f0f4f8; --gzk-orange: #ff6600; }
+        body { margin: 0; font-family: 'Sarabun', sans-serif; background: #fff; color: #333; line-height: 1.6; overflow-x: hidden; }
 
-/* ปรับขนาดโลโก้ให้เล็กลงนิดนึงเวลาทำ Sticky จะได้ไม่บังเนื้อหามากเกินไป */
-.logo-link img {
-    width: 280px; /* ลองปรับจาก 350px เป็น 280px สำหรับแบบ Sticky ครับ */
-    height: auto;
-    display: block;
-    margin: 0 auto;
-}
-        /* Product Gallery */
+        /* แก้ไข Header ให้รองรับปุ่มและโลโก้ */
+        header { 
+            background: white; 
+            text-align: center; 
+            padding: 15px 20px; 
+            border-bottom: 4px solid var(--gzk-blue); 
+            position: sticky; 
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 70px;
+        }
+
+        .header-back {
+            position: absolute;
+            left: 20px;
+            background: var(--gzk-orange);
+            color: white !important;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.9rem;
+            padding: 10px 20px;
+            border-radius: 30px;
+            transition: 0.3s;
+            box-shadow: 0 4px 10px rgba(255, 102, 0, 0.3);
+        }
+
+        .header-back:hover {
+            background: var(--gzk-blue);
+            transform: translateX(-5px);
+        }
+
+        .logo-link {
+            display: inline-block;
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+
+        .logo-link:hover { transform: scale(1.05); }
+
+        .logo-link img { 
+            width: 280px; 
+            height: auto; 
+            display: block;
+            margin: 0 auto;
+        }
+
+        /* ล็อคความกว้าง 1100px */
+        .container { 
+            max-width: 1100px; 
+            margin: 0 auto; 
+            padding: 20px; 
+            box-sizing: border-box;
+        }
+
         .product-header { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 40px; margin-top: 20px; }
         .main-img { width: 100%; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); margin-bottom: 15px; }
         .thumb-grid { display: flex; flex-direction: column; gap: 15px; }
-        .thumb-grid img { width: 100%; height: auto; object-fit: cover; border-radius: 10px; border: 1px solid #ddd; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+        .thumb-grid img { width: 100%; height: auto; object-fit: cover; border-radius: 10px; border: 1px solid #ddd; }
         
         .product-main-info h1 { color: var(--gzk-blue); font-size: 2.2rem; margin: 10px 0; }
         .brand-logo { max-width: 120px; margin-bottom: 10px; }
         .spec-short { background: var(--gzk-light); padding: 20px; border-radius: 10px; list-style: none; margin: 20px 0; }
         .spec-short li { margin-bottom: 8px; font-weight: bold; color: var(--gzk-blue); }
 
-        /* Section Titles */
         .section-title { border-left: 6px solid var(--gzk-red); padding-left: 15px; margin: 50px 0 25px; color: var(--gzk-blue); font-size: 1.5rem; }
 
-        /* Video */
-        .video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 10px; background: #000; box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+        .video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 10px; background: #000; }
         .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
 
-        /* PDF Downloads */
         .download-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
         .download-card { border: 2px dashed #ddd; padding: 20px; border-radius: 10px; text-align: center; transition: 0.3s; text-decoration: none; color: inherit; }
         .download-card:hover { border-color: var(--gzk-red); background: #fff5f5; }
 
-        /* Photos Grid */
         .photo-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
-        .photo-item { text-align: center; }
         .photo-item img { width: 100%; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
-        .photo-item p { margin-top: 10px; font-weight: bold; color: #666; }
-
-        .installation-grid { grid-template-columns: 1fr !important; gap: 30px; }
+        .photo-item p { margin-top: 10px; font-weight: bold; color: #666; text-align: center; }
 
         .btn-contact { display: block; background: var(--gzk-red); color: white; text-align: center; padding: 15px; text-decoration: none; border-radius: 5px; font-weight: bold; margin-top: 20px; transition: 0.3s; }
         .btn-contact:hover { background: var(--gzk-blue); }
 
-        footer { text-align: center; padding: 60px; color: #999; border-top: 1px solid #eee; margin-top: 50px; }
+        footer { text-align: center; padding: 60px 20px; color: #999; border-top: 1px solid #eee; margin-top: 50px; }
 
-        @media (max-width: 768px) { .photo-grid { grid-template-columns: 1fr; } }
+        @media (max-width: 768px) { 
+            .photo-grid { grid-template-columns: 1fr; }
+            .header-back { padding: 6px 12px; font-size: 0.8rem; left: 10px; }
+            .logo-link img { width: 180px; }
+        }
     </style>
 </head>
 <body>
-    <header>
-    <a href="product-flap.html">← กลับสู่รายการสินค้า</a>
+
+<header>
+    <a href="product-flap.html" class="header-back">← กลับสู่รายการสินค้า</a>
     <a href="index.html" class="logo-link">
         <img src="GZK_logo_with_slogan.jpg" alt="GZK Co., Ltd.">
     </a>
 </header>
 
 <div class="container"> 
+
+    <section class="product-header">
+        <div class="product-gallery">
+            <img src="ds-312-2.jpg" alt="DS-312 Flap Gate" class="main-img">
+            <div class="thumb-grid">
+                <img src="ds-312-1.jpg" alt="DS-312 Side View">
+                <img src="ds-312-main1.jpg" alt="DS-312 Detail View">
+            </div>
+        </div>
+        <div class="product-main-info">
+            <img src="daosafe-logo.jpg" alt="Daosafe Logo" class="brand-logo">
+            <h1>รุ่น DS-312</h1>
+            <p>Curved Design Flap Gate เครื่องกั้นปีกนกดีไซน์โค้งมนพรีเมียม ตัวเครื่องสแตนเลสขัดเงา ให้ความรู้สึกที่หรูหราและเพิ่มความปลอดภัยด้วยรูปทรงที่ไม่มีมุมคม</p>
+            <ul class="spec-short">
+                <li>✅ ประเภท: High-Pass Rate Flap Gate</li>
+                <li>✅ ดีไซน์: โค้งมน (Round Edge) ลดอุบัติเหตุและดูทันสมัย</li>
+                <li>✅ วัสดุ: Stainless Steel 304 High Quality</li>
+                <li>✅ การใช้งาน: เหมาะสำหรับอาคารแสดงสินค้าหรือ Hall ที่รองรับจำนวนผู้เข้าชมจำนวนมาก</li>
+            </ul>
+            <a href="select-newgate-options.html" class="btn-contact">สนใจสินค้า / ขอใบเสนอราคาติดตั้ง</a>
+        </div>
+    </section>
+
+    <h2 class="section-title">วิดีโอสาธิตการทดสอบการทำงานของ Flap Gate Flowing Speed Test</h2>
+    <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/J1N_kXmVSRU" frameborder="0" allowfullscreen></iframe>
     </div>
-    <div class="container">
-        
 
-        <section class="product-header">
-            <div class="product-gallery">
-                <img src="ds-312-2.jpg" alt="DS-312 Flap Gate" class="main-img">
-                <div class="thumb-grid">
-                    <img src="ds-312-1.jpg" alt="DS-312 Side View">
-                    <img src="ds-312-main1.jpg" alt="DS-312 Detail View">
-                </div>
-            </div>
-            <div class="product-main-info">
-                <img src="daosafe-logo.jpg" alt="Daosafe Logo" class="brand-logo">
-                <h1>รุ่น DS-312</h1>
-                <p>Curved Design Flap Gate เครื่องกั้นปีกนกดีไซน์โค้งมนพรีเมียม ตัวเครื่องสแตนเลสขัดเงา ให้ความรู้สึกที่หรูหราและเพิ่มความปลอดภัยด้วยรูปทรงที่ไม่มีมุมคม</p>
-                <ul class="spec-short">
-                    <li>✅ ประเภท: High-Pass Rate Flap Gate</li>
-                    <li>✅ ดีไซน์: โค้งมน (Round Edge) ลดอุบัติเหตุและดูทันสมัย</li>
-                    <li>✅ วัสดุ: Stainless Steel 304 High Quality</li>
-                    <li>✅ การใช้งาน: เหมาะสำหรับอาคารแสดงสินค้าหรือ Hall ที่รองรับจำนวนผู้เข้าชมจำนวนมาก</li>
-                </ul>
-                <a href="select-newgate-options.html" class="btn-contact">สนใจสินค้า / ขอใบเสนอราคาติดตั้ง</a>
-            </div>
-        </section>
+    <h2 class="section-title">เอกสารและมาตรฐาน (Downloads)</h2>
+    <div class="download-grid">
+        <a href="DS-312-Datasheet.pdf" class="download-card" target="_blank">
+            <strong>📄 Datasheet</strong>
+            <p>รายละเอียดทางเทคนิค DS-312 (PDF)</p>
+        </a>
+        <a href="ds-312-certify1.pdf" class="download-card" target="_blank">
+            <strong>📜 Quality Certificate CE</strong>
+            <p>มาตรฐานรับรองคุณภาพสินค้า (CE/FCC)</p>
+        </a>
+        <a href="ds-312-certify2.pdf" class="download-card" target="_blank">
+            <strong>📜 Quality Certificate FCC</strong>
+            <p>มาตรฐานรับรองคุณภาพสินค้า (CE/FCC)</p>
+        </a>
+    </div>
 
-        <h2 class="section-title">วิดีโอสาธิตการทดสอบการทำงานของ Flap Gate Flowing Speed Test</h2>
-        <div class="video-container">
-            <iframe src="https://www.youtube.com/embed/J1N_kXmVSRU" frameborder="0" allowfullscreen></iframe>
+    <h2 class="section-title">กระบวนการตรวจสอบคุณภาพ (QC Workshop)</h2>
+    <div class="photo-grid">
+        <div class="photo-item">
+            <img src="ds-312-qc1.jpg" alt="DS-312 QC 1">
+            <p>ตรวจสอบระบบกลไกปีกนกและการตอบสนอง</p>
         </div>
-
-        <h2 class="section-title">เอกสารและมาตรฐาน (Downloads)</h2>
-        <div class="download-grid">
-            <a href="DS-312-Datasheet.pdf" class="download-card" target="_blank">
-                <strong>📄 Datasheet</strong>
-                <p>รายละเอียดทางเทคนิค DS-312 (PDF)</p>
-            </a>
-            <a href="ds-312-certify1.pdf" class="download-card" target="_blank">
-                <strong>📜 Quality Certificate CE</strong>
-                <p>มาตรฐานรับรองคุณภาพสินค้า (CE/FCC)</p>
-            </a>
-            <a href="ds-312-certify2.pdf" class="download-card" target="_blank">
-                <strong>📜 Quality Certificate FCC</strong>
-                <p>มาตรฐานรับรองคุณภาพสินค้า (CE/FCC)</p>
-            </a>
+        <div class="photo-item">
+            <img src="ds-312-qc2.jpg" alt="DS-312 QC 2">
+            <p>ทดสอบความแม่นยำของเซนเซอร์และสถานะไฟ LED</p>
         </div>
-
-        <h2 class="section-title">กระบวนการตรวจสอบคุณภาพ (QC Workshop)</h2>
-        <div class="photo-grid">
-            <div class="photo-item">
-                <img src="ds-312-qc1.jpg" alt="DS-312 QC 1">
-                <p>ตรวจสอบระบบกลไกปีกนกและการตอบสนอง</p>
-            </div>
-            <div class="photo-item">
-                <img src="ds-312-qc2.jpg" alt="DS-312 QC 2">
-                <p>ทดสอบความแม่นยำของเซนเซอร์และสถานะไฟ LED</p>
-            </div>
-        </div>
-
-        
+    </div>
 
     <footer>© 2026 GZK Co., Ltd. | Flowing Secure Path.</footer>
-</body>
+
+</div> </body>
 </html>
