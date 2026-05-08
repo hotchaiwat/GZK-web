@@ -12,26 +12,66 @@
         .container { max-width: 1100px; margin: 0 auto; padding: 40px 20px; }
         .nav-back { margin-bottom: 20px; }
         .nav-back a { text-decoration: none; color: var(--gzk-orange); font-weight: bold; }
-       header {
-    background: white;
-    text-align: center;
-    padding: 15px 20px; /* ลด padding ลงเล็กน้อยเพื่อให้ไม่กินพื้นที่หน้าจอเวลาค้างอยู่ด้านบน */
-    border-bottom: 4px solid var(--gzk-blue);
-    
-    /* ส่วนที่เพิ่มเข้ามาเพื่อให้ Logo ค้างอยู่ด้านบน */
-    position: sticky;
-    top: 0;
-    z-index: 1000; /* เพื่อให้ header อยู่ทับเนื้อหาอื่นๆ เวลาเลื่อนผ่าน */
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1); /* เพิ่มเงาเล็กน้อยเพื่อให้ดูมีมิติเวลาลอยทับเนื้อหา */
-}
+       header { 
+            background: #ff6600; /* เปลี่ยนพื้นหลังเป็นสีส้มตามหน้า index */
+            text-align: center; 
+            padding: 15px 20px; 
+            border-bottom: 4px solid #2c3e50; 
+            position: sticky; /* ทำให้ค้างด้านบน */
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            display: flex; /* ใช้ flex เพื่อจัดวางปุ่มย้อนกลับและโลโก้ */
+            align-items: center;
+            justify-content: center;
+            min-height: 80px;
+        }
 
-/* ปรับขนาดโลโก้ให้เล็กลงนิดนึงเวลาทำ Sticky จะได้ไม่บังเนื้อหามากเกินไป */
-.logo-link img {
-    width: 280px; /* ลองปรับจาก 350px เป็น 280px สำหรับแบบ Sticky ครับ */
-    height: auto;
-    display: block;
-    margin: 0 auto;
-}
+        /* ปุ่มย้อนกลับที่อยู่ในพื้นที่ Header */
+        .header-back {
+            position: absolute;
+            left: 20px;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.9rem;
+            background: rgba(0,0,0,0.1);
+            padding: 8px 15px;
+            border-radius: 20px;
+            transition: 0.3s;
+        }
+
+        .header-back:hover {
+            background: white;
+            color: #ff6600;
+        }
+
+        .logo-link {
+            display: inline-block;
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+
+        /* เอฟเฟกต์ Hover บนโลโก้ */
+        .logo-link:hover {
+            transform: scale(1.05);
+        }
+
+        .logo-link img { 
+            width: 250px; /* ปรับขนาดให้พอดีเมื่อทำ Sticky */
+            height: auto; 
+            display: block;
+            /* หากโลโก้เดิมเป็นสีดำ/น้ำเงิน และอยากให้ดูเด่นบนพื้นส้ม 
+               อาจจะต้องใช้โลโก้ที่เป็นไฟล์สีขาว หรือใส่ filter นี้ครับ */
+            filter: brightness(0) invert(1); 
+        }
+
+        /* สำหรับหน้าจอมือถือ */
+        @media (max-width: 600px) {
+            .header-back { position: relative; left: 0; margin-right: 15px; font-size: 0.8rem; padding: 5px 10px; }
+            header { flex-direction: row; padding: 10px; }
+            .logo-link img { width: 180px; }
+        }
         .section-title { text-align: center; margin-bottom: 50px; }
         .section-title h1 { color: var(--gzk-blue); font-size: 2.5rem; margin-bottom: 10px; }
         
@@ -63,6 +103,8 @@
 <body>
 
     <header>
+    <a href="index.html" class="header-back">← กลับหน้าหลัก</a>
+
     <a href="index.html" class="logo-link">
         <img src="GZK_logo_with_slogan.jpg" alt="GZK Co., Ltd.">
     </a>
