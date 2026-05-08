@@ -7,149 +7,162 @@
     <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
         :root { --gzk-red: #e74c3c; --gzk-blue: #2c3e50; --gzk-light: #f0f4f8; }
-        body { margin: 0; font-family: 'Sarabun', sans-serif; background: #fff; color: #333; line-height: 1.6; }
-        header { background: white; text-align: center; padding: 20px; border-bottom: 4px solid var(--gzk-blue); }
-        .container { max-width: 1100px; margin: 0 auto; padding: 20px; }
-        .nav-back { margin: 20px 0; }
-        .nav-back a { text-decoration: none; color: var(--gzk-red); font-weight: bold; }
-/* --- ส่วนที่ต้องมีเหมือนกันทุกหน้า (วางแทนที่ Header เดิม) --- */
-header { 
-    background: white; 
-    text-align: center; 
-    padding: 15px 20px; 
-    border-bottom: 4px solid #2c3e50; 
-    position: sticky; 
-    top: 0;
-    z-index: 1000;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 70px;
-}
+        body { margin: 0; font-family: 'Sarabun', sans-serif; background: #fff; color: #333; line-height: 1.6; overflow-x: hidden; }
+        
+        /* --- Standard Header --- */
+        header { 
+            background: white; 
+            text-align: center; 
+            padding: 15px 20px; 
+            border-bottom: 4px solid #2c3e50; 
+            position: sticky; 
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 70px;
+        }
 
-.header-back {
-    position: absolute;
-    left: 20px;
-    background: #ff6600; 
-    color: white !important; /* บังคับให้เป็นสีขาวเสมอ */
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 0.9rem;
-    padding: 10px 20px;
-    border-radius: 30px;
-    transition: 0.3s;
-    box-shadow: 0 4px 10px rgba(255, 102, 0, 0.3);
-}
+        .header-back {
+            position: absolute;
+            left: 20px;
+            background: #ff6600; 
+            color: white !important;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.9rem;
+            padding: 10px 20px;
+            border-radius: 30px;
+            transition: 0.3s;
+            box-shadow: 0 4px 10px rgba(255, 102, 0, 0.3);
+        }
 
-.header-back:hover {
-    background: #2c3e50;
-    transform: translateX(-5px);
-    color: white !important;
-}
+        .header-back:hover { background: #2c3e50; transform: translateX(-5px); }
 
-.logo-link {
-    display: inline-block;
-    text-decoration: none;
-    transition: transform 0.3s ease;
-}
+        .logo-link { display: inline-block; text-decoration: none; transition: transform 0.3s ease; }
+        .logo-link:hover { transform: scale(1.05); }
+        .logo-link img { width: 280px; height: auto; display: block; margin: 0 auto; }
 
-.logo-link:hover { transform: scale(1.05); }
+        /* --- Layout Container --- */
+        .container { max-width: 1100px; margin: 0 auto; padding: 20px; box-sizing: border-box; }
 
-.logo-link img { 
-    width: 280px; 
-    height: auto; 
-    display: block;
-    margin: 0 auto;
-}
+        /* --- Product Gallery & Info (ส่วนที่หายไปในไฟล์เดิม) --- */
+        .product-header { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 40px; margin-top: 20px; }
+        .main-img { width: 100%; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); margin-bottom: 15px; }
+        .thumb-grid { display: flex; flex-direction: column; gap: 15px; }
+        .thumb-grid img { width: 100%; height: auto; object-fit: cover; border-radius: 10px; border: 1px solid #ddd; }
+        
+        .product-main-info h1 { color: var(--gzk-blue); font-size: 2.2rem; margin: 10px 0; }
+        .brand-logo { max-width: 120px; margin-bottom: 10px; }
+        .spec-short { background: var(--gzk-light); padding: 20px; border-radius: 10px; list-style: none; margin: 20px 0; }
+        .spec-short li { margin-bottom: 8px; font-weight: bold; color: var(--gzk-blue); }
 
-@media (max-width: 768px) {
-    .header-back { padding: 6px 12px; font-size: 0.8rem; left: 10px; }
-    .logo-link img { width: 180px; }
-}
+        .section-title { border-left: 6px solid var(--gzk-red); padding-left: 15px; margin: 50px 0 25px; color: var(--gzk-blue); font-size: 1.5rem; }
+
+        .video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 10px; background: #000; }
+        .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+
+        .download-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+        .download-card { border: 2px dashed #ddd; padding: 20px; border-radius: 10px; text-align: center; transition: 0.3s; text-decoration: none; color: inherit; }
+        .download-card:hover { border-color: var(--gzk-red); background: #fff5f5; }
+
+        .photo-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+        .photo-item img { width: 100%; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+        .photo-item p { margin-top: 10px; font-weight: bold; color: #666; text-align: center; }
+
+        .btn-contact { display: block; background: var(--gzk-red); color: white; text-align: center; padding: 15px; text-decoration: none; border-radius: 5px; font-weight: bold; margin-top: 20px; transition: 0.3s; }
+        .btn-contact:hover { background: var(--gzk-blue); }
+
+        footer { text-align: center; padding: 60px 20px; color: #999; border-top: 1px solid #eee; margin-top: 50px; }
+
+        @media (max-width: 768px) { 
+            .photo-grid { grid-template-columns: 1fr; }
+            .header-back { padding: 6px 12px; font-size: 0.8rem; left: 10px; }
+            .logo-link img { width: 180px; }
+        }
     </style>
 </head>
 <body>
 
 <header>
     <a href="product-swing.html" class="header-back">← กลับสู่รายการสินค้า</a>
-
     <a href="index.html" class="logo-link">
         <img src="GZK_logo_with_slogan.jpg" alt="GZK Co., Ltd.">
     </a>
 </header>
 
 <div class="container">
-        
-
-        <section class="product-header">
-            <div class="product-gallery">
-                <img src="ds-8000-main1.jpg" alt="DS-8000 Cylindrical Swing Gate" class="main-img">
-                <div class="thumb-grid">
-                    <img src="ds-8000-1.jpg" alt="DS-8000 Top View">
-                    <img src="ds-8000-2.jpg" alt="DS-8000 Side View">
-                </div>
-            </div>
-            <div class="product-main-info">
-                <img src="daosafe-logo.jpg" alt="Daosafe Logo" class="brand-logo">
-                <h1>รุ่น DS-8000</h1>
-                <p>Cylindrical Swing Gate เครื่องกั้นบานสวิงทรงกระบอกดีไซน์มินิมอล เน้นความประหยัดพื้นที่และความคล่องตัวในการติดตั้ง</p>
-                <ul class="spec-short">
-                    <li>✅ ประเภท: Single Post Swing Gate (เสาเดี่ยว)</li>
-                    <li>✅ ดีไซน์: Cylindrical Minimalist (ทรงกระบอกประหยัดพื้นที่)</li>
-                    <li>✅ วัสดุ: Stainless Steel 304 Black Finish</li>
-                    <li>✅ จุดเด่น: ติดตั้งง่าย รองรับการเข้า-ออกได้ทั้งสองทิศทาง</li>
-                </ul>
-                <a href="select-newgate-options.html" class="btn-contact">สนใจสินค้า / ขอใบเสนอราคาติดตั้ง</a>
-            </div>
-        </section>
-
-        <h2 class="section-title">วิดีโอสาธิตการทำงาน (Video Review)</h2>
-        <div class="video-container">
-            <iframe src="https://www.youtube.com/embed/x_j3muc64Eg" frameborder="0" allowfullscreen></iframe>
-        </div>
-
-        <h2 class="section-title">เอกสารและมาตรฐาน (Downloads)</h2>
-        <div class="download-grid">
-            <a href="DS-8000-Datasheet.pdf" class="download-card" target="_blank">
-                <strong>📄 Datasheet</strong>
-                <p>รายละเอียดทางเทคนิค DS-8000 (PDF)</p>
-            </a>
-            <a href="ds-8000-certify1.pdf" class="download-card" target="_blank">
-                <strong>📜 Certificate CE</strong>
-                <p>มาตรฐานรับรองคุณภาพสินค้า</p>
-            </a>
-            <a href="ds-8000-certify2.pdf" class="download-card" target="_blank">
-                <strong>📜 Certificate FCC</strong>
-                <p>มาตรฐานรับรองคุณภาพสินค้า</p>
-            </a>
-        </div>
-
-        <h2 class="section-title">กระบวนการตรวจสอบคุณภาพ (QC Workshop)</h2>
-        <div class="photo-grid">
-            <div class="photo-item">
-                <img src="ds-8000-qc1.jpg" alt="DS-8000 QC 1">
-                <p>การทดสอบความเสถียรของแกนหมุน</p>
-            </div>
-            <div class="photo-item">
-                <img src="ds-8000-qc2.jpg" alt="DS-8000 QC 2">
-                <p>การตรวจสอบความเรียบร้อยของสี LED Signal</p>
+    
+    <section class="product-header">
+        <div class="product-gallery">
+            <img src="ds-8000-main1.jpg" alt="DS-8000 Cylindrical Swing Gate" class="main-img">
+            <div class="thumb-grid">
+                <img src="ds-8000-1.jpg" alt="DS-8000 Top View">
+                <img src="ds-8000-2.jpg" alt="DS-8000 Side View">
             </div>
         </div>
+        <div class="product-main-info">
+            <img src="daosafe-logo.jpg" alt="Daosafe Logo" class="brand-logo">
+            <h1>รุ่น DS-8000</h1>
+            <p>Cylindrical Swing Gate เครื่องกั้นบานสวิงทรงกระบอกดีไซน์มินิมอล เน้นความประหยัดพื้นที่และความคล่องตัวในการติดตั้ง</p>
+            <ul class="spec-short">
+                <li>✅ ประเภท: Single Post Swing Gate (เสาเดี่ยว)</li>
+                <li>✅ ดีไซน์: Cylindrical Minimalist (ทรงกระบอกประหยัดพื้นที่)</li>
+                <li>✅ วัสดุ: Stainless Steel 304 Black Finish</li>
+                <li>✅ จุดเด่น: ติดตั้งง่าย รองรับการเข้า-ออกได้ทั้งสองทิศทาง</li>
+            </ul>
+            <a href="select-newgate-options.html" class="btn-contact">สนใจสินค้า / ขอใบเสนอราคาติดตั้ง</a>
+        </div>
+    </section>
 
-        <h2 class="section-title">ตัวอย่างการติดตั้งจริง (Installation Reference)</h2>
-        <div class="photo-grid installation-grid">
-            <div class="photo-item">
-                <img src="install-ds-8000-1.jpg" alt="DS-8000 Installation 1">
-                <p>ติดตั้งในพื้นที่จำกัด อาคารสำนักงาน</p>
-            </div>
-            <div class="photo-item">
-                <img src="install-ds-8000-2.jpg" alt="DS-8000 Installation 2">
-                <p>ใช้งานร่วมกับระบบ Swing Gate เพื่อคัดกรองบุคคลเข้าพื้นที่</p>
-            </div>
+    <h2 class="section-title">วิดีโอสาธิตการทำงาน (Video Review)</h2>
+    <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/x_j3muc64Eg" frameborder="0" allowfullscreen></iframe>
+    </div>
+
+    <h2 class="section-title">เอกสารและมาตรฐาน (Downloads)</h2>
+    <div class="download-grid">
+        <a href="DS-8000-Datasheet.pdf" class="download-card" target="_blank">
+            <strong>📄 Datasheet</strong>
+            <p>รายละเอียดทางเทคนิค DS-8000 (PDF)</p>
+        </a>
+        <a href="ds-8000-certify1.pdf" class="download-card" target="_blank">
+            <strong>📜 Certificate CE</strong>
+            <p>มาตรฐานรับรองคุณภาพสินค้า</p>
+        </a>
+        <a href="ds-8000-certify2.pdf" class="download-card" target="_blank">
+            <strong>📜 Certificate FCC</strong>
+            <p>มาตรฐานรับรองคุณภาพสินค้า</p>
+        </a>
+    </div>
+
+    <h2 class="section-title">กระบวนการตรวจสอบคุณภาพ (QC Workshop)</h2>
+    <div class="photo-grid">
+        <div class="photo-item">
+            <img src="ds-8000-qc1.jpg" alt="DS-8000 QC 1">
+            <p>การทดสอบความเสถียรของแกนหมุน</p>
+        </div>
+        <div class="photo-item">
+            <img src="ds-8000-qc2.jpg" alt="DS-8000 QC 2">
+            <p>การตรวจสอบความเรียบร้อยของสี LED Signal</p>
+        </div>
+    </div>
+
+    <h2 class="section-title">ตัวอย่างการติดตั้งจริง (Installation Reference)</h2>
+    <div class="photo-grid">
+        <div class="photo-item">
+            <img src="install-ds-8000-1.jpg" alt="DS-8000 Installation 1">
+            <p>ติดตั้งในพื้นที่จำกัด อาคารสำนักงาน</p>
+        </div>
+        <div class="photo-item">
+            <img src="install-ds-8000-2.jpg" alt="DS-8000 Installation 2">
+            <p>ใช้งานร่วมกับระบบ Swing Gate เพื่อคัดกรองบุคคลเข้าพื้นที่</p>
         </div>
     </div>
 
     <footer>© 2026 GZK Co., Ltd. | Flowing Secure Path.</footer>
-</body>
+
+</div> </body>
 </html>
