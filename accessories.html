@@ -13,63 +13,66 @@
         .nav-back { margin-bottom: 20px; }
         .nav-back a { text-decoration: none; color: var(--gzk-orange); font-weight: bold; }
        header { 
-            background: #ff6600; /* เปลี่ยนพื้นหลังเป็นสีส้มตามหน้า index */
+            background: white; 
             text-align: center; 
             padding: 15px 20px; 
-            border-bottom: 4px solid #2c3e50; 
-            position: sticky; /* ทำให้ค้างด้านบน */
+            border-bottom: 4px solid var(--gzk-blue); 
+            position: sticky; /* ทำให้ Header ค้างอยู่ด้านบน */
             top: 0;
             z-index: 1000;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            display: flex; /* ใช้ flex เพื่อจัดวางปุ่มย้อนกลับและโลโก้ */
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            display: flex;
             align-items: center;
             justify-content: center;
-            min-height: 80px;
+            min-height: 70px;
         }
 
-        /* ปุ่มย้อนกลับที่อยู่ในพื้นที่ Header */
+        /* ปุ่มย้อนกลับสีส้ม */
         .header-back {
             position: absolute;
             left: 20px;
+            background: #ff6600; /* สีส้มตามที่ต้องการ */
             color: white;
             text-decoration: none;
             font-weight: bold;
             font-size: 0.9rem;
-            background: rgba(0,0,0,0.1);
-            padding: 8px 15px;
-            border-radius: 20px;
+            padding: 10px 20px;
+            border-radius: 30px;
             transition: 0.3s;
+            box-shadow: 0 4px 10px rgba(255, 102, 0, 0.3);
         }
 
         .header-back:hover {
-            background: white;
-            color: #ff6600;
+            background: var(--gzk-blue); /* เปลี่ยนเป็นสีน้ำเงินเวลาวางเมาส์ */
+            transform: translateX(-5px); /* ขยับไปทางซ้ายเล็กน้อย */
+            color: white;
         }
 
+        /* โลโก้พร้อมเอฟเฟกต์ Hover */
         .logo-link {
             display: inline-block;
             text-decoration: none;
             transition: transform 0.3s ease;
         }
 
-        /* เอฟเฟกต์ Hover บนโลโก้ */
         .logo-link:hover {
-            transform: scale(1.05);
+            transform: scale(1.05); /* ขยายภาพเล็กน้อย */
         }
 
         .logo-link img { 
-            width: 250px; /* ปรับขนาดให้พอดีเมื่อทำ Sticky */
+            width: 280px; /* ขนาดกำลังดีสำหรับ Sticky Header */
             height: auto; 
             display: block;
-            /* หากโลโก้เดิมเป็นสีดำ/น้ำเงิน และอยากให้ดูเด่นบนพื้นส้ม 
-               อาจจะต้องใช้โลโก้ที่เป็นไฟล์สีขาว หรือใส่ filter นี้ครับ */
-            filter: brightness(0) invert(1); 
+            margin: 0 auto;
         }
 
-        /* สำหรับหน้าจอมือถือ */
+        /* ปรับแต่งสำหรับมือถือ */
         @media (max-width: 600px) {
-            .header-back { position: relative; left: 0; margin-right: 15px; font-size: 0.8rem; padding: 5px 10px; }
-            header { flex-direction: row; padding: 10px; }
+            .header-back { 
+                padding: 6px 12px; 
+                font-size: 0.8rem;
+                left: 10px;
+            }
             .logo-link img { width: 180px; }
         }
         .section-title { text-align: center; margin-bottom: 50px; }
