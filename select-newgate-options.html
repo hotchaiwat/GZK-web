@@ -12,29 +12,26 @@
         header { background: white; text-align: center; padding: 20px; border-bottom: 4px solid var(--gzk-blue); }
         .logo-container img { max-width: 220px; }
 /* --- แก้ไขส่วน Header ใหม่ --- */
-        header { 
-            background: white; 
-            text-align: center; 
-            padding: 30px 20px; /* เพิ่มพื้นที่ให้ดูพรีเมียม */
-            border-bottom: 4px solid var(--gzk-blue); 
-        }
+        header {
+    background: white;
+    text-align: center;
+    padding: 15px 20px; /* ลด padding ลงเล็กน้อยเพื่อให้ไม่กินพื้นที่หน้าจอเวลาค้างอยู่ด้านบน */
+    border-bottom: 4px solid var(--gzk-blue);
+    
+    /* ส่วนที่เพิ่มเข้ามาเพื่อให้ Logo ค้างอยู่ด้านบน */
+    position: sticky;
+    top: 0;
+    z-index: 1000; /* เพื่อให้ header อยู่ทับเนื้อหาอื่นๆ เวลาเลื่อนผ่าน */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1); /* เพิ่มเงาเล็กน้อยเพื่อให้ดูมีมิติเวลาลอยทับเนื้อหา */
+}
 
-        .logo-link {
-            display: inline-block;
-            text-decoration: none;
-            transition: transform 0.3s ease; /* ทำให้ Hover นุ่มนวล */
-        }
-
-        .logo-link:hover {
-            transform: scale(1.05); /* ขยายขึ้น 5% เมื่อวางเมาส์ */
-        }
-
-        .logo-link img { 
-            width: 350px; /* กำหนดขนาดให้เท่ากันทุกหน้า */
-            height: auto; 
-            display: block;
-            margin: 0 auto;
-        }
+/* ปรับขนาดโลโก้ให้เล็กลงนิดนึงเวลาทำ Sticky จะได้ไม่บังเนื้อหามากเกินไป */
+.logo-link img {
+    width: 280px; /* ลองปรับจาก 350px เป็น 280px สำหรับแบบ Sticky ครับ */
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
         .container { max-width: 800px; margin: 40px auto; padding: 0 20px; }
         .step-box { background: white; padding: 40px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
         
