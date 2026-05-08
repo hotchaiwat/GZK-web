@@ -23,25 +23,42 @@
             justify-content: space-between;
         }
 
-        .btn-back-sticky {
-            background: var(--gzk-orange);
-            color: white !important;
-            text-decoration: none;
-            padding: 8px 18px;
-            border-radius: 8px;
-            font-weight: bold;
-            font-size: 0.95rem;
-            transition: 0.3s;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            white-space: nowrap;
-        }
-        .btn-back-sticky:hover {
-            background: var(--gzk-blue);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-            transform: translateY(-1px);
-        }
+        ./* --- [FIXED] ปรับปุ่มย้อนกลับให้เป็นวงรี --- */
+    .btn-back-sticky {
+        background: var(--gzk-orange);
+        color: white !important;
+        text-decoration: none;
+        padding: 8px 22px;      /* ปรับ padding ให้สมดุลกับทรงวงรี */
+        border-radius: 50px;    /* แก้จาก 8px เป็น 50px เพื่อให้เป็นวงรี */
+        font-weight: bold;
+        font-size: 0.95rem;
+        transition: 0.3s;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        white-space: nowrap;
+        box-shadow: 0 4px 10px rgba(255, 102, 0, 0.2);
+    }
+    
+    .btn-back-sticky:hover {
+        background: var(--gzk-blue);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        transform: translateY(-1px);
+    }
+
+    /* ส่วนอื่นๆ ของ .btn-form (ปุ่มล่างสุด) ก็เป็น 50px เช่นกันครับ */
+    .btn-form { 
+        background: var(--gzk-orange); 
+        color: white; 
+        padding: 18px 50px; 
+        text-decoration: none; 
+        border-radius: 50px; 
+        font-weight: bold; 
+        font-size: 1.25rem; 
+        display: inline-block; 
+        transition: 0.4s;
+        box-shadow: 0 8px 20px rgba(255, 102, 0, 0.25);
+    }
 
         .logo-link {
             transition: 0.3s ease;
