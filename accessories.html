@@ -8,15 +8,14 @@
     <style>
         :root { --gzk-orange: #ff6600; --gzk-blue: #2c3e50; --gzk-light: #f8f9fa; }
         body { margin: 0; font-family: 'Sarabun', sans-serif; background: #fff; color: #333; line-height: 1.6; }
-        header { background: white; text-align: center; padding: 20px; border-bottom: 4px solid var(--gzk-blue); }
-        .container { max-width: 1100px; margin: 0 auto; padding: 40px 20px; }
         
-       header { 
+        /* แก้ไข Header ให้เป็นชุดเดียว */
+        header { 
             background: white; 
             text-align: center; 
             padding: 15px 20px; 
             border-bottom: 4px solid var(--gzk-blue); 
-            position: sticky; /* ทำให้ Header ค้างอยู่ด้านบน */
+            position: sticky; 
             top: 0;
             z-index: 1000;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
@@ -26,11 +25,10 @@
             min-height: 70px;
         }
 
-        /* ปุ่มย้อนกลับสีส้ม */
         .header-back {
             position: absolute;
             left: 20px;
-            background: #ff6600; /* สีส้มตามที่ต้องการ */
+            background: #ff6600;
             color: white;
             text-decoration: none;
             font-weight: bold;
@@ -42,38 +40,29 @@
         }
 
         .header-back:hover {
-            background: var(--gzk-blue); /* เปลี่ยนเป็นสีน้ำเงินเวลาวางเมาส์ */
-            transform: translateX(-5px); /* ขยับไปทางซ้ายเล็กน้อย */
+            background: var(--gzk-blue);
+            transform: translateX(-5px);
             color: white;
         }
 
-        /* โลโก้พร้อมเอฟเฟกต์ Hover */
         .logo-link {
             display: inline-block;
             text-decoration: none;
             transition: transform 0.3s ease;
         }
 
-        .logo-link:hover {
-            transform: scale(1.05); /* ขยายภาพเล็กน้อย */
-        }
+        .logo-link:hover { transform: scale(1.05); }
 
         .logo-link img { 
-            width: 280px; /* ขนาดกำลังดีสำหรับ Sticky Header */
+            width: 280px; 
             height: auto; 
             display: block;
             margin: 0 auto;
         }
 
-        /* ปรับแต่งสำหรับมือถือ */
-        @media (max-width: 600px) {
-            .header-back { 
-                padding: 6px 12px; 
-                font-size: 0.8rem;
-                left: 10px;
-            }
-            .logo-link img { width: 180px; }
-        }
+        /* ส่วนล็อคหน้ากระดาษ */
+        .container { max-width: 1100px; margin: 0 auto; padding: 40px 20px; }
+
         .section-title { text-align: center; margin-bottom: 50px; }
         .section-title h1 { color: var(--gzk-blue); font-size: 2.5rem; margin-bottom: 10px; }
         
@@ -99,69 +88,68 @@
 
         @media (max-width: 768px) {
             .accessory-item, .accessory-item:nth-child(even) { flex-direction: column; text-align: center; }
+            .header-back { padding: 6px 12px; font-size: 0.8rem; left: 10px; }
+            .logo-link img { width: 180px; }
         }
     </style>
 </head>
 <body>
 
-    <header>
+<header>
     <a href="index.html" class="header-back">← ย้อนกลับ</a>
-
     <a href="index.html" class="logo-link">
         <img src="GZK_logo_with_slogan.jpg" alt="GZK Co., Ltd.">
     </a>
 </header>
 
+<div class="container">
     
-        <div class="section-title">
-            <h1>อุปกรณ์เสริม <span class="highlight-text">(Accessories)</span></h1>
-            <p>เพิ่มประสิทธิภาพและความปลอดภัยให้สมบูรณ์แบบยิ่งขึ้น</p>
-        </div>
+    <div class="section-title">
+        <h1>อุปกรณ์เสริม <span class="highlight-text">(Accessories)</span></h1>
+        <p>เพิ่มประสิทธิภาพและความปลอดภัยให้สมบูรณ์แบบยิ่งขึ้น</p>
+    </div>
 
-        <!-- 1. Collector Device -->
-        <div class="accessory-item">
-            <div class="accessory-image">
-                <img src="collector_device.jpg" alt="Collector Device">
-            </div>
-            <div class="accessory-text">
-                <div class="tag">Solution: Visitor & Events</div>
-                <h2>1. Collector Device</h2>
-                <p>อุปกรณ์สำหรับรองรับการเก็บคืน Wristband และ Tag RFID เมื่อผู้ใช้งานต้องการออกนอกพื้นที่ เหมาะอย่างยิ่งสำหรับ <strong>Visitor Management, Theme Park หรือ Exhibition</strong> ต่างๆ ช่วยอำนวยความสะดวกโดยไม่ต้องมีเจ้าหน้าที่ประจำจุดรับคืนบัตร</p>
-            </div>
+    <div class="accessory-item">
+        <div class="accessory-image">
+            <img src="collector_device.jpg" alt="Collector Device">
         </div>
-
-        <!-- 2. Card Collector Device -->
-        <div class="accessory-item">
-            <div class="accessory-image">
-                <img src="card_collector.jpg" alt="Card Collector Device">
-            </div>
-            <div class="accessory-text">
-                <div class="tag">Security & Management</div>
-                <h2>2. Card Collector Device</h2>
-                <p>เครื่องจัดเก็บคืนบัตรอัจฉริยะที่สามารถคัดกรองเฉพาะบัตรของโครงการเท่านั้น หากเป็นบัตรอื่นเครื่องจะไม่รับและคืนบัตรให้ทันที นอกจากนี้ยังมีออปชั่นรองรับการอ่าน <strong>Wristband, QR Code จากสมาร์ทโฟน</strong> หรือบัตร RFID เพื่อให้เหมาะสมกับความต้องการเฉพาะทางของคุณ</p>
-            </div>
-        </div>
-
-        <!-- 3. Railings -->
-        <div class="accessory-item">
-            <div class="accessory-image">
-                <img src="railings.jpg" alt="Railings">
-            </div>
-            <div class="accessory-text">
-                <div class="tag">Safety & Space Control</div>
-                <h2>3. ราวกั้นทาง (Railings)</h2>
-                <p>ในกรณีที่การติดตั้งประตูอาจไม่พอดีกับขนาดพื้นที่จริง เรามีส่วนเสริมเป็น <strong>ราวกั้นทางดีไซน์ทันสมัย</strong> เพื่อปิดช่องว่างและเติมเต็มระบบความปลอดภัยให้พื้นที่ของคุณสมบูรณ์แบบ ป้องกันการเดินอ้อมหรือลักลอบเข้าพื้นที่โดยไม่ผ่านการคัดกรอง</p>
-            </div>
-        </div>
-<div class="cta-box" style="text-align: center; background: var(--gzk-blue); color: white; padding: 40px; border-radius: 15px; margin-top: 20px;">
-            <h2 style="color: white; margin-bottom: 10px;">สนใจติดตั้งหรือต้องการข้อมูลเพิ่มเติม?</h2>
-            <p style="color: white; opacity: 0.9;">เราพร้อมให้คำปรึกษาในการเลือกอุปกรณ์เสริมที่เหมาะกับหน้างานและงบประมาณของคุณ</p>
-            <a href="https://forms.gle/TDb5wtSytgZErEEJA" class="btn-form" target="_blank" 
-               style="background: var(--gzk-orange); color: white; padding: 15px 40px; text-decoration: none; border-radius: 35px; font-weight: bold; display: inline-block; margin-top: 20px; transition: 0.3s;">
-                คลิกเพื่อสอบถามข้อมูลหรือขอประเมินราคา
-            </a>
+        <div class="accessory-text">
+            <div class="tag">Solution: Visitor & Events</div>
+            <h2>1. Collector Device</h2>
+            <p>อุปกรณ์สำหรับรองรับการเก็บคืน Wristband และ Tag RFID เมื่อผู้ใช้งานต้องการออกนอกพื้นที่ เหมาะอย่างยิ่งสำหรับ <strong>Visitor Management, Theme Park หรือ Exhibition</strong> ต่างๆ ช่วยอำนวยความสะดวกโดยไม่ต้องมีเจ้าหน้าที่ประจำจุดรับคืนบัตร</p>
         </div>
     </div>
 
-</body>
+    <div class="accessory-item">
+        <div class="accessory-image">
+            <img src="card_collector.jpg" alt="Card Collector Device">
+        </div>
+        <div class="accessory-text">
+            <div class="tag">Security & Management</div>
+            <h2>2. Card Collector Device</h2>
+            <p>เครื่องจัดเก็บคืนบัตรอัจฉริยะที่สามารถคัดกรองเฉพาะบัตรของโครงการเท่านั้น หากเป็นบัตรอื่นเครื่องจะไม่รับและคืนบัตรให้ทันที นอกจากนี้ยังมีออปชั่นรองรับการอ่าน <strong>Wristband, QR Code จากสมาร์ทโฟน</strong> หรือบัตร RFID เพื่อให้เหมาะสมกับความต้องการเฉพาะทางของคุณ</p>
+        </div>
+    </div>
+
+    <div class="accessory-item">
+        <div class="accessory-image">
+            <img src="railings.jpg" alt="Railings">
+        </div>
+        <div class="accessory-text">
+            <div class="tag">Safety & Space Control</div>
+            <h2>3. ราวกั้นทาง (Railings)</h2>
+            <p>ในกรณีที่การติดตั้งประตูอาจไม่พอดีกับขนาดพื้นที่จริง เรามีส่วนเสริมเป็น <strong>ราวกั้นทางดีไซน์ทันสมัย</strong> เพื่อปิดช่องว่างและเติมเต็มระบบความปลอดภัยให้พื้นที่ของคุณสมบูรณ์แบบ ป้องกันการเดินอ้อมหรือลักลอบเข้าพื้นที่โดยไม่ผ่านการคัดกรอง</p>
+        </div>
+    </div>
+
+    <div class="cta-box" style="text-align: center; background: var(--gzk-blue); color: white; padding: 40px; border-radius: 15px; margin-top: 20px;">
+        <h2 style="color: white; margin-bottom: 10px;">สนใจติดตั้งหรือต้องการข้อมูลเพิ่มเติม?</h2>
+        <p style="color: white; opacity: 0.9;">เราพร้อมให้คำปรึกษาในการเลือกอุปกรณ์เสริมที่เหมาะกับหน้างานและงบประมาณของคุณ</p>
+        <a href="https://forms.gle/TDb5wtSytgZErEEJA" class="btn-form" target="_blank" 
+           style="background: var(--gzk-orange); color: white; padding: 15px 40px; text-decoration: none; border-radius: 35px; font-weight: bold; display: inline-block; margin-top: 20px; transition: 0.3s;">
+            คลิกเพื่อสอบถามข้อมูลหรือขอประเมินราคา
+        </a>
+    </div>
+
+</div> </body>
 </html>
