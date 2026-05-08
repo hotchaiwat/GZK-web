@@ -7,81 +7,157 @@
     <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
         :root { --gzk-red: #e74c3c; --gzk-blue: #2c3e50; --gzk-light: #f0f4f8; }
-        body { margin: 0; font-family: 'Sarabun', sans-serif; background: var(--gzk-light); }
-        header { background: white; text-align: center; padding: 20px; border-bottom: 4px solid var(--gzk-blue); }
-        .nav-back { padding: 20px; max-width: 1100px; margin: 0 auto; }
-        .nav-back a { color: var(--gzk-blue); text-decoration: none; font-weight: bold; }
-        .container { max-width: 1100px; margin: 20px auto 40px; padding: 20px; }
-       header {
-    background: white;
-    text-align: center;
-    padding: 15px 20px; /* ลด padding ลงเล็กน้อยเพื่อให้ไม่กินพื้นที่หน้าจอเวลาค้างอยู่ด้านบน */
-    border-bottom: 4px solid var(--gzk-blue);
-    
-    /* ส่วนที่เพิ่มเข้ามาเพื่อให้ Logo ค้างอยู่ด้านบน */
-    position: sticky;
-    top: 0;
-    z-index: 1000; /* เพื่อให้ header อยู่ทับเนื้อหาอื่นๆ เวลาเลื่อนผ่าน */
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1); /* เพิ่มเงาเล็กน้อยเพื่อให้ดูมีมิติเวลาลอยทับเนื้อหา */
-}
+        body { margin: 0; font-family: 'Sarabun', sans-serif; background: var(--gzk-light); color: #333; }
+        
+        /* --- Header (Sticky) --- */
+        header { 
+            background: white; 
+            text-align: center; 
+            padding: 15px 20px; 
+            border-bottom: 4px solid var(--gzk-blue); 
+            position: sticky; 
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .logo-link img { width: 280px; height: auto; display: block; margin: 0 auto; }
 
-/* ปรับขนาดโลโก้ให้เล็กลงนิดนึงเวลาทำ Sticky จะได้ไม่บังเนื้อหามากเกินไป */
-.logo-link img {
-    width: 280px; /* ลองปรับจาก 350px เป็น 280px สำหรับแบบ Sticky ครับ */
-    height: auto;
-    display: block;
-    margin: 0 auto;
-}
-        .category-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-        .category-card { background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.1); transition: 0.3s; text-align: center; text-decoration: none; color: inherit; }
-        .category-card:hover { transform: translateY(-10px); outline: 3px solid var(--gzk-red); }
-        .category-img { width: 100%; height: 250px; object-fit: contain; padding: 20px; background: #fff; /* ใช้คู่กันแบบนี้จะปลอดภัยกว่าครับ */
-    position: relative;
-    left: -25px; }
-        .category-info { padding: 20px; background: #fff; }
-        .category-info h2 { color: var(--gzk-blue); margin: 0; }
+        /* --- Navigation --- */
+        .nav-back { padding: 20px; max-width: 1100px; margin: 0 auto; }
+        .nav-back a { color: var(--gzk-red); text-decoration: none; font-weight: bold; transition: 0.3s; }
+        .nav-back a:hover { color: var(--gzk-blue); }
+
+        /* --- Container --- */
+        .container { max-width: 1100px; margin: 10px auto 60px; padding: 0 20px; }
+        .page-title { text-align: center; color: var(--gzk-blue); margin-bottom: 40px; font-size: 2.2rem; }
+
+        /* --- Category Grid --- */
+        .category-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+            gap: 35px; 
+            align-items: stretch;
+        }
+
+        .category-card { 
+            background: white; 
+            border-radius: 20px; 
+            overflow: hidden; 
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05); 
+            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+            text-align: center; 
+            text-decoration: none; 
+            color: inherit; 
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #eee;
+        }
+
+        .category-card:hover { 
+            transform: translateY(-12px); 
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            border-color: var(--gzk-red);
+        }
+
+        .img-wrapper {
+            background: #fff;
+            padding: 30px;
+            height: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .category-img { 
+            max-width: 100%; 
+            max-height: 100%; 
+            object-fit: contain; 
+            transition: 0.4s;
+        }
+        
+        .category-card:hover .category-img {
+            transform: scale(1.05);
+        }
+
+        .category-info { 
+            padding: 25px; 
+            background: #fff; 
+            flex-grow: 1;
+        }
+        
+        .category-info h2 { 
+            color: var(--gzk-blue); 
+            margin: 0 0 10px 0; 
+            font-size: 1.5rem;
+        }
+        
+        .category-info p { 
+            margin: 0; 
+            color: #777; 
+            font-size: 1rem;
+        }
+
+        footer { text-align: center; padding: 40px; color: #999; }
+
+        @media (max-width: 768px) {
+            .page-title { font-size: 1.8rem; }
+            .category-grid { gap: 20px; }
+            .logo-link img { width: 220px; }
+        }
     </style>
 </head>
 <body>
-    <header>
+
+<header>
     <a href="index.html" class="logo-link">
         <img src="GZK_logo_with_slogan.jpg" alt="GZK Co., Ltd.">
     </a>
 </header>
 
-    <div class="nav-back">
-        <a href="index.html">← กลับหน้าหลัก</a>
-    </div>
+<div class="nav-back">
+    <a href="index.html">← กลับหน้าหลัก</a>
+</div>
 
-    <div class="container">
-        <h1 style="text-align:center; color:var(--gzk-blue); margin-bottom: 40px;">หมวดหมู่สินค้า</h1>
-        <div class="category-grid">
-            
-            <a href="product-turnstile.html" class="category-card">
-                <img src="image-turnstile.jpg" alt="Turnstile" class="category-img">
-                <div class="category-info">
-                    <h2>Turnstile Gate</h2>
-                    <p>เครื่องกั้นแบบ 3 ขา</p>
-                </div>
-            </a>
+<div class="container">
+    <h1 class="page-title">หมวดหมู่สินค้า (Product Categories)</h1>
+    
+    <div class="category-grid">
+        
+        <a href="product-turnstile.html" class="category-card">
+            <div class="img-wrapper">
+                <img src="image-turnstile.jpg" alt="Turnstile Gate" class="category-img">
+            </div>
+            <div class="category-info">
+                <h2>Turnstile Gate</h2>
+                <p>เครื่องกั้นแบบ 3 ขา ประหยัดพื้นที่ แข็งแรงทนทาน</p>
+            </div>
+        </a>
 
-            <a href="product-swing.html" class="category-card">
+        <a href="product-swing.html" class="category-card">
+            <div class="img-wrapper">
                 <img src="image-swing.jpg" alt="Swing Gate" class="category-img">
-                <div class="category-info">
-                    <h2>Swing Gate</h2>
-                    <p>ประตูกั้นแบบบานสวิง</p>
-                </div>
-            </a>
+            </div>
+            <div class="category-info">
+                <h2>Swing Gate</h2>
+                <p>ประตูกั้นแบบบานสวิง ดีไซน์ทันสมัย ทางเข้ากว้างขวาง</p>
+            </div>
+        </a>
 
-            <a href="product-flap.html" class="category-card">
+        <a href="product-flap.html" class="category-card">
+            <div class="img-wrapper">
                 <img src="image-flap.jpg" alt="Flap Gate" class="category-img">
-                <div class="category-info">
-                    <h2>Flap Gate</h2>
-                    <p>ประตูกั้นแบบบานปีกนก</p>
-                </div>
-            </a>
+            </div>
+            <div class="category-info">
+                <h2>Flap Gate</h2>
+                <p>ประตูกั้นแบบบานปีกนก เปิด-ปิดรวดเร็ว สำหรับพื้นที่คนหนาแน่น</p>
+            </div>
+        </a>
 
-        </div>
     </div>
+</div>
+
+<footer>© 2026 GZK Co., Ltd. | Flowing Secure Path.</footer>
+
 </body>
 </html>
