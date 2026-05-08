@@ -12,7 +12,29 @@
         .container { max-width: 1100px; margin: 0 auto; padding: 20px; }
         .nav-back { margin: 20px 0; }
         .nav-back a { text-decoration: none; color: var(--gzk-red); font-weight: bold; }
+header {
+    background: white;
+    text-align: center;
+    padding: 30px 20px; /* เพิ่มพื้นที่ว่างด้านบนและล่างให้ดูพรีเมียม */
+    border-bottom: 4px solid var(--gzk-blue);
+}
 
+.logo-link {
+    display: inline-block;
+    text-decoration: none;
+    transition: transform 0.3s ease; /* เพิ่มลูกเล่นเวลาเอาเมาส์วาง */
+}
+
+.logo-link:hover {
+    transform: scale(1.02); /* ขยายขึ้นเล็กน้อยเมื่อเอาเมาส์ไปวาง */
+}
+
+.logo-link img {
+    width: 350px; /* <--- ปรับตัวเลขนี้เพื่อกำหนดขนาดความกว้างที่ต้องการให้เท่ากันทุกหน้า */
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
         /* Product Gallery */
         .product-header { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 40px; margin-top: 20px; }
         .main-img { width: 100%; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); margin-bottom: 15px; background: #000; }
@@ -51,7 +73,11 @@
     </style>
 </head>
 <body>
-    <header><img src="GZK_logo_with_slogan.jpg" alt="GZK" style="max-width: 180px;"></header>
+    <header>
+    <a href="index.html" class="logo-link">
+        <img src="GZK_logo_with_slogan.jpg" alt="GZK Co., Ltd.">
+    </a>
+</header>
 
     <div class="container">
         <div class="nav-back"><a href="product-turnstile.html">← กลับสู่รายการสินค้า</a></div>
