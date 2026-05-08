@@ -7,9 +7,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
         :root { --gzk-red: #e74c3c; --gzk-blue: #2c3e50; --gzk-light: #f0f4f8; --gzk-dark: #1a1a1a; --gzk-orange: #ff6600; }
-        body { margin: 0; font-family: 'Sarabun', sans-serif; background: #fff; color: #333; line-height: 1.6; }
+        body { margin: 0; font-family: 'Sarabun', sans-serif; background: #fff; color: #333; line-height: 1.6; overflow-x: hidden; }
 
-        /* --- แก้ไข Header ให้เป็นชุดเดียวและถูกต้อง --- */
         header { 
             background: white; 
             text-align: center; 
@@ -29,7 +28,7 @@
             position: absolute;
             left: 20px;
             background: var(--gzk-orange);
-            color: white;
+            color: white !important;
             text-decoration: none;
             font-weight: bold;
             font-size: 0.9rem;
@@ -42,7 +41,6 @@
         .header-back:hover {
             background: var(--gzk-blue);
             transform: translateX(-5px);
-            color: white;
         }
 
         .logo-link {
@@ -60,27 +58,33 @@
             margin: 0 auto;
         }
 
-        @media (max-width: 768px) {
-            .header-back { padding: 6px 12px; font-size: 0.8rem; left: 10px; }
-            .logo-link img { width: 180px; }
+        /* ล็อคความกว้างตรงนี้ให้เด็ดขาด */
+        .container { 
+            max-width: 1100px; 
+            margin: 0 auto; 
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        
+        .product-header { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+            gap: 40px; 
+            margin-top: 20px; 
         }
 
-        /* --- ส่วนเนื้อหา --- */
-        .container { max-width: 1100px; margin: 0 auto; padding: 20px; }
-        
-        .product-header { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 40px; margin-top: 20px; }
-        .main-img { width: 100%; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); margin-bottom: 15px; background: #000; }
+        .main-img { width: 100%; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); margin-bottom: 15px; }
         .thumb-grid { display: flex; flex-direction: column; gap: 15px; }
-        .thumb-grid img { width: 100%; height: auto; object-fit: cover; border-radius: 10px; border: 1px solid #ddd; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+        .thumb-grid img { width: 100%; height: auto; border-radius: 10px; border: 1px solid #ddd; }
         
-        .product-main-info h1 { color: var(--gzk-blue); font-size: 2.2rem; margin: 10px 0; }
+        .product-main-info h1 { color: var(--gzk-blue); font-size: 2.2rem; margin: 10px 0; line-height: 1.2; }
         .brand-logo { max-width: 120px; margin-bottom: 10px; }
         .spec-short { background: var(--gzk-light); padding: 20px; border-radius: 10px; list-style: none; margin: 20px 0; }
         .spec-short li { margin-bottom: 8px; font-weight: bold; color: var(--gzk-blue); }
 
         .section-title { border-left: 6px solid var(--gzk-red); padding-left: 15px; margin: 50px 0 25px; color: var(--gzk-blue); font-size: 1.5rem; }
 
-        .video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 10px; background: #000; box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+        .video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 10px; background: #000; }
         .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
 
         .download-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
@@ -88,16 +92,20 @@
         .download-card:hover { border-color: var(--gzk-red); background: #fff5f5; }
 
         .photo-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
-        .photo-item { text-align: center; }
         .photo-item img { width: 100%; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
-        .photo-item p { margin-top: 10px; font-weight: bold; color: #666; }
+        .photo-item p { margin-top: 10px; font-weight: bold; color: #666; text-align: center; }
 
         .btn-contact { display: block; background: var(--gzk-red); color: white; text-align: center; padding: 15px; text-decoration: none; border-radius: 5px; font-weight: bold; margin-top: 20px; transition: 0.3s; }
         .btn-contact:hover { background: var(--gzk-blue); }
 
-        footer { text-align: center; padding: 60px; color: #999; border-top: 1px solid #eee; margin-top: 50px; }
+        footer { text-align: center; padding: 60px 20px; color: #999; border-top: 1px solid #eee; margin-top: 50px; }
 
-        @media (max-width: 768px) { .photo-grid { grid-template-columns: 1fr; } }
+        @media (max-width: 768px) { 
+            .photo-grid { grid-template-columns: 1fr; } 
+            .header-back { padding: 6px 12px; font-size: 0.8rem; left: 10px; }
+            .logo-link img { width: 180px; }
+            .product-main-info h1 { font-size: 1.8rem; }
+        }
     </style>
 </head>
 <body>
@@ -109,7 +117,7 @@
     </a>
 </header>
 
-<div class="container"> 
+<div class="container">
     <section class="product-header">
         <div class="product-gallery">
             <img src="ds-112-black1.jpg" alt="DS-112 Black Edition" class="main-img">
@@ -178,5 +186,7 @@
     </div>
 
     <footer>© 2026 GZK Co., Ltd. | Flowing Secure Path.</footer>
-</div> </body>
+</div>
+
+</body>
 </html>
