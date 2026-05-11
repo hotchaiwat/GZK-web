@@ -6,40 +6,54 @@
     <title>เลือกโซลูชันการเช่า | GZK Co., Ltd.</title>
     <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
-        :root { --gzk-red: #e74c3c; --gzk-blue: #2c3e50; --gzk-light: #f8f9fa; }
+        :root { --gzk-red: #e74c3c; --gzk-orange: #ff6600; --gzk-blue: #2c3e50; --gzk-light: #f8f9fa; }
         body { margin: 0; font-family: 'Sarabun', sans-serif; background: var(--gzk-light); color: #333; }
         
-        /* --- Header (Sticky) --- */
+        /* --- Standard Header (Sticky) --- */
         header { 
             background: white; 
-            text-align: center; 
-            padding: 15px 20px; 
+            padding: 10px 20px; 
             border-bottom: 4px solid var(--gzk-blue); 
             position: sticky; 
             top: 0;
             z-index: 1000;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-        .logo-link img { width: 280px; height: auto; display: block; margin: 0 auto; }
-
-        .container { max-width: 850px; margin: 20px auto 60px; padding: 0 20px; }
-        
-        /* --- Navigation --- */
-        .back-nav { margin: 20px 0; }
-        .btn-back {
-            display: inline-flex;
+            display: flex;
             align-items: center;
-            gap: 8px;
-            color: var(--gzk-blue);
-            text-decoration: none;
-            font-weight: bold;
-            transition: 0.3s;
-            padding: 8px 0;
+            justify-content: space-between;
         }
-        .btn-back:hover { color: var(--gzk-red); }
 
+        /* ปุ่มย้อนกลับทรงวงรีสีส้ม */
+        .btn-back-sticky {
+            background: var(--gzk-orange);
+            color: white !important;
+            text-decoration: none;
+            padding: 8px 22px;
+            border-radius: 50px; 
+            font-weight: bold;
+            font-size: 0.95rem;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            white-space: nowrap;
+            box-shadow: 0 4px 10px rgba(255, 102, 0, 0.2);
+        }
+        .btn-back-sticky:hover {
+            background: var(--gzk-blue);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            transform: translateY(-1px);
+        }
+
+        .logo-link { transition: 0.3s ease; margin: 0 auto; }
+        .logo-link img { width: 280px; height: auto; display: block; }
+
+        .header-spacer { width: 120px; } /* ช่วยรักษาตำแหน่งโลโก้ให้อยู่กึ่งกลาง */
+
+        .container { max-width: 850px; margin: 40px auto 60px; padding: 0 20px; }
+        
         /* --- Form Container --- */
-        .step-box { background: white; padding: 45px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        .step-box { background: white; padding: 45px; border-radius: 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
         h2 { color: var(--gzk-blue); text-align: center; margin-bottom: 40px; font-size: 1.8rem; }
         
         .step-title { 
@@ -48,7 +62,7 @@
             color: var(--gzk-blue); 
             margin: 30px 0 20px; 
             display: block; 
-            border-left: 5px solid var(--gzk-red); 
+            border-left: 5px solid var(--gzk-orange); 
             padding-left: 15px; 
         }
 
@@ -57,25 +71,24 @@
         
         .option-card { 
             border: 2px solid #edf2f7; 
-            border-radius: 15px; 
+            border-radius: 20px; 
             padding: 20px; 
             text-align: center; 
             cursor: pointer; 
             transition: 0.3s all ease;
             background: #fff;
         }
-        .option-card img { width: 100%; height: 180px; object-fit: contain; margin-bottom: 15px; transition: 0.3s; }
+        .option-card img { width: 100%; height: 160px; object-fit: contain; margin-bottom: 15px; transition: 0.3s; }
         .option-card p { font-weight: bold; font-size: 1.1rem; margin: 10px 0 0; color: var(--gzk-blue); }
 
-        .option-card:hover { border-color: var(--gzk-red); transform: translateY(-5px); box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        .option-card:hover { border-color: var(--gzk-orange); transform: translateY(-5px); box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
         
-        /* State เมื่อถูกเลือก */
         .option-card.selected { 
-            border-color: var(--gzk-red); 
-            background: #fff5f5; 
-            box-shadow: 0 0 0 4px rgba(231, 76, 60, 0.1); 
+            border-color: var(--gzk-orange); 
+            background: #fff9f5; 
+            box-shadow: 0 0 0 4px rgba(255, 102, 0, 0.1); 
         }
-        .option-card.selected p { color: var(--gzk-red); }
+        .option-card.selected p { color: var(--gzk-orange); }
 
         /* --- Form Elements --- */
         .form-group { margin-bottom: 20px; }
@@ -83,32 +96,36 @@
             width: 100%; 
             padding: 14px; 
             border: 1px solid #ddd; 
-            border-radius: 10px; 
+            border-radius: 12px; 
             box-sizing: border-box; 
             font-family: 'Sarabun', sans-serif;
             font-size: 1rem;
         }
-        input:focus, select:focus, textarea:focus { outline: none; border-color: var(--gzk-red); }
+        input:focus, select:focus, textarea:focus { outline: none; border-color: var(--gzk-orange); }
 
         .btn-submit { 
-            background: var(--gzk-red); 
+            background: var(--gzk-orange); 
             color: white; 
             border: none; 
             padding: 18px; 
-            border-radius: 35px; 
+            border-radius: 50px; 
             font-weight: bold; 
             font-size: 1.2rem; 
             cursor: pointer; 
             width: 100%; 
             transition: 0.3s; 
             margin-top: 30px;
-            box-shadow: 0 10px 20px rgba(231, 76, 60, 0.2);
+            box-shadow: 0 10px 20px rgba(255, 102, 0, 0.2);
         }
-        .btn-submit:hover { background: var(--gzk-blue); transform: translateY(-2px); }
+        .btn-submit:hover { background: var(--gzk-blue); transform: translateY(-2px); box-shadow: 0 15px 30px rgba(0,0,0,0.15); }
         .btn-submit:disabled { background: #ccc; cursor: not-allowed; }
 
-        @media (max-width: 600px) {
-            .step-box { padding: 25px; }
+        @media (max-width: 768px) {
+            header { padding: 10px; }
+            .btn-back-sticky { padding: 6px 15px; font-size: 0.8rem; }
+            .logo-link img { width: 180px; }
+            .header-spacer { width: 70px; }
+            .step-box { padding: 25px; border-radius: 20px; }
             .options-grid { grid-template-columns: 1fr; }
         }
     </style>
@@ -116,18 +133,18 @@
 <body>
 
 <header>
+    <a href="sale-categories.html" class="btn-back-sticky">
+        <span>←</span> ย้อนกลับ
+    </a>
+
     <a href="index.html" class="logo-link">
         <img src="GZK_logo_with_slogan.jpg" alt="GZK Co., Ltd.">
     </a>
+
+    <div class="header-spacer"></div>
 </header>
 
 <div class="container">
-    <div class="back-nav">
-        <a href="rental-solutions.html" class="btn-back">
-            <span>←</span> ย้อนกลับไปหน้าบริการเช่า
-        </a>
-    </div>
-
     <div class="step-box">
         <h2>ออกแบบโซลูชันการเช่าของคุณ</h2>
         
@@ -205,14 +222,10 @@
 
 <script>
     function selectOption(type, value, element) {
-        // หา Card ทั้งหมดในกลุ่มเดียวกัน
         const cards = element.parentElement.querySelectorAll('.option-card');
-        // เอา class selected ออกจากทุกใบในกลุ่ม
         cards.forEach(card => card.classList.remove('selected'));
-        // เพิ่ม class selected ให้ใบที่คลิก
         element.classList.add('selected');
         
-        // เก็บค่าลง Hidden Input
         if(type === 'gate') document.getElementById('selectedGate').value = value;
         if(type === 'auth') document.getElementById('selectedAuth').value = value;
     }
@@ -247,7 +260,7 @@
                alert('ส่งข้อมูลเรียบร้อยแล้ว! ทีมงาน GZK จะติดต่อกลับพร้อมใบเสนอราคาโดยเร็วที่สุด');
                window.location.href = "index.html"; 
             }, function(error) {
-               alert('เกิดข้อผิดพลาด กรุณาลองใหม่อีกครั้ง หรือติดต่อทาง LINE');
+               alert('เกิดข้อผิดพลาด กรุณาลองใหม่อีกครั้ง');
                btn.innerHTML = "ส่งข้อมูลขอใบเสนอราคา";
                btn.disabled = false;
             });
