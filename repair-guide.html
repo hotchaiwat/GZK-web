@@ -6,28 +6,52 @@
     <title>บริการซ่อมแซมและอัปเกรด | GZK Co., Ltd.</title>
     <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
-        :root { --gzk-orange: #ff6600; --gzk-blue: #2c3e50; --gzk-light: #f8f9fa; --gzk-dark: #1a252f; }
+        :root { --gzk-orange: #ff6600; --gzk-blue: #2c3e50; --gzk-light: #f8f9fa; --gzk-dark: #1a252f; --gzk-red: #e74c3c; }
         body { margin: 0; font-family: 'Sarabun', sans-serif; background: #fff; color: #333; line-height: 1.6; }
         
-        /* --- Header (Sticky) --- */
+        /* --- Standard Header (Sticky) --- */
         header { 
             background: white; 
-            text-align: center; 
-            padding: 15px 20px; 
+            padding: 10px 20px; 
             border-bottom: 4px solid var(--gzk-blue); 
             position: sticky; 
             top: 0;
             z-index: 1000;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
         }
-        .logo-link img { width: 280px; height: auto; display: block; margin: 0 auto; }
+
+        /* ปุ่มย้อนกลับทรงวงรีสีส้ม */
+        .btn-back-sticky {
+            background: var(--gzk-orange);
+            color: white !important;
+            text-decoration: none;
+            padding: 8px 22px;
+            border-radius: 50px; 
+            font-weight: bold;
+            font-size: 0.95rem;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            white-space: nowrap;
+            box-shadow: 0 4px 10px rgba(255, 102, 0, 0.2);
+        }
+        .btn-back-sticky:hover {
+            background: var(--gzk-blue);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            transform: translateY(-1px);
+        }
+
+        .logo-link { transition: 0.3s ease; margin: 0 auto; }
+        .logo-link:hover { transform: scale(1.02); }
+        .logo-link img { width: 280px; height: auto; display: block; }
+
+        .header-spacer { width: 120px; } /* ช่วยดันโลโก้ให้อยู่ตรงกลาง */
 
         .container { max-width: 1000px; margin: 0 auto; padding: 40px 20px; }
-        
-        /* --- Navigation --- */
-        .nav-back { margin-bottom: 25px; }
-        .nav-back a { text-decoration: none; color: var(--gzk-orange); font-weight: bold; transition: 0.3s; }
-        .nav-back a:hover { color: var(--gzk-blue); }
 
         /* --- Hero Section --- */
         .hero-section { text-align: center; margin-bottom: 60px; }
@@ -45,11 +69,12 @@
         .feature-card { 
             background: var(--gzk-light); 
             padding: 35px 25px; 
-            border-radius: 15px; 
+            border-radius: 20px; 
             border-top: 5px solid var(--gzk-orange); 
             transition: 0.3s;
             height: 100%;
             box-sizing: border-box;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.02);
         }
         .feature-card:hover { transform: translateY(-5px); box-shadow: 0 12px 25px rgba(0,0,0,0.08); }
         .feature-card h3 { color: var(--gzk-blue); margin-top: 0; font-size: 1.3rem; margin-bottom: 15px; }
@@ -58,7 +83,7 @@
         /* --- Upgrade Showcase Section --- */
         .upgrade-section { 
             background: #fdfdfd; 
-            border-radius: 20px; 
+            border-radius: 25px; 
             padding: 50px 30px; 
             border: 1px solid #eee; 
             margin-bottom: 60px;
@@ -75,10 +100,11 @@
         }
         .sol-item { 
             padding: 20px; 
-            border-radius: 12px; 
+            border-radius: 15px; 
             background: white; 
             border-left: 5px solid var(--gzk-orange);
             box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+            text-align: left;
         }
         .sol-item strong { color: var(--gzk-blue); display: block; margin-bottom: 8px; font-size: 1.1rem; }
         .sol-item p { font-size: 0.9rem; color: #666; margin: 0; }
@@ -86,48 +112,63 @@
         /* --- CTA Box --- */
         .cta-box { 
             text-align: center; 
-            background: linear-gradient(135deg, var(--gzk-orange), #ff8800); 
-            color: white; 
-            padding: 60px 30px; 
-            border-radius: 20px; 
-            box-shadow: 0 15px 35px rgba(255, 102, 0, 0.2);
-        }
-        .cta-box h2 { margin-top: 0; font-size: 1.8rem; }
-        
-        .btn-form { 
             background: var(--gzk-blue); 
             color: white; 
-            padding: 20px 45px; 
+            padding: 60px 30px; 
+            border-radius: 25px; 
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+        }
+        .cta-box h2 { margin-top: 0; font-size: 1.8rem; color: white; }
+        
+        /* ปุ่ม CTA ทรงวงรีสีส้ม */
+        .btn-form { 
+            background: var(--gzk-orange); 
+            color: white !important; 
+            padding: 18px 50px; 
             text-decoration: none; 
-            border-radius: 40px; 
+            border-radius: 50px; 
             font-weight: bold; 
-            font-size: 1.2rem; 
+            font-size: 1.15rem; 
             display: inline-block; 
             margin-top: 30px; 
-            transition: 0.3s;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            transition: 0.4s;
+            box-shadow: 0 8px 20px rgba(255, 102, 0, 0.3);
         }
-        .btn-form:hover { background: var(--gzk-dark); transform: scale(1.05); }
+        .btn-form:hover { 
+            background: var(--gzk-red); 
+            transform: translateY(-3px); 
+            box-shadow: 0 12px 25px rgba(231, 76, 60, 0.4);
+        }
 
-        footer { text-align: center; padding: 60px 20px; color: #999; border-top: 1px solid #eee; margin-top: 60px; }
+        footer { text-align: center; padding: 60px 20px; color: #999; border-top: 1px solid #eee; margin-top: 60px; font-size: 0.9rem; }
 
         @media (max-width: 768px) {
+            header { padding: 10px; }
+            .btn-back-sticky { padding: 6px 15px; font-size: 0.8rem; }
+            .logo-link img { width: 180px; }
+            .header-spacer { width: 70px; }
             .hero-section h1 { font-size: 1.8rem; }
             .upgrade-header h2 { font-size: 1.6rem; }
             .cta-box h2 { font-size: 1.5rem; }
+            .btn-form { padding: 15px 30px; width: 85%; box-sizing: border-box; }
         }
     </style>
 </head>
 <body>
 
     <header>
+        <a href="index.html" class="btn-back-sticky">
+            <span>←</span> ย้อนกลับ
+        </a>
+
         <a href="index.html" class="logo-link">
             <img src="GZK_logo_with_slogan.jpg" alt="GZK Co., Ltd.">
         </a>
+
+        <div class="header-spacer"></div>
     </header>
 
     <div class="container">
-        <div class="nav-back"><a href="index.html">← กลับหน้าหลัก</a></div>
 
         <section class="hero-section">
             <h1>บริการซ่อมแซมและอัปเกรด <span class="highlight-orange">(Repair & Upgrade)</span></h1>
@@ -158,7 +199,7 @@
             </div>
 
             <div style="text-align: center;">
-                <img src="upgrade-solutions.jpg" alt="Smart Door Upgrade Solutions" style="max-width: 100%; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+                <img src="upgrade-solutions.jpg" alt="Smart Door Upgrade Solutions" style="max-width: 100%; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
                 
                 <div class="solution-grid">
                     <div class="sol-item">
@@ -172,3 +213,22 @@
                     <div class="sol-item">
                         <strong>Touchless Control</strong>
                         <p>เทคโนโลยีไร้สัมผัส ลดความเสี่ยงและเพิ่มสุขอนามัยให้ผู้ใช้งาน</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="cta-box">
+            <h2>ประเมินหน้างานเพื่อซ่อมแซมหรืออัปเกรด</h2>
+            <p style="opacity: 0.9;">ให้ผู้เชี่ยวชาญเข้าตรวจเช็คสภาพ และเสนอแนวทางที่ดีที่สุดสำหรับคุณ</p>
+            <a href="https://forms.gle/TDb5wtSytgZErEEJA" class="btn-form" target="_blank">
+                คลิกเพื่อกรอกข้อมูลนัดหมายประเมิน
+            </a>
+        </div>
+
+    </div> 
+
+    <footer>© 2026 GZK Co., Ltd. | Flowing Secure Path.</footer>
+
+</body>
+</html>
