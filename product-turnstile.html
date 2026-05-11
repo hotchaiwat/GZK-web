@@ -38,6 +38,7 @@
             gap: 5px;
             white-space: nowrap;
             box-shadow: 0 4px 10px rgba(255, 102, 0, 0.2);
+            flex-shrink: 0;
         }
         .btn-back-sticky:hover {
             background: var(--gzk-blue);
@@ -45,30 +46,29 @@
             transform: translateY(-1px);
         }
 
-        .logo-link { transition: 0.3s ease; margin: 0 auto; }
+        /* แก้ไขจุดที่ทำให้ Hover ไม่ทำงาน */
+        .logo-link { 
+            display: block;
+            transition: 0.3s ease; 
+            margin: 0 auto;
+            z-index: 1001; /* ดันขึ้นมาให้อยู่เหนือ spacer */
+        }
+        .logo-link:hover { 
+            transform: scale(1.05); /* เอฟเฟกต์ขยายเมื่อวางเมาส์ */
+        }
         .logo-link img { width: 280px; height: auto; display: block; }
 
-        .header-spacer { width: 120px; } /* ตัวช่วยรักษาสมดุลโลโก้ */
+        .header-spacer { width: 120px; flex-shrink: 0; } /* สมดุลปุ่มย้อนกลับ */
 
         /* --- Container & Title --- */
-        .container { max-width: 1100px; margin: 30px auto 40px; padding: 0 20px; box-sizing: border-box; }
+        .container { max-width: 1100px; margin: 40px auto; padding: 0 20px; box-sizing: border-box; }
         
-        .category-label {
-            display: inline-block;
-            background: #eee;
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            color: #666;
-            margin-bottom: 10px;
-        }
-
         .page-title { 
             color: var(--gzk-blue); 
             border-left: 8px solid var(--gzk-orange); 
             padding-left: 15px; 
             margin-top: 0;
-            margin-bottom: 30px; 
+            margin-bottom: 35px; 
         }
 
         /* --- Product Grid & Cards --- */
@@ -140,10 +140,6 @@
             border-radius: 25px; 
             margin-top: 50px;
             grid-column: 1 / -1; 
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
             box-shadow: 0 15px 40px rgba(0,0,0,0.1);
         }
 
@@ -170,7 +166,6 @@
             .logo-link img { width: 180px; }
             .header-spacer { width: 70px; }
             .product-grid { grid-template-columns: 1fr; }
-            .page-title { font-size: 1.6rem; }
         }
     </style>
 </head>
@@ -189,7 +184,6 @@
 </header>
 
 <div class="container">
-    <span class="category-label">หมวดหมู่: Turnstile Gate</span>
     <h1 class="page-title">Tripod Turnstile Solutions</h1>
     
     <div class="product-grid">
