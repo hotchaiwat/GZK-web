@@ -45,8 +45,19 @@
             transform: translateY(-1px);
         }
 
-        .logo-link { transition: 0.3s ease; margin: 0 auto; }
-        .logo-link img { width: 280px; height: auto; display: block; }
+        .logo-link { 
+    display: block; /* มั่นใจว่าเป็น block เพื่อให้รับ transition ได้ดีขึ้น */
+    transition: 0.3s ease; 
+    margin: 0 auto; 
+    z-index: 1001; /* ดันขึ้นมาให้อยู่เหนือส่วนประกอบอื่น */
+}
+
+/* เพิ่มส่วน Hover Effect */
+.logo-link:hover { 
+    transform: scale(1.05); /* ขยายขนาดขึ้น 5% */
+}
+
+.logo-link img { width: 280px; height: auto; display: block; }
 
         .header-spacer { width: 120px; } /* ช่วยรักษาตำแหน่งโลโก้ให้อยู่กึ่งกลาง */
 
@@ -143,7 +154,6 @@
 
     <div class="header-spacer"></div>
 </header>
-
 <div class="container">
     <div class="step-box">
         <h2>ออกแบบโซลูชันการเช่าของคุณ</h2>
