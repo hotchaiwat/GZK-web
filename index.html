@@ -9,6 +9,7 @@
         :root { --gzk-red: #e74c3c; --gzk-blue: #2c3e50; --gzk-light: #f8f9fa; --gzk-dark-blue: #1a252f; --gzk-orange: #ff6600; }
         body { margin: 0; font-family: 'Sarabun', sans-serif; background: var(--gzk-light); color: #333; }
         
+        /* --- Sticky Header & Logo Hover --- */
         .sticky-wrapper {
             position: sticky;
             top: 0;
@@ -28,7 +29,7 @@
             transition: transform 0.3s ease;
         }
         .logo-link:hover {
-            transform: scale(1.05);
+            transform: scale(1.05); /* Logo Hover Effect */
         }
         .logo-link img {
             width: 260px;
@@ -37,31 +38,22 @@
             margin: 0 auto;
         }
         
+        /* --- Service Nav: ขยายความกว้างเนื้อหา --- */
         .service-nav { 
             background: var(--gzk-dark-blue); 
             padding: 20px 10px; 
             text-align: center; 
             border-bottom: 4px solid var(--gzk-blue);
         }
-        .service-nav h3 { 
-            color: white !important; 
-            margin: 0 0 5px 0; 
-            font-size: 1.1rem;
-        }
-        .service-nav p { 
-            color: white !important; 
-            margin: 0 0 15px 0; 
-            font-size: 0.9rem;
-            opacity: 0.8;
-        }
+        .service-nav h3 { color: white !important; margin: 0 0 5px 0; font-size: 1.1rem; }
+        .service-nav p { color: white !important; margin: 0 0 15px 0; font-size: 0.9rem; opacity: 0.8; }
         
-        /* ปรับจุดนี้ให้กว้างขึ้น */
         .nav-links-container {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
             gap: 10px;
-            max-width: 95%; 
+            max-width: 95%; /* ปรับให้กว้างขึ้นตามต้องการ */
             margin: 0 auto;
         }
 
@@ -77,35 +69,23 @@
             background: var(--gzk-orange);
             box-shadow: 0 4px 10px rgba(255, 102, 0, 0.2);
         }
-        
-        .service-nav a:hover { 
-            background: white; 
-            color: var(--gzk-orange); 
-            transform: translateY(-2px);
-        }
+        .service-nav a:hover { background: white; color: var(--gzk-orange); transform: translateY(-2px); }
+        .service-nav a.contact-btn { background: var(--gzk-red); box-shadow: 0 4px 10px rgba(231, 76, 60, 0.3); }
+        .service-nav a.contact-btn:hover { background: white; color: var(--gzk-red); }
 
-        .service-nav a.contact-btn { 
-            background: var(--gzk-red);
-            box-shadow: 0 4px 10px rgba(231, 76, 60, 0.3);
-        }
-        .service-nav a.contact-btn:hover {
-            background: white;
-            color: var(--gzk-red);
-        }
-
-        /* ปรับส่วน Hero ให้แคบลง */
+        /* --- Hero: ปรับให้แคบลง --- */
         .hero { background: var(--gzk-blue); color: white; padding: 60px 20px; text-align: center; }
         .hero h1 { 
             font-size: 2.2rem; 
             margin-bottom: 15px; 
-            max-width: 600px; 
+            max-width: 600px; /* ลดความกว้างหัวข้อ */
             margin-left: auto; 
             margin-right: auto; 
         }
         .hero p { 
             font-size: 1.2rem; 
             opacity: 0.9; 
-            max-width: 500px; 
+            max-width: 500px; /* ลดความกว้างคำบรรยาย */
             margin-left: auto; 
             margin-right: auto; 
             line-height: 1.6;
@@ -113,6 +93,7 @@
 
         .highlight-text { color: var(--gzk-orange); }
 
+        /* --- ส่วนอื่นๆ --- */
         .why-section { background: white; padding: 80px 20px; }
         .why-container { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
         .why-text h2 { color: var(--gzk-blue); font-size: 2rem; margin-bottom: 25px; border-left: 5px solid var(--gzk-red); padding-left: 20px; }
@@ -153,8 +134,7 @@
 
         @media (max-width: 768px) {
             .logo-link img { width: 200px; }
-            .hero h1 { font-size: 1.8rem; max-width: 100%; }
-            .hero p { max-width: 100%; }
+            .hero h1, .hero p { max-width: 100%; }
             .why-container { grid-template-columns: 1fr; }
             .solution-grid { grid-template-columns: 1fr; }
             .service-nav h3 { font-size: 1rem; }
@@ -195,10 +175,100 @@
         <h1 style="font-size: 2.5rem; color: var(--gzk-blue); margin-bottom: 15px;">
             Beyond Security: <span class="highlight-text">The Art of Entrance</span>
         </h1>
-        <p style="font-size: 1.2rem; color: #555; max-width: 800px; margin: 0 auto; line-height: 1.8;">
+        <p style="font-size: 1.3rem; color: #555; max-width: 900px; margin: 0 auto; line-height: 1.8;">
             เราเลือกสรร <span style="font-weight: bold; color: var(--gzk-blue);">"เฟอร์นิเจอร์ชิ้นงาม"</span> 
-            ที่ช่วยเสริมภาพลักษณ์ให้อาคารของคุณโดดเด่น ทันสมัย ด้วยดีไซน์ที่ลงตัว
+            ที่เป็นส่วนประกอบสำคัญในการเสริมภาพลักษณ์ให้อาคารของคุณโดดเด่น ทันสมัย 
+            ด้วยดีไซน์ที่ลงตัวและหลากหลายเฉดสี
         </p>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 60px; max-width: 1000px; margin: 0 auto;">
+        <div style="background: white; padding: 25px; border-radius: 20px; box-shadow: 0 15px 45px rgba(0,0,0,0.08); text-align: center;">
+            <img src="color-customization.jpg" alt="Color Customization" style="width: 100%; max-width: 900px; border-radius: 12px; margin-bottom: 20px;">
+            <h2 style="color: var(--gzk-blue); font-size: 1.8rem; margin-bottom: 10px;">Color Customization</h2>
+            <p style="font-size: 1.1rem; color: #666;">แสดงเอกลักษณ์ผ่านสีสัน ปรับแต่งเฉดสี Powder Coated ได้ตามต้องการเพื่อให้เข้ากับดีไซน์ของพื้นที่</p>
+        </div>
+
+        <div style="background: white; padding: 25px; border-radius: 20px; box-shadow: 0 15px 45px rgba(0,0,0,0.08); text-align: center;">
+            <img src="gold-series.jpg" alt="Luxury Gold Series" style="width: 100%; max-width: 900px; border-radius: 12px; margin-bottom: 20px;">
+            <h2 style="color: var(--gzk-blue); font-size: 1.8rem; margin-bottom: 10px;">Luxury Gold Series</h2>
+            <p style="font-size: 1.1rem; color: #666;">ยกระดับความหรูหราด้วยประตูสีทอง (Gold Series) สำหรับโครงการที่ต้องการความสง่างามเป็นพิเศษ</p>
+        </div>
+
+        <div style="background: white; padding: 25px; border-radius: 20px; box-shadow: 0 15px 45px rgba(0,0,0,0.08); text-align: center;">
+            <img src="vibrant-series.jpg" alt="Vibrant Styles" style="width: 100%; max-width: 900px; border-radius: 12px; margin-bottom: 20px;">
+            <h2 style="color: var(--gzk-blue); font-size: 1.8rem; margin-bottom: 10px;">Vibrant Styles</h2>
+            <p style="font-size: 1.1rem; color: #666;">โดดเด่นด้วยโทนสีที่ทรงพลัง ไม่ว่าจะเป็นสีน้ำเงินหรือสีแดง เพื่อความล้ำสมัยในทุกมุมมอง</p>
+        </div>
+    </div>
+
+    <div style="text-align: center; margin-top: 50px;">
+        <p style="color: var(--gzk-orange); font-weight: bold; font-size: 1.4rem;">
+            "สัมผัสความงามที่มาพร้อมความปลอดภัยจาก GZK"
+        </p>
+    </div>
+</div>
+
+<section class="why-section">
+    <div class="why-container">
+        <div class="why-img">
+            <img src="main-index.jpg" alt="Security Solutions">
+        </div>
+        <div class="why-text">
+            <h2>ยกระดับมาตรฐานความปลอดภัย<br>ด้วยระบบควบคุมการเข้า-ออกอัจฉริยะ</h2>
+            <p>ในยุคที่ข้อมูลและความปลอดภัยเป็นสิ่งสำคัญ การผ่านเข้าพื้นที่ควรมีการดูแลป้องกัน ระบบ Smart Gate Access Control ไม่ได้ทำหน้าที่เพียงแค่ "กั้นประตู" แต่คือหัวใจหลักในการบริหารจัดการอาคารอย่างมีประสิทธิภาพ</p>
+            <ul class="feature-list">
+                <li>คัดกรองบุคคลเข้า-ออกพื้นที่ได้อย่างแม่นยำ 100%</li>
+                <li>รองรับการแสดงตัวตนทั้ง Face Scan, Card และ QR Code</li>
+                <li>บันทึกสถิติและเวลาการใช้งานเพื่อการวิเคราะห์ข้อมูลพื้นที่</li>
+                <li>เชื่อมต่อระบบความปลอดภัยอื่นๆ ได้แบบครบวงจร</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<div class="section-title">
+    <h2>โซลูชันที่เหมาะกับธุรกิจคุณ</h2>
+    <p>เราพร้อมดูแลทั้งแบบการเป็นเจ้าของ และบริการในรูปแบบการเช่าที่ยืดหยุ่นและเหมาะสมกับคุณ</p>
+</div>
+
+<div class="container">
+    <div class="solution-grid">
+        <div class="solution-card">
+            <div class="card-content" style="padding-bottom: 0;"><span class="badge">NEW ARRIVAL</span></div>
+            <img src="newgate.jpg" alt="Smart Gate Sale" class="product-img">
+            <div class="card-content">
+                <h3>จำหน่ายประตูอัตโนมัติเครื่องใหม่</h3>
+                <p>ยกระดับความปลอดภัยด้วยนวัตกรรมล่าสุด</p>
+                <ul>
+                    <li>สินค้าใหม่แกะกล่อง พร้อมเทคโนโลยี AI ล่าสุด</li>
+                    <li>รองรับ Face Recognition และ Identity ทุกรูปแบบ</li>
+                    <li>เชื่อมต่อระบบ Automation เต็มรูปแบบ</li>
+                    <li>รับประกันคุณภาพและบริการหลังการขาย</li>
+                </ul>
+                <div style="text-align: center;">
+                    <a href="sale-categories.html" class="btn-sale">ดูหมวดหมู่สินค้า</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="solution-card">
+            <div class="card-content" style="padding-bottom: 0;"><span class="badge" style="background: var(--gzk-red);">FLEXIBLE PLAN</span></div>
+            <img src="rentproduct.png" alt="Smart Gate Leasing" class="product-img">
+            <div class="card-content">
+                <h3>บริการรูปแบบการเช่าประตูอัตโนมัติ</h3>
+                <p>ความปลอดภัยระดับพรีเมียม ในราคาที่เข้าถึงง่าย</p>
+                <ul>
+                    <li>การเช่าซื้อและเช่าใช้งาน รายวัน รายเดือน หรือรายปี</li>
+                    <li>ลดต้นทุนการลงทุน (Zero Capital Expenditure)</li>
+                    <li>พร้อมระบบ Dashboard ติดตามข้อมูล</li>
+                    <li>ดูแลรักษาฟรีตลอดอายุสัญญาเช่า</li>
+                </ul>
+                <div style="text-align: center;">
+                    <a href="rental-solutions.html" class="btn-rent">ดูรายละเอียดการเช่า</a>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 
