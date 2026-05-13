@@ -32,25 +32,28 @@
         }
 
         .header-container {
-            max-width: 1400px; /* ขยายความกว้างเพื่อให้มีพื้นที่ด้านขวา */
+            max-width: 1400px;
             margin: 0 auto;
             display: flex;
+            justify-content: space-between;
             align-items: center;
             padding: 0 25px;
-            position: relative; /* สำหรับจัดตำแหน่ง Logo */
-            min-height: 120px;
+            gap: 20px;
         }
 
-        /* Logo Area - จัดให้อยู่กึ่งกลางหน้าจอเสมอ */
+        /* ส่วนพื้นที่ว่างด้านซ้ายเพื่อให้ Logo อยู่กลางพอดี */
+        .header-left-spacer {
+            flex: 1;
+            display: flex;
+        }
+
+        /* Logo Area - ปรับให้อยู่ตรงกลาง */
         .logo-area {
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
             display: flex;
             flex-direction: column;
             align-items: center;
             text-align: center;
-            white-space: nowrap;
+            flex: 0 0 auto; /* ไม่ให้หดหรือขยาย */
         }
 
         .logo-link {
@@ -63,47 +66,49 @@
         .header-slogan {
             color: var(--gzk-blue);
             font-weight: 700;
-            font-size: 0.95rem;
-            margin-top: 8px;
+            font-size: 1rem;
+            margin-top: 10px;
         }
 
-        /* Banner Box Area - ดันไปอยู่ทางขวาสุด */
+        /* Banner Box Area - ขยับไปทางขวา */
         .banner-link {
             text-decoration: none;
-            margin-left: auto; /* ดันไปทางขวา */
-            width: 100%;
-            max-width: 420px; /* ปรับขนาดให้เล็กลงเล็กน้อยเพื่อไม่ให้เบียด Logo */
+            display: block;
+            flex: 1; /* กินพื้นที่ฝั่งขวา */
+            display: flex;
+            justify-content: flex-end; /* ดันเนื้อหาในตัวมันไปขวาสุด */
             transition: 0.3s;
-            z-index: 10;
         }
 
         .header-banner-box {
             background: var(--gzk-banner-blue);
-            padding: 12px 20px;
+            padding: 15px 25px;
             border-radius: 12px;
             border: 2px solid #bbdefb;
             box-shadow: 0 4px 12px rgba(0,0,0,0.05);
             animation: soft-pulse 2.5s infinite ease-in-out;
             cursor: pointer;
             text-align: left;
+            max-width: 500px; /* คุมขนาด Banner */
         }
 
         .header-banner-box:hover {
             background: #d1e9ff;
             transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
         }
 
         .header-banner-box h3 {
             margin: 0;
             color: var(--gzk-blue);
-            font-size: 1rem;
+            font-size: 1.15rem;
             font-weight: bold;
         }
 
         .header-banner-box p {
-            margin: 3px 0 0;
+            margin: 4px 0 0;
             color: #444;
-            font-size: 0.85rem;
+            font-size: 0.95rem;
             font-weight: bold;
             line-height: 1.4;
         }
@@ -111,8 +116,8 @@
         .header-banner-box::after {
             content: 'คลิกเพื่อติดต่อ ➜';
             display: block;
-            margin-top: 5px;
-            font-size: 0.75rem;
+            margin-top: 8px;
+            font-size: 0.8rem;
             color: var(--gzk-red);
             font-weight: bold;
         }
@@ -157,6 +162,7 @@
         .beyond-section { background: linear-gradient(135deg, #fff 0%, #f0f4f8 100%); padding: 80px 20px; text-align: center; }
         .section-title-main { font-size: 2.5rem; color: var(--gzk-blue); margin-bottom: 40px; }
         .highlight-text { color: var(--gzk-orange); }
+
         .card-container-vertical { display: flex; flex-direction: column; gap: 50px; max-width: 1000px; margin: 0 auto; }
         .info-card { background: white; padding: 30px; border-radius: 20px; box-shadow: 0 15px 45px rgba(0,0,0,0.06); text-align: center; }
         .info-card img { width: 100%; max-width: 850px; border-radius: 12px; margin-bottom: 20px; }
@@ -176,16 +182,13 @@
 
         footer { text-align: center; padding: 60px 20px; color: #666; background: white; border-top: 1px solid #eee; }
 
-        /* Responsive - ปรับให้เหมาะสมเมื่อหน้าจอเล็กลง */
+        /* Responsive */
         @media (max-width: 1100px) {
-            .header-container { flex-direction: column; min-height: auto; padding: 20px; }
-            .logo-area { position: static; transform: none; left: 0; margin-bottom: 20px; }
-            .banner-link { margin-left: 0; max-width: 100%; }
-            .header-banner-box { text-align: center; }
-        }
-        @media (max-width: 600px) {
-            .logo-link img { width: 220px; }
-            .solution-grid { grid-template-columns: 1fr; }
+            .header-container { flex-direction: column; text-align: center; }
+            .header-left-spacer { display: none; }
+            .logo-area { margin-bottom: 20px; }
+            .banner-link { justify-content: center; width: 100%; }
+            .header-banner-box { text-align: center; width: 100%; }
         }
     </style>
 </head>
@@ -194,6 +197,8 @@
 <div class="sticky-wrapper">
     <header>
         <div class="header-container">
+            <div class="header-left-spacer"></div>
+
             <div class="logo-area">
                 <a href="index.html" class="logo-link">
                     <img src="GZK_logo_with_slogan.jpg" alt="GZK Co., Ltd.">
@@ -206,7 +211,7 @@
             <a href="contact.html" class="banner-link">
                 <div class="header-banner-box">
                     <h3>ต้องการผู้เชี่ยวชาญช่วยประเมินหน้างาน?</h3>
-                    <p>รับคำแนะนำและปรึกษาฟรี! เพื่อเลือกประตูรุ่นที่เหมาะสม</p>
+                    <p>รับคำแนะนำและปรึกษาฟรี! เพื่อเลือกประตูและรุ่นที่เหมาะสมกับสถานที่ของคุณ</p>
                 </div>
             </a>
         </div>
@@ -242,42 +247,4 @@
 <section class="why-section">
     <div class="why-container">
         <div class="why-img">
-            <img src="main-index.jpg" alt="Security" style="width:100%; border-radius:20px;">
-        </div>
-        <div class="why-text">
-            <h2>ยกระดับมาตรฐานความปลอดภัย</h2>
-            <p>ระบบ Smart Gate Access Control หัวใจหลักในการบริหารจัดการอาคารอย่างมีประสิทธิภาพ</p>
-            <ul class="feature-list">
-                <li>คัดกรองบุคคลแม่นยำ 100%</li>
-                <li>รองรับ Face Scan, Card และ QR Code</li>
-                <li>เชื่อมต่อระบบความปลอดภัยครบวงจร</li>
-            </ul>
-        </div>
-    </div>
-</section>
-
-<div class="solution-grid">
-    <div class="solution-card">
-        <span class="badge">NEW ARRIVAL</span>
-        <img src="newgate.jpg" alt="Sale" class="product-img">
-        <div style="padding:20px; text-align:center;">
-            <h3>จำหน่ายประตูอัตโนมัติ</h3>
-            <a href="sale-categories.html" style="color:var(--gzk-red); font-weight:bold; text-decoration:none;">ดูสินค้าทั้งหมด →</a>
-        </div>
-    </div>
-    <div class="solution-card">
-        <span class="badge">FLEXIBLE PLAN</span>
-        <img src="rentproduct.png" alt="Rent" class="product-img">
-        <div style="padding:20px; text-align:center;">
-            <h3>บริการรูปแบบการเช่า</h3>
-            <a href="rental-solutions.html" style="color:var(--gzk-red); font-weight:bold; text-decoration:none;">ดูรายละเอียดการเช่า →</a>
-        </div>
-    </div>
-</div>
-
-<footer>
-    <p>© 2026 GZK Co., Ltd. | Flowing Secure Path.</p>
-</footer>
-
-</body>
-</html>
+            <img src="main-index.jpg
