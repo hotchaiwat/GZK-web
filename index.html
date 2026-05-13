@@ -158,4 +158,159 @@
         .card-content h3 { color: var(--gzk-blue); font-size: 1.5rem; border-bottom: 3px solid var(--gzk-red); display: inline-block; padding-bottom: 8px; margin-top: 0; }
         .card-content p { font-weight: bold; color: #555; margin-top: 15px; }
         .card-content ul { text-align: left; display: inline-block; margin-top: 20px; line-height: 1.8; color: #444; padding-left: 20px; }
-        .badge { background: var(--gzk-red); color: white; padding: 5px 15px; border-radius: 5px;
+        .badge { background: var(--gzk-red); color: white; padding: 5px 15px; border-radius: 5px; font-size: 0.9rem; display: inline-block; margin-bottom: 10px; }
+        .btn-action { background: var(--gzk-red); color: white; padding: 12px 30px; text-decoration: none; border-radius: 5px; display: inline-block; font-weight: bold; margin-top: 20px; transition: 0.3s; }
+        .btn-action:hover { background: var(--gzk-blue); }
+
+        footer { text-align: center; padding: 60px 20px; color: #666; border-top: 1px solid #eee; background: white; }
+
+        /* Responsive */
+        @media (max-width: 1100px) {
+            .header-container { flex-direction: column; text-align: center; }
+            .header-left-spacer { display: none; }
+            .header-banner { justify-content: center; width: 100%; margin-top: 15px; }
+            .banner-content { text-align: center; border-left: none; border-top: 2px solid var(--gzk-red); padding: 10px 0 0; }
+            .why-container { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="sticky-wrapper">
+    <header>
+        <div class="header-container">
+            <div class="header-left-spacer"></div>
+            
+            <div class="logo-group">
+                <a href="index.html" class="logo-link">
+                    <img src="GZK_logo_with_slogan.jpg" alt="GZK Co., Ltd.">
+                </a>
+                <div class="header-slogan">สร้างเส้นทางราบรื่นและปลอดภัย ให้กับพื้นที่และธุรกิจของคุณ</div>
+            </div>
+
+            <div class="header-banner">
+                <div class="banner-content">
+                    <h3>ต้องการผู้เชี่ยวชาญช่วยประเมินหน้างาน?</h3>
+                    <p>รับคำแนะนำฟรี! เกี่ยวกับการเลือกทิศทางเดินและรุ่นประตูที่เหมาะสมกับสถานที่ของคุณ</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <nav class="service-nav">
+        <div class="nav-links-container">
+            <a href="survey-guide.html">ให้คำแนะนำและสำรวจหน้างาน</a>
+            <a href="maintenance-guide.html">แผนบำรุงรักษา</a>
+            <a href="repair-guide.html">บริการซ่อมแซมและอัปเกรด</a>
+            <a href="accessories.html">อุปกรณ์เสริม (Gate Accessories)</a>
+            <a href="contact.html" class="contact-btn">ติดต่อเรา GZK</a>
+        </div>
+    </nav>
+</div>
+
+<section class="hero">
+    <h1>Flowing Secure Path</h1>
+    <p>สร้างเส้นทางราบรื่นและปลอดภัย ให้กับพื้นที่และธุรกิจของคุณ</p>
+</section>
+
+<section class="beyond-section">
+    <div class="beyond-title-box">
+        <h1>Beyond Security: <span class="highlight-text">The Art of Entrance</span></h1>
+        <p>เราเลือกสรร <span style="font-weight: bold; color: var(--gzk-blue);">"เฟอร์นิเจอร์ชิ้นงาม"</span> ที่เป็นส่วนประกอบสำคัญในการเสริมภาพลักษณ์ให้อาคารของคุณโดดเด่น ทันสมัย ด้วยดีไซน์ที่ลงตัวและหลากหลายเฉดสี</p>
+    </div>
+
+    <div class="card-stack">
+        <div class="info-card">
+            <img src="color-customization.jpg" alt="Color Customization">
+            <h2>Color Customization</h2>
+            <p>แสดงเอกลักษณ์ผ่านสีสัน ปรับแต่งเฉดสี Powder Coated ได้ตามต้องการเพื่อให้เข้ากับดีไซน์ของพื้นที่</p>
+        </div>
+
+        <div class="info-card">
+            <img src="gold-series.jpg" alt="Luxury Gold Series">
+            <h2>Luxury Gold Series</h2>
+            <p>ยกระดับความหรูหราด้วยประตูสีทอง (Gold Series) สำหรับโครงการที่ต้องการความสง่างามเป็นพิเศษ</p>
+        </div>
+
+        <div class="info-card">
+            <img src="vibrant-series.jpg" alt="Vibrant Styles">
+            <h2>Vibrant Styles</h2>
+            <p>โดดเด่นด้วยโทนสีที่ทรงพลัง ไม่ว่าจะเป็นสีน้ำเงินหรือสีแดง เพื่อความล้ำสมัยในทุกมุมมอง</p>
+        </div>
+    </div>
+
+    <div style="text-align: center; margin-top: 50px;">
+        <p style="color: var(--gzk-orange); font-weight: bold; font-size: 1.4rem;">"สัมผัสความงามที่มาพร้อมความปลอดภัยจาก GZK"</p>
+    </div>
+</section>
+
+<section class="why-section">
+    <div class="why-container">
+        <div class="why-img">
+            <img src="main-index.jpg" alt="Security Solutions">
+        </div>
+        <div class="why-text">
+            <h2>ยกระดับมาตรฐานความปลอดภัย<br>ด้วยระบบควบคุมการเข้า-ออกอัจฉริยะ</h2>
+            <p>ในยุคที่ข้อมูลและความปลอดภัยเป็นสิ่งสำคัญ การผ่านเข้าพื้นที่ควรมีการดูแลป้องกัน ระบบ Smart Gate Access Control ไม่ได้ทำหน้าที่เพียงแค่ "กั้นประตู" แต่คือหัวใจหลักในการบริหารจัดการอาคารอย่างมีประสิทธิภาพ</p>
+            <ul class="feature-list">
+                <li>คัดกรองบุคคลเข้า-ออกพื้นที่ได้อย่างแม่นยำ 100%</li>
+                <li>รองรับการแสดงตัวตนทั้ง Face Scan, Card และ QR Code</li>
+                <li>บันทึกสถิติและเวลาการใช้งานเพื่อการวิเคราะห์ข้อมูลพื้นที่</li>
+                <li>เชื่อมต่อระบบความปลอดภัยอื่นๆ ได้แบบครบวงจร</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<div class="section-title">
+    <h2>โซลูชันที่เหมาะกับธุรกิจคุณ</h2>
+    <p>เราพร้อมดูแลทั้งแบบการเป็นเจ้าของ และบริการในรูปแบบการเช่าที่ยืดหยุ่นและเหมาะสมกับคุณ</p>
+</div>
+
+<div class="solution-container">
+    <div class="solution-grid">
+        <div class="solution-card">
+            <div class="card-content" style="padding-bottom: 0;"><span class="badge">NEW ARRIVAL</span></div>
+            <img src="newgate.jpg" alt="Smart Gate Sale" class="product-img">
+            <div class="card-content">
+                <h3>จำหน่ายประตูอัตโนมัติเครื่องใหม่</h3>
+                <p>ยกระดับความปลอดภัยด้วยนวัตกรรมล่าสุด</p>
+                <ul>
+                    <li>สินค้าใหม่แกะกล่อง พร้อมเทคโนโลยี AI ล่าสุด</li>
+                    <li>รองรับ Face Recognition และ Identity ทุกรูปแบบ</li>
+                    <li>เชื่อมต่อระบบ Automation เต็มรูปแบบ</li>
+                    <li>รับประกันคุณภาพและบริการหลังการขาย</li>
+                </ul>
+                <div style="text-align: center;">
+                    <a href="sale-categories.html" class="btn-action">ดูหมวดหมู่สินค้า</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="solution-card">
+            <div class="card-content" style="padding-bottom: 0;"><span class="badge">FLEXIBLE PLAN</span></div>
+            <img src="rentproduct.png" alt="Smart Gate Leasing" class="product-img">
+            <div class="card-content">
+                <h3>บริการรูปแบบการเช่าประตูอัตโนมัติ</h3>
+                <p>ความปลอดภัยระดับพรีเมียม ในราคาที่เข้าถึงง่าย</p>
+                <ul>
+                    <li>การเช่าซื้อและเช่าใช้งาน รายวัน รายเดือน หรือรายปี</li>
+                    <li>ลดต้นทุนการลงทุน (Zero Capital Expenditure)</li>
+                    <li>พร้อมระบบ Dashboard ติดตามข้อมูล</li>
+                    <li>ดูแลรักษาฟรีตลอดอายุสัญญาเช่า</li>
+                </ul>
+                <div style="text-align: center;">
+                    <a href="rental-solutions.html" class="btn-action">ดูรายละเอียดการเช่า</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <p>© 2026 GZK Co., Ltd. | Flowing Secure Path.</p>
+    <p>สำนักงานใหญ่: เขตจตุจักร กรุงเทพมหานคร</p>
+</footer>
+
+</body>
+</html>
