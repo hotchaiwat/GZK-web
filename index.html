@@ -20,9 +20,62 @@
         header {
             background: white;
             text-align: center;
-            padding: 10px 20px;
+            padding: 15px 20px;
             border-bottom: 1px solid #eee;
         }
+        .header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between; /* แยกซ้ายขวา */
+    align-items: center;
+    flex-wrap: wrap; /* รองรับมือถือ */
+}
+
+/* ปรับแต่ง Banner ฝั่งขวา */
+.header-banner {
+    text-align: right;
+    border-left: 3px solid var(--gzk-red); /* เพิ่มเส้นขีดสีแดงให้น่าสนใจ */
+    padding-left: 20px;
+    max-width: 500px;
+}
+
+.header-banner h3 {
+    margin: 0;
+    color: var(--gzk-blue);
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.header-banner p {
+    margin: 5px 0 0;
+    color: #666;
+    font-size: 0.95rem;
+    line-height: 1.4;
+}
+
+/* ทำให้ service-nav บางลง */
+.service-nav { 
+    background: var(--gzk-dark-blue); 
+    padding: 12px 0; /* ลด padding ลงเพื่อให้แถบบาง */
+    text-align: center; 
+}
+
+/* ปรับแต่งสำหรับมือถือ */
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: column; /* บนมือถือให้เรียงต่อกัน */
+        text-align: center;
+    }
+    .header-banner {
+        text-align: center;
+        border-left: none;
+        border-top: 1px solid #eee;
+        padding-left: 0;
+        padding-top: 10px;
+        margin-top: 10px;
+    }
+}
         .header-slogan {
     color: var(--gzk-blue); /* สีน้ำเงิน GZK */
     font-weight: 700;       /* ตัวอักษรหนา */
@@ -156,26 +209,27 @@
 
 <div class="sticky-wrapper">
     <header>
-    <a href="index.html" class="logo-link">
-        <img src="GZK_logo_with_slogan.jpg" alt="GZK Co., Ltd.">
-    </a>
-    <div class="header-slogan">
-        สร้างเส้นทางราบรื่นและปลอดภัย ให้กับพื้นที่และธุรกิจของคุณ
+    <div class="header-container">
+        <a href="index.html" class="logo-link">
+            <img src="GZK_logo_with_slogan.jpg" alt="GZK Co., Ltd.">
+        </a>
+
+        <div class="header-banner">
+            <h3>ต้องการผู้เชี่ยวชาญช่วยประเมินหน้างาน?</h3>
+            <p>รับคำแนะนำฟรี! เกี่ยวกับการเลือกทิศทางเดินและรุ่นประตูที่เหมาะสมกับสถานที่ของคุณ</p>
+        </div>
     </div>
 </header>
 
-    <nav class="service-nav">
-        <h3>ต้องการผู้เชี่ยวชาญช่วยประเมินหน้างาน?</h3>
-        <p>รับคำแนะนำฟรี! เกี่ยวกับการเลือกทิศทางเดินและรุ่นประตูที่เหมาะสมกับสถานที่ของคุณ</p>
-        
-        <div class="nav-links-container">
-            <a href="survey-guide.html">ให้คำแนะนำและสำรวจหน้างาน</a>
-            <a href="maintenance-guide.html">แผนบำรุงรักษา</a>
-            <a href="repair-guide.html">บริการซ่อมแซมและอัปเกรด</a>
-            <a href="accessories.html">อุปกรณ์เสริม (Gate Accessories)</a>
-            <a href="contact.html" class="contact-btn">ติดต่อเรา GZK</a>
-        </div>
-    </nav>
+<nav class="service-nav">
+    <div class="nav-links-container">
+        <a href="survey-guide.html">ให้คำแนะนำและสำรวจหน้างาน</a>
+        <a href="maintenance-guide.html">แผนบำรุงรักษา</a>
+        <a href="repair-guide.html">บริการซ่อมแซมและอัปเกรด</a>
+        <a href="accessories.html">อุปกรณ์เสริม (Gate Accessories)</a>
+        <a href="contact.html" class="contact-btn">ติดต่อเรา GZK</a>
+    </div>
+</nav>
 </div>
 
 <section class="hero">
