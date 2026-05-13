@@ -32,13 +32,8 @@
             gap: 20px;
         }
 
-        /* ส่วนพื้นที่ว่างด้านซ้าย เพื่อหลอกให้ Logo อยู่กลางพอดี */
-        .header-left-spacer {
-            flex: 1;
-            display: flex;
-        }
+        .header-left-spacer { flex: 1; display: flex; }
 
-        /* Logo Area - ปรับให้อยู่ตรงกลาง */
         .logo-group {
             flex: 0 0 auto;
             text-align: center;
@@ -58,7 +53,7 @@
             margin-top: 8px;
         }
 
-        /* Banner ฝั่งขวา */
+        /* --- New Banner Design with Soft Pulse --- */
         .header-banner {
             flex: 1;
             display: flex;
@@ -66,24 +61,44 @@
         }
 
         .banner-content {
-            text-align: right;
-            border-left: 3px solid var(--gzk-red);
-            padding-left: 20px;
+            text-align: left;
+            /* เพิ่มพื้นหลังไล่เฉดสีอ่อน (Gradient) */
+            background: linear-gradient(135deg, #fff5f5 0%, #e3f2fd 100%);
+            /* เพิ่มเส้นขอบสีแดง */
+            border: 2px solid var(--gzk-red);
+            padding: 12px 20px;
+            border-radius: 12px;
             max-width: 450px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            /* ใส่ลูกเล่น Soft Pulse */
+            animation: soft-pulse 2.5s infinite ease-in-out;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .banner-content:hover {
+            transform: scale(1.02);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
         }
 
         .banner-content h3 {
             margin: 0;
             color: var(--gzk-blue);
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             font-weight: bold;
         }
 
         .banner-content p {
-            margin: 5px 0 0;
-            color: #666;
-            font-size: 0.9rem;
+            margin: 4px 0 0;
+            color: #444;
+            font-size: 0.85rem;
             line-height: 1.4;
+        }
+
+        @keyframes soft-pulse {
+            0% { transform: scale(1); box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+            50% { transform: scale(1.02); box-shadow: 0 8px 20px rgba(231, 76, 60, 0.15); }
+            100% { transform: scale(1); box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
         }
 
         /* --- Service Nav --- */
@@ -117,14 +132,9 @@
         .service-nav a:hover { background: white; color: var(--gzk-orange); transform: translateY(-2px); }
         .service-nav a.contact-btn { background: var(--gzk-red); box-shadow: 0 4px 10px rgba(231, 76, 60, 0.3); }
 
-        /* --- Hero Section --- */
-        .hero { background: var(--gzk-blue); color: white; padding: 30px 15px; text-align: center; }
-        .hero h1 { font-size: 2.2rem; margin-bottom: 10px; }
-        .hero p { font-size: 1.2rem; opacity: 0.9; margin: 0 auto; max-width: 600px; }
-
         .highlight-text { color: var(--gzk-orange); }
 
-        /* --- Beyond Security Section --- */
+        /* --- Content Sections --- */
         .beyond-section { background: linear-gradient(135deg, #fff 0%, #f0f4f8 100%); padding: 60px 20px; }
         .beyond-title-box { text-align: center; margin-bottom: 50px; }
         .beyond-title-box h1 { font-size: 2.5rem; color: var(--gzk-blue); margin-bottom: 15px; }
@@ -136,7 +146,6 @@
         .info-card h2 { color: var(--gzk-blue); font-size: 1.8rem; margin-bottom: 10px; }
         .info-card p { font-size: 1.1rem; color: #666; }
 
-        /* --- Why Section --- */
         .why-section { background: white; padding: 80px 20px; }
         .why-container { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
         .why-img img { width: 100%; border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
@@ -146,7 +155,6 @@
         .feature-list li { margin-bottom: 15px; display: flex; align-items: center; font-weight: bold; color: var(--gzk-blue); }
         .feature-list li::before { content: '✓'; color: var(--gzk-red); margin-right: 15px; font-size: 1.2rem; }
 
-        /* --- Solution Grid --- */
         .section-title { text-align: center; padding: 60px 20px 20px; }
         .section-title h2 { color: var(--gzk-blue); font-size: 2.2rem; }
         .solution-container { max-width: 1100px; margin: 0 auto 80px; padding: 0 20px; }
@@ -164,12 +172,11 @@
 
         footer { text-align: center; padding: 60px 20px; color: #666; border-top: 1px solid #eee; background: white; }
 
-        /* Responsive */
         @media (max-width: 1100px) {
             .header-container { flex-direction: column; text-align: center; }
             .header-left-spacer { display: none; }
             .header-banner { justify-content: center; width: 100%; margin-top: 15px; }
-            .banner-content { text-align: center; border-left: none; border-top: 2px solid var(--gzk-red); padding: 10px 0 0; }
+            .banner-content { text-align: center; }
             .why-container { grid-template-columns: 1fr; }
         }
     </style>
@@ -189,10 +196,12 @@
             </div>
 
             <div class="header-banner">
-                <div class="banner-content">
-                    <h3>ต้องการผู้เชี่ยวชาญช่วยประเมินหน้างาน?</h3>
-                    <p>รับคำแนะนำฟรี! เกี่ยวกับการเลือกทิศทางเดินและรุ่นประตูที่เหมาะสมกับสถานที่ของคุณ</p>
-                </div>
+                <a href="contact.html" style="text-decoration: none; color: inherit;">
+                    <div class="banner-content">
+                        <h3>ต้องการผู้เชี่ยวชาญช่วยประเมินหน้างาน?</h3>
+                        <p>รับคำแนะนำฟรี! เกี่ยวกับการเลือกทิศทางเดินและรุ่นประตูที่เหมาะสมกับสถานที่ของคุณ</p>
+                    </div>
+                </a>
             </div>
         </div>
     </header>
@@ -207,11 +216,6 @@
         </div>
     </nav>
 </div>
-
-<section class="hero">
-    <h1>Flowing Secure Path</h1>
-    <p>สร้างเส้นทางราบรื่นและปลอดภัย ให้กับพื้นที่และธุรกิจของคุณ</p>
-</section>
 
 <section class="beyond-section">
     <div class="beyond-title-box">
