@@ -12,6 +12,7 @@
             --gzk-light: #f8f9fa; 
             --gzk-dark-blue: #1a252f; 
             --gzk-orange: #ff6600; 
+            --gzk-banner-blue: #e3f2fd; /* สีฟ้าอ่อนสำหรับ Banner */
         }
 
         body { margin: 0; font-family: 'Sarabun', sans-serif; background: var(--gzk-light); color: #333; }
@@ -26,26 +27,25 @@
 
         header {
             background: white;
-            padding: 20px 0;
+            padding: 30px 20px;
             border-bottom: 1px solid #eee;
         }
 
         .header-container {
-            max-width: 1300px;
+            max-width: 1200px;
             margin: 0 auto;
             display: flex;
-            justify-content: space-between;
+            flex-direction: column; /* ปรับให้เรียงเป็นแนวตั้งเพื่อจัดกึ่งกลาง */
             align-items: center;
-            padding: 0 20px;
-            gap: 30px;
+            gap: 25px;
+            text-align: center;
         }
 
         /* Logo Area */
         .logo-area {
-            flex: 1;
             display: flex;
             flex-direction: column;
-            align-items: center; /* จัด Logo และ Slogan ให้อยู่กึ่งกลางฝั่งซ้าย */
+            align-items: center;
         }
 
         .logo-link {
@@ -53,56 +53,72 @@
             display: inline-block;
         }
         .logo-link:hover { transform: scale(1.05); }
-        .logo-link img { width: 280px; height: auto; display: block; }
+        .logo-link img { width: 300px; height: auto; display: block; }
 
         .header-slogan {
             color: var(--gzk-blue);
             font-weight: 700;
-            font-size: 1.1rem;
-            margin-top: 12px;
-            text-align: center;
+            font-size: 1.2rem;
+            margin-top: 15px;
         }
 
-        /* Banner Box Area */
-        .banner-area {
-            flex: 1;
-            display: flex;
-            justify-content: flex-end;
+        /* Banner Box (แบบคลิกได้) */
+        .banner-link {
+            text-decoration: none;
+            display: block;
+            width: 100%;
+            max-width: 600px;
+            transition: 0.3s;
         }
 
         .header-banner-box {
-            background: linear-gradient(135deg, #fdf2f0 0%, #ffffff 100%);
-            padding: 18px 25px;
+            background: var(--gzk-banner-blue);
+            padding: 20px 25px;
             border-radius: 15px;
-            border-left: 6px solid var(--gzk-red);
-            box-shadow: 0 4px 15px rgba(231, 76, 60, 0.1);
-            max-width: 500px;
+            border: 2px solid #bbdefb;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
             animation: soft-pulse 2.5s infinite ease-in-out;
+            cursor: pointer;
+        }
+
+        .header-banner-box:hover {
+            background: #d1e9ff;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
         }
 
         .header-banner-box h3 {
             margin: 0;
-            color: var(--gzk-red);
-            font-size: 1.25rem;
+            color: var(--gzk-blue);
+            font-size: 1.3rem;
             font-weight: bold;
         }
 
         .header-banner-box p {
-            margin: 6px 0 0;
-            color: var(--gzk-blue);
-            font-size: 0.95rem;
+            margin: 5px 0 0;
+            color: #444;
+            font-size: 1rem;
             font-weight: bold;
             line-height: 1.5;
         }
 
-        /* Soft Pulse Effect */
+        /* สัญลักษณ์บอกว่าคลิกได้ */
+        .header-banner-box::after {
+            content: 'คลิกเพื่อปรึกษาเรา ➜';
+            display: block;
+            margin-top: 10px;
+            font-size: 0.85rem;
+            color: var(--gzk-red);
+            font-weight: bold;
+        }
+
         @keyframes soft-pulse {
             0% { transform: scale(1); }
-            50% { transform: scale(1.02); box-shadow: 0 8px 25px rgba(231, 76, 60, 0.15); }
+            50% { transform: scale(1.02); }
             100% { transform: scale(1); }
         }
 
-        /* --- Service Nav (Thin Version) --- */
+        /* --- Service Nav --- */
         .service-nav { 
             background: var(--gzk-dark-blue); 
             padding: 12px 0; 
@@ -131,65 +147,35 @@
         }
         .service-nav a:hover { background: white; color: var(--gzk-orange); transform: translateY(-2px); }
         .service-nav a.contact-btn { background: var(--gzk-red); }
-        .service-nav a.contact-btn:hover { background: white; color: var(--gzk-red); }
 
-        /* --- Content Sections --- */
-        .beyond-section {
-            background: linear-gradient(135deg, #fff 0%, #f0f4f8 100%);
-            padding: 80px 20px;
-        }
-
-        .section-title-main {
-            text-align: center;
-            font-size: 2.5rem;
-            color: var(--gzk-blue);
-            margin-bottom: 40px;
-        }
+        /* --- Sections (คงเดิมตามไฟล์ของคุณ) --- */
+        .beyond-section { background: linear-gradient(135deg, #fff 0%, #f0f4f8 100%); padding: 80px 20px; text-align: center; }
+        .section-title-main { font-size: 2.5rem; color: var(--gzk-blue); margin-bottom: 40px; }
         .highlight-text { color: var(--gzk-orange); }
-
-        .card-container-vertical {
-            display: flex;
-            flex-direction: column;
-            gap: 50px;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .info-card {
-            background: white;
-            padding: 30px;
-            border-radius: 20px;
-            box-shadow: 0 15px 45px rgba(0,0,0,0.06);
-            text-align: center;
-        }
+        .card-container-vertical { display: flex; flex-direction: column; gap: 50px; max-width: 1000px; margin: 0 auto; }
+        .info-card { background: white; padding: 30px; border-radius: 20px; box-shadow: 0 15px 45px rgba(0,0,0,0.06); }
         .info-card img { width: 100%; max-width: 850px; border-radius: 12px; margin-bottom: 20px; }
 
-        /* Why & Solutions */
         .why-section { background: white; padding: 80px 20px; }
         .why-container { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
-        .why-text h2 { color: var(--gzk-blue); font-size: 2rem; border-left: 5px solid var(--gzk-red); padding-left: 20px; }
-        .feature-list { list-style: none; padding: 0; }
+        .why-text h2 { color: var(--gzk-blue); font-size: 2rem; border-left: 5px solid var(--gzk-red); padding-left: 20px; text-align: left;}
+        .feature-list { list-style: none; padding: 0; text-align: left;}
         .feature-list li { margin-bottom: 15px; display: flex; align-items: center; font-weight: bold; color: var(--gzk-blue); }
         .feature-list li::before { content: '✓'; color: var(--gzk-red); margin-right: 15px; }
 
-        .solution-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 40px; max-width: 1100px; margin: 0 auto 80px; }
+        .solution-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 40px; max-width: 1100px; margin: 0 auto 80px; padding: 0 20px; }
         .solution-card { background: white; border-radius: 15px; overflow: hidden; transition: 0.4s; box-shadow: 0 4px 20px rgba(0,0,0,0.08); display: flex; flex-direction: column; }
         .solution-card:hover { transform: translateY(-10px); outline: 3px solid var(--gzk-red); }
-        
         .product-img { width: 100%; height: 280px; object-fit: contain; padding: 20px; }
         .badge { background: var(--gzk-red); color: white; padding: 5px 15px; border-radius: 5px; font-size: 0.8rem; display: inline-block; margin: 20px 20px 0; width: fit-content; }
 
         footer { text-align: center; padding: 60px 20px; color: #666; background: white; border-top: 1px solid #eee; }
 
-        /* Responsive */
-        @media (max-width: 992px) {
-            .header-container { flex-direction: column; text-align: center; }
-            .banner-area { justify-content: center; width: 100%; }
-            .header-banner-box { border-left: none; border-top: 6px solid var(--gzk-red); text-align: center; }
-        }
-        @media (max-width: 600px) {
-            .solution-grid { grid-template-columns: 1fr; }
+        @media (max-width: 768px) {
+            .logo-link img { width: 220px; }
+            .header-slogan { font-size: 1rem; }
             .why-container { grid-template-columns: 1fr; }
+            .solution-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -207,13 +193,12 @@
                 </div>
             </div>
 
-            <div class="banner-area">
+            <a href="contact.html" class="banner-link">
                 <div class="header-banner-box">
                     <h3>ต้องการผู้เชี่ยวชาญช่วยประเมินหน้างาน?</h3>
-                    <p>รับคำแนะนำและปรึกษาฟรี! </p>
-                   <p>เพื่อเลือกประตูและรุ่นที่เหมาะสมกับสถานที่ของคุณ</p>
+                    <p>รับคำแนะนำและปรึกษาฟรี! เพื่อเลือกประตูและรุ่นที่เหมาะสมกับสถานที่ของคุณ</p>
                 </div>
-            </div>
+            </a>
         </div>
     </header>
 
@@ -230,7 +215,6 @@
 
 <section class="beyond-section">
     <h1 class="section-title-main">Beyond Security: <span class="highlight-text">The Art of Entrance</span></h1>
-    
     <div class="card-container-vertical">
         <div class="info-card">
             <img src="color-customization.jpg" alt="Color Customization">
