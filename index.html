@@ -6,15 +6,7 @@
     <title>GZK Co., Ltd. | โซลูชันความปลอดภัยอัจฉริยะ</title>
     <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
-        :root { 
-            --gzk-red: #e74c3c; 
-            --gzk-blue: #2c3e50; 
-            --gzk-light: #f8f9fa; 
-            --gzk-dark-blue: #1a252f; 
-            --gzk-orange: #ff6600; 
-            --gzk-banner-blue: #e3f2fd; /* สีฟ้าอ่อนสำหรับ Banner */
-        }
-
+        :root { --gzk-red: #e74c3c; --gzk-blue: #2c3e50; --gzk-light: #f8f9fa; --gzk-dark-blue: #1a252f; --gzk-orange: #ff6600; }
         body { margin: 0; font-family: 'Sarabun', sans-serif; background: var(--gzk-light); color: #333; }
         
         /* --- Sticky Header --- */
@@ -27,7 +19,7 @@
 
         header {
             background: white;
-            padding: 20px 0;
+            padding: 15px 20px;
             border-bottom: 1px solid #eee;
         }
 
@@ -37,101 +29,67 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 0 25px;
             gap: 20px;
         }
 
-        /* ส่วนพื้นที่ว่างด้านซ้ายเพื่อให้ Logo อยู่กลางพอดี */
+        /* ส่วนพื้นที่ว่างด้านซ้าย เพื่อหลอกให้ Logo อยู่กลางพอดี */
         .header-left-spacer {
             flex: 1;
             display: flex;
         }
 
         /* Logo Area - ปรับให้อยู่ตรงกลาง */
-        .logo-area {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+        .logo-group {
+            flex: 0 0 auto;
             text-align: center;
-            flex: 0 0 auto; /* ไม่ให้หดหรือขยาย */
         }
 
         .logo-link {
-            transition: transform 0.3s ease;
             display: inline-block;
+            transition: transform 0.3s ease;
         }
-        .logo-link:hover { transform: scale(1.03); }
-        .logo-link img { width: 280px; height: auto; display: block; }
+        .logo-link:hover { transform: scale(1.05); }
+        .logo-link img { width: 280px; height: auto; display: block; margin: 0 auto; }
 
         .header-slogan {
             color: var(--gzk-blue);
             font-weight: 700;
-            font-size: 1rem;
-            margin-top: 10px;
+            font-size: 1.1rem;
+            margin-top: 8px;
         }
 
-        /* Banner Box Area - ขยับไปทางขวา */
-        .banner-link {
-            text-decoration: none;
-            display: block;
-            flex: 1; /* กินพื้นที่ฝั่งขวา */
+        /* Banner ฝั่งขวา */
+        .header-banner {
+            flex: 1;
             display: flex;
-            justify-content: flex-end; /* ดันเนื้อหาในตัวมันไปขวาสุด */
-            transition: 0.3s;
+            justify-content: flex-end;
         }
 
-        .header-banner-box {
-            background: var(--gzk-banner-blue);
-            padding: 15px 25px;
-            border-radius: 12px;
-            border: 2px solid #bbdefb;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-            animation: soft-pulse 2.5s infinite ease-in-out;
-            cursor: pointer;
-            text-align: left;
-            max-width: 500px; /* คุมขนาด Banner */
+        .banner-content {
+            text-align: right;
+            border-left: 3px solid var(--gzk-red);
+            padding-left: 20px;
+            max-width: 450px;
         }
 
-        .header-banner-box:hover {
-            background: #d1e9ff;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
-        }
-
-        .header-banner-box h3 {
+        .banner-content h3 {
             margin: 0;
             color: var(--gzk-blue);
-            font-size: 1.15rem;
+            font-size: 1.1rem;
             font-weight: bold;
         }
 
-        .header-banner-box p {
-            margin: 4px 0 0;
-            color: #444;
-            font-size: 0.95rem;
-            font-weight: bold;
+        .banner-content p {
+            margin: 5px 0 0;
+            color: #666;
+            font-size: 0.9rem;
             line-height: 1.4;
-        }
-
-        .header-banner-box::after {
-            content: 'คลิกเพื่อติดต่อ ➜';
-            display: block;
-            margin-top: 8px;
-            font-size: 0.8rem;
-            color: var(--gzk-red);
-            font-weight: bold;
-        }
-
-        @keyframes soft-pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.015); }
-            100% { transform: scale(1); }
         }
 
         /* --- Service Nav --- */
         .service-nav { 
             background: var(--gzk-dark-blue); 
-            padding: 12px 0; 
+            padding: 15px 5px; 
             text-align: center; 
             border-bottom: 4px solid var(--gzk-blue);
         }
@@ -140,7 +98,7 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 12px;
+            gap: 10px;
             max-width: 95%;
             margin: 0 auto;
         }
@@ -154,135 +112,50 @@
             border-radius: 30px;
             color: white;
             background: var(--gzk-orange);
+            box-shadow: 0 4px 10px rgba(255, 102, 0, 0.2);
         }
         .service-nav a:hover { background: white; color: var(--gzk-orange); transform: translateY(-2px); }
-        .service-nav a.contact-btn { background: var(--gzk-red); }
+        .service-nav a.contact-btn { background: var(--gzk-red); box-shadow: 0 4px 10px rgba(231, 76, 60, 0.3); }
 
-        /* --- Content Sections --- */
-        .beyond-section { background: linear-gradient(135deg, #fff 0%, #f0f4f8 100%); padding: 80px 20px; text-align: center; }
-        .section-title-main { font-size: 2.5rem; color: var(--gzk-blue); margin-bottom: 40px; }
+        /* --- Hero Section --- */
+        .hero { background: var(--gzk-blue); color: white; padding: 30px 15px; text-align: center; }
+        .hero h1 { font-size: 2.2rem; margin-bottom: 10px; }
+        .hero p { font-size: 1.2rem; opacity: 0.9; margin: 0 auto; max-width: 600px; }
+
         .highlight-text { color: var(--gzk-orange); }
 
-        .card-container-vertical { display: flex; flex-direction: column; gap: 50px; max-width: 1000px; margin: 0 auto; }
-        .info-card { background: white; padding: 30px; border-radius: 20px; box-shadow: 0 15px 45px rgba(0,0,0,0.06); text-align: center; }
-        .info-card img { width: 100%; max-width: 850px; border-radius: 12px; margin-bottom: 20px; }
+        /* --- Beyond Security Section --- */
+        .beyond-section { background: linear-gradient(135deg, #fff 0%, #f0f4f8 100%); padding: 60px 20px; }
+        .beyond-title-box { text-align: center; margin-bottom: 50px; }
+        .beyond-title-box h1 { font-size: 2.5rem; color: var(--gzk-blue); margin-bottom: 15px; }
+        .beyond-title-box p { font-size: 1.2rem; color: #555; max-width: 900px; margin: 0 auto; line-height: 1.8; }
+        
+        .card-stack { display: flex; flex-direction: column; gap: 60px; max-width: 1000px; margin: 0 auto; }
+        .info-card { background: white; padding: 25px; border-radius: 20px; box-shadow: 0 15px 45px rgba(0,0,0,0.08); text-align: center; }
+        .info-card img { width: 100%; max-width: 900px; border-radius: 12px; margin-bottom: 20px; }
+        .info-card h2 { color: var(--gzk-blue); font-size: 1.8rem; margin-bottom: 10px; }
+        .info-card p { font-size: 1.1rem; color: #666; }
 
+        /* --- Why Section --- */
         .why-section { background: white; padding: 80px 20px; }
         .why-container { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
-        .why-text h2 { color: var(--gzk-blue); font-size: 2rem; border-left: 5px solid var(--gzk-red); padding-left: 20px; text-align: left;}
-        .feature-list { list-style: none; padding: 0; text-align: left;}
+        .why-img img { width: 100%; border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+        .why-text h2 { color: var(--gzk-blue); font-size: 2rem; margin-bottom: 25px; border-left: 5px solid var(--gzk-red); padding-left: 20px; }
+        .why-text p { font-size: 1.1rem; color: #555; line-height: 1.8; margin-bottom: 20px; }
+        .feature-list { list-style: none; padding: 0; }
         .feature-list li { margin-bottom: 15px; display: flex; align-items: center; font-weight: bold; color: var(--gzk-blue); }
-        .feature-list li::before { content: '✓'; color: var(--gzk-red); margin-right: 15px; }
+        .feature-list li::before { content: '✓'; color: var(--gzk-red); margin-right: 15px; font-size: 1.2rem; }
 
-        .solution-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 40px; max-width: 1100px; margin: 0 auto 80px; padding: 0 20px; }
-        .solution-card { background: white; border-radius: 15px; overflow: hidden; transition: 0.4s; box-shadow: 0 4px 20px rgba(0,0,0,0.08); display: flex; flex-direction: column; }
-        .solution-card:hover { transform: translateY(-10px); outline: 3px solid var(--gzk-red); }
-        .product-img { width: 100%; height: 280px; object-fit: contain; padding: 20px; }
-        .badge { background: var(--gzk-red); color: white; padding: 5px 15px; border-radius: 5px; font-size: 0.8rem; display: inline-block; margin: 20px 20px 0; width: fit-content; }
-
-        footer { text-align: center; padding: 60px 20px; color: #666; background: white; border-top: 1px solid #eee; }
-
-        /* Responsive */
-        @media (max-width: 1100px) {
-            .header-container { flex-direction: column; text-align: center; }
-            .header-left-spacer { display: none; }
-            .logo-area { margin-bottom: 20px; }
-            .banner-link { justify-content: center; width: 100%; }
-            .header-banner-box { text-align: center; width: 100%; }
-        }
-    </style>
-</head>
-<body>
-
-<div class="sticky-wrapper">
-    <header>
-        <div class="header-container">
-            <div class="header-left-spacer"></div>
-
-            <div class="logo-area">
-                <a href="index.html" class="logo-link">
-                    <img src="GZK_logo_with_slogan.jpg" alt="GZK Co., Ltd.">
-                </a>
-                <div class="header-slogan">
-                    สร้างเส้นทางราบรื่นและปลอดภัย ให้กับพื้นที่และธุรกิจของคุณ
-                </div>
-            </div>
-
-            <a href="contact.html" class="banner-link">
-                <div class="header-banner-box">
-                    <h3>ต้องการผู้เชี่ยวชาญช่วยประเมินหน้างาน?</h3>
-                    <p>รับคำแนะนำและปรึกษาฟรี! เพื่อเลือกประตูและรุ่นที่เหมาะสมกับสถานที่ของคุณ</p>
-                </div>
-            </a>
-        </div>
-    </header>
-
-    <nav class="service-nav">
-        <div class="nav-links-container">
-            <a href="survey-guide.html">ให้คำแนะนำและสำรวจหน้างาน</a>
-            <a href="maintenance-guide.html">แผนบำรุงรักษา</a>
-            <a href="repair-guide.html">บริการซ่อมแซมและอัปเกรด</a>
-            <a href="accessories.html">อุปกรณ์เสริม (Gate Accessories)</a>
-            <a href="contact.html" class="contact-btn">ติดต่อเรา GZK</a>
-        </div>
-    </nav>
-</div>
-
-<section class="beyond-section">
-    <h1 class="section-title-main">Beyond Security: <span class="highlight-text">The Art of Entrance</span></h1>
-    <div class="card-container-vertical">
-        <div class="info-card">
-            <img src="color-customization.jpg" alt="Color Customization">
-            <h3>Color Customization</h3>
-            <p>แสดงเอกลักษณ์ผ่านสีสัน ปรับแต่งเฉดสี Powder Coated ได้ตามต้องการ</p>
-        </div>
-        <div class="info-card">
-            <img src="gold-series.jpg" alt="Luxury Gold Series">
-            <h3>Luxury Gold Series</h3>
-            <p>ยกระดับความหรูหราด้วยประตูสีทอง สำหรับโครงการที่ต้องการความสง่างาม</p>
-        </div>
-    </div>
-</section>
-
-<section class="why-section">
-    <div class="why-container">
-        <div class="why-img">
-            <img src="main-index.jpg" alt="Security" style="width:100%; border-radius:20px;">
-        </div>
-        <div class="why-text">
-            <h2>ยกระดับมาตรฐานความปลอดภัย</h2>
-            <p>ระบบ Smart Gate Access Control หัวใจหลักในการบริหารจัดการอาคารอย่างมีประสิทธิภาพ</p>
-            <ul class="feature-list">
-                <li>คัดกรองบุคคลแม่นยำ 100%</li>
-                <li>รองรับ Face Scan, Card และ QR Code</li>
-                <li>เชื่อมต่อระบบความปลอดภัยครบวงจร</li>
-            </ul>
-        </div>
-    </div>
-</section>
-
-<div class="solution-grid">
-    <div class="solution-card">
-        <span class="badge">NEW ARRIVAL</span>
-        <img src="newgate.jpg" alt="Sale" class="product-img">
-        <div style="padding:20px; text-align:center;">
-            <h3>จำหน่ายประตูอัตโนมัติ</h3>
-            <a href="sale-categories.html" style="color:var(--gzk-red); font-weight:bold; text-decoration:none;">ดูสินค้าทั้งหมด →</a>
-        </div>
-    </div>
-    <div class="solution-card">
-        <span class="badge">FLEXIBLE PLAN</span>
-        <img src="rentproduct.png" alt="Rent" class="product-img">
-        <div style="padding:20px; text-align:center;">
-            <h3>บริการรูปแบบการเช่า</h3>
-            <a href="rental-solutions.html" style="color:var(--gzk-red); font-weight:bold; text-decoration:none;">ดูรายละเอียดการเช่า →</a>
-        </div>
-    </div>
-</div>
-
-<footer>
-    <p>© 2026 GZK Co., Ltd. | Flowing Secure Path.</p>
-</footer>
-
-</body>
-</html>
+        /* --- Solution Grid --- */
+        .section-title { text-align: center; padding: 60px 20px 20px; }
+        .section-title h2 { color: var(--gzk-blue); font-size: 2.2rem; }
+        .solution-container { max-width: 1100px; margin: 0 auto 80px; padding: 0 20px; }
+        .solution-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 40px; }
+        .solution-card { border-radius: 15px; overflow: hidden; transition: 0.4s; background: #ffffff; display: flex; flex-direction: column; box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+        .solution-card:hover { transform: translateY(-10px); box-shadow: 0 15px 35px rgba(0,0,0,0.15); outline: 3px solid var(--gzk-red); outline-offset: -3px; }
+        .product-img { width: 100%; height: 300px; object-fit: contain; padding: 20px; background-color: #fff; border-bottom: 1px solid #f0f0f0; }
+        .card-content { padding: 30px; text-align: center; flex-grow: 1; }
+        .card-content h3 { color: var(--gzk-blue); font-size: 1.5rem; border-bottom: 3px solid var(--gzk-red); display: inline-block; padding-bottom: 8px; margin-top: 0; }
+        .card-content p { font-weight: bold; color: #555; margin-top: 15px; }
+        .card-content ul { text-align: left; display: inline-block; margin-top: 20px; line-height: 1.8; color: #444; padding-left: 20px; }
+        .badge { background: var(--gzk-red); color: white; padding: 5px 15px; border-radius: 5px;
