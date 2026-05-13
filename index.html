@@ -23,6 +23,16 @@
             padding: 10px 20px;
             border-bottom: 1px solid #eee;
         }
+        .header-slogan {
+    color: var(--gzk-blue); /* สีน้ำเงิน GZK */
+    font-weight: 700;       /* ตัวอักษรหนา */
+    font-size: 1.3rem;      /* ปรับขนาดตามความเหมาะสม */
+    margin-top: 10px;       /* ระยะห่างจาก Logo */
+    margin-bottom: 5px;
+}
+
+/* ลบโค้ดเก่าของ .hero ออกเพื่อความสะอาดของไฟล์ */
+.hero { display: none; }
 
         .logo-link {
             display: inline-block;
@@ -146,10 +156,13 @@
 
 <div class="sticky-wrapper">
     <header>
-        <a href="index.html" class="logo-link">
-            <img src="GZK_logo_with_slogan.jpg" alt="GZK Co., Ltd.">
-        </a>
-    </header>
+    <a href="index.html" class="logo-link">
+        <img src="GZK_logo_with_slogan.jpg" alt="GZK Co., Ltd.">
+    </a>
+    <div class="header-slogan">
+        สร้างเส้นทางราบรื่นและปลอดภัย ให้กับพื้นที่และธุรกิจของคุณ
+    </div>
+</header>
 
     <nav class="service-nav">
         <h3>ต้องการผู้เชี่ยวชาญช่วยประเมินหน้างาน?</h3>
